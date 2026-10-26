@@ -2349,7 +2349,9 @@
   });
 
   document.addEventListener("keydown", event => {
-    if (event.target.matches("input, textarea, select, [contenteditable=true]")) return;
+    const typingTarget = event.target instanceof Element &&
+      event.target.matches("input, textarea, select, [contenteditable=true]");
+    if (typingTarget) return;
     if (event.key === "ArrowRight") {
       event.preventDefault();
       nextSentence();
