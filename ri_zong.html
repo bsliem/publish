@@ -229,14 +229,14 @@
     .annotation-area { margin-top: 8px; padding: 9px 11px; border: 1px solid #403528; border-radius: 12px; background: #1b1712; font-family: system-ui, sans-serif; }
     .annotation-area[hidden] { display: none; }
     .annotation-buttons { display: flex; flex-wrap: wrap; gap: 8px; }
-    #annotationButton, #vietnameseButton, #sanskritButton, #devanagariButton { min-height: 34px; padding: 5px 10px; border: 1px solid var(--border); border-radius: 9px; background: var(--panel); color: var(--gold); font-size: 13px; cursor: pointer; }
-    #annotationButton[aria-expanded="true"], #vietnameseButton[aria-expanded="true"], #sanskritButton[aria-expanded="true"], #devanagariButton[aria-expanded="true"] { outline: 2px solid var(--gold); outline-offset: 3px; }
+    #annotationButton, #vietnameseButton, #sanskritButton, #devanagariButton, #pinyinButton { min-height: 34px; padding: 5px 10px; border: 1px solid var(--border); border-radius: 9px; background: var(--panel); color: var(--gold); font-size: 13px; cursor: pointer; }
+    #annotationButton[aria-expanded="true"], #vietnameseButton[aria-expanded="true"], #sanskritButton[aria-expanded="true"], #devanagariButton[aria-expanded="true"], #pinyinButton[aria-expanded="true"] { outline: 2px solid var(--gold); outline-offset: 3px; }
     #vietnameseButton { color: var(--green); }
-    #sanskritButton, #devanagariButton { color: var(--text); }
-    #annotationText, #vietnameseText, #sanskritText, #devanagariText { display: block; margin: 0 0 9px; color: #ffd75a; font-size: 21px; font-weight: 600; line-height: 1.5; text-shadow: 0 1px 2px #000; }
-    #vietnameseText, #sanskritText { font-size: 24px; }
+    #sanskritButton, #devanagariButton, #pinyinButton { color: var(--text); }
+    #annotationText, #vietnameseText, #sanskritText, #devanagariText, #pinyinText { display: block; margin: 0 0 9px; color: #ffd75a; font-size: 21px; font-weight: 600; line-height: 1.5; text-shadow: 0 1px 2px #000; }
+    #vietnameseText, #sanskritText, #pinyinText { font-size: 24px; }
     #devanagariText { font-family: "Noto Serif Devanagari", "Kohinoor Devanagari", serif; font-size: 27px; }
-    #annotationText[hidden], #vietnameseText[hidden], #sanskritText[hidden], #devanagariText[hidden] { display: none; }
+    #annotationText[hidden], #vietnameseText[hidden], #sanskritText[hidden], #devanagariText[hidden], #pinyinText[hidden] { display: none; }
     #sentence {
       max-width: 100%;
       font-size: var(--font-size);
@@ -419,11 +419,13 @@
     <span id="vietnameseText" lang="vi" hidden></span>
     <span id="sanskritText" lang="sa-Latn" hidden></span>
     <span id="devanagariText" lang="sa-Deva" hidden></span>
+    <span id="pinyinText" lang="zh-Latn-pinyin" hidden></span>
     <div class="annotation-buttons">
       <button id="annotationButton" type="button" aria-expanded="false">註解</button>
       <button id="vietnameseButton" type="button" aria-expanded="false">越語</button>
       <button id="sanskritButton" type="button" aria-expanded="false">Sanskrit</button>
       <button id="devanagariButton" type="button" aria-expanded="false">Devanagari</button>
+      <button id="pinyinButton" type="button" aria-expanded="false">Pinyin</button>
     </div>
   </div>
 
@@ -4249,6 +4251,7 @@ Nam mô Hư Không Tạng Bồ Tát Ma Ha Tát（三稱） # 歸依
 南無觀世音菩薩！（三稱）
 南無地藏王菩薩！（三稱）
 </script>
+<script src="ri_zong_pinyin.js"></script>
 <script>
 (async () => {
   "use strict";
@@ -4344,6 +4347,7 @@ Nam mô Hư Không Tạng Bồ Tát Ma Ha Tát（三稱） # 歸依
     }
   });
   finishVolume();
+  const pinyinByItem = items.map(item => window.RI_ZONG_PINYIN?.[item.text] || "");
 
   function parseVietnameseVolumes() {
     const parsedVolumes = [];
@@ -4848,12 +4852,14 @@ Nam mô Hư Không Tạng Bồ Tát Ma Ha Tát（三稱） # 歸依
     const vietnamese = vietnameseByItem[state.current] || "";
     const sanskrit = sanskritByItem[state.current] || "";
     const devanagari = devanagariByItem[state.current] || "";
-    $("annotationArea").hidden = !annotation && !vietnamese && !sanskrit && !devanagari;
+    const pinyin = pinyinByItem[state.current] || "";
+    $("annotationArea").hidden = !annotation && !vietnamese && !sanskrit && !devanagari && !pinyin;
     [
       ["annotationButton", "annotationText", annotation],
       ["vietnameseButton", "vietnameseText", vietnamese],
       ["sanskritButton", "sanskritText", sanskrit],
-      ["devanagariButton", "devanagariText", devanagari]
+      ["devanagariButton", "devanagariText", devanagari],
+      ["pinyinButton", "pinyinText", pinyin]
     ].forEach(([buttonId, textId, value]) => {
       const isActive = activeAnnotationPanel === textId && Boolean(value);
       $(buttonId).hidden = !value;
@@ -5077,7 +5083,8 @@ Nam mô Hư Không Tạng Bồ Tát Ma Ha Tát（三稱） # 歸依
     ["annotationButton", "annotationText"],
     ["vietnameseButton", "vietnameseText"],
     ["sanskritButton", "sanskritText"],
-    ["devanagariButton", "devanagariText"]
+    ["devanagariButton", "devanagariText"],
+    ["pinyinButton", "pinyinText"]
   ];
   annotationPanels.forEach(([buttonId, textId]) => {
     $(buttonId).addEventListener("click", () => {
