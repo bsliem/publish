@@ -230,11 +230,12 @@
     .annotation-area[hidden] { display: none; }
     .annotation-buttons { display: flex; flex-wrap: wrap; gap: 8px; }
     #annotationButton, #vietnameseButton, #sanskritButton, #devanagariButton { min-height: 34px; padding: 5px 10px; border: 1px solid var(--border); border-radius: 9px; background: var(--panel); color: var(--gold); font-size: 13px; cursor: pointer; }
+    #annotationButton[aria-expanded="true"], #vietnameseButton[aria-expanded="true"], #sanskritButton[aria-expanded="true"], #devanagariButton[aria-expanded="true"] { outline: 2px solid var(--gold); outline-offset: 3px; }
     #vietnameseButton { color: var(--green); }
     #sanskritButton, #devanagariButton { color: var(--text); }
-    #annotationText, #vietnameseText, #sanskritText, #devanagariText { display: block; margin-top: 7px; color: var(--muted); font-size: 14px; line-height: 1.5; }
-    #vietnameseText, #sanskritText, #devanagariText { color: var(--text); font-size: 16px; }
-    #devanagariText { font-family: "Noto Serif Devanagari", "Kohinoor Devanagari", serif; font-size: 18px; }
+    #annotationText, #vietnameseText, #sanskritText, #devanagariText { display: block; margin: 0 0 9px; color: #ffd75a; font-size: 21px; font-weight: 600; line-height: 1.5; text-shadow: 0 1px 2px #000; }
+    #vietnameseText, #sanskritText { font-size: 24px; }
+    #devanagariText { font-family: "Noto Serif Devanagari", "Kohinoor Devanagari", serif; font-size: 27px; }
     #annotationText[hidden], #vietnameseText[hidden], #sanskritText[hidden], #devanagariText[hidden] { display: none; }
     #sentence {
       max-width: 100%;
@@ -414,16 +415,16 @@
     <span id="nextTwo" class="context-sentence far" aria-hidden="true"></span>
   </button>
   <div id="annotationArea" class="annotation-area" hidden>
+    <span id="annotationText" hidden></span>
+    <span id="vietnameseText" lang="vi" hidden></span>
+    <span id="sanskritText" lang="sa-Latn" hidden></span>
+    <span id="devanagariText" lang="sa-Deva" hidden></span>
     <div class="annotation-buttons">
       <button id="annotationButton" type="button" aria-expanded="false">註解</button>
       <button id="vietnameseButton" type="button" aria-expanded="false">越語</button>
       <button id="sanskritButton" type="button" aria-expanded="false">Sanskrit</button>
       <button id="devanagariButton" type="button" aria-expanded="false">Devanagari</button>
     </div>
-    <span id="annotationText" hidden></span>
-    <span id="vietnameseText" lang="vi" hidden></span>
-    <span id="sanskritText" lang="sa-Latn" hidden></span>
-    <span id="devanagariText" lang="sa-Deva" hidden></span>
   </div>
 
   <nav class="nav" aria-label="切換經句">
@@ -3125,11 +3126,11 @@
 ## Thập tiểu chú Việt
 
 ### 01 Như Ý Bảo Luân Vương Đà La Ni
-01. Nam Mô Phật Đà Da # 佛
-02. Nam Mô Đạt Ma Da # 法
-03. Nam Mô Tăng Già Da # 僧
+01. Nam Mô Phật Đà Da # 禮佛
+02. Nam Mô Đạt Ma Da # 禮法
+03. Nam Mô Tăng Già Da # 禮僧
 04. Nam Mô Quán Tự Tại Bồ Tát Ma Ha Tát # 觀自在菩薩
-05. Cụ Đại Bi Tâm Giả # 大悲心
+05. Cụ Đại Bi Tâm Giả # 大悲
 06. Đát Điệt Tha # 即說咒曰
 07. Án # 唵
 08. Chước Yết Ra Phạt Để # 輪王
@@ -3144,7 +3145,7 @@
 17. Chấn Đa Mạc Ni # 如意寶珠
 18. Thước Ra Hồng # 成就
 19. Án # 唵
-20. Bát Lặc Đà # 心
+20. Bát Lặc Đà # 隨心
 21. Bát Đẳng Mê Hồng # 平等成就
 ### 02 Tiêu Tai Cát Tường Thần Chú
 01. Nẳng Mồ Tam Mãn Đa # 南無三滿多
@@ -4019,25 +4020,24 @@ Nam mô Hư Không Tạng Bồ Tát Ma Ha Tát（三稱） # 歸依
 01. 南無佛馱耶 # 禮佛
 02. 南無達摩耶 # 禮法
 03. 南無僧伽耶 # 禮僧
-04. 南無觀自在菩薩摩訶薩 # 觀音
+04. 南無觀自在菩薩摩訶薩 # 觀自在菩薩
 05. 具大悲心者 # 大悲
 06. 怛姪他 # 即說咒曰
-07. 唵 # 聖音
+07. 唵 # 唵
 08. 斫羯囉伐底 # 寶輪
-09. 震多末尼 # 如意珠
-10. 摩訶 # 大
-11. 鉢蹬迷 # 蓮華
-12. 嚕嚕嚕嚕 # 迅疾
-13. 底瑟吒 # 安住
-14. 爍囉阿羯利 # 成就
-15. 沙夜吽 # 加持
-16. 癹莎訶 # 圓滿
-17. 唵 # 聖音
-18. 鉢蹋摩 # 蓮華
-19. 震多末尼 # 如意珠
-20. 爍囉吽 # 心咒
-21. 唵跋喇陀 # 隨心
-22. 鉢亶迷吽 # 成就
+09. 震多末尼 # 如意寶珠
+10. 摩訶鉢蹬迷 # 大蓮華
+11. 嚕嚕嚕嚕 # 迅疾
+12. 底瑟吒爍囉阿羯利 # 堅固守護
+13. 沙夜吽 # 成就
+14. 癹莎訶 # 圓滿
+15. 唵 # 唵
+16. 鉢蹋摩 # 蓮華
+17. 震多末尼 # 如意寶珠
+18. 爍囉吽 # 成就
+19. 唵 # 唵
+20. 跋喇陀 # 隨心
+21. 鉢亶迷吽 # 平等成就
 ### 02. 消災吉祥神咒
 01. 曩謨三滿哆 # 普禮
 02. 母馱喃 # 諸佛
@@ -4329,9 +4329,10 @@ Nam mô Hư Không Tạng Bồ Tát Ma Ha Tát（三稱） # 歸依
       addSentence(annotation[1].replace(/^\d+[.、]\s*/, ""), annotation[2].trim());
       return;
     }
-    if (/[咒陀羅尼真言]/.test(currentVolume.name) && !/[。！？!?；;.]/.test(line)) {
+    const contentLine = line.replace(/^\d+[.、]\s*/, "");
+    if (/[咒陀羅尼真言]/.test(currentVolume.name) && !/[。！？!?；;.]/.test(contentLine)) {
       flushCompleteSentences(true);
-      addSentence(line.replace(/^\d+[.、]\s*/, ""));
+      addSentence(contentLine);
       return;
     }
     if (/\s{2,}/.test(rawLine)) {
@@ -4394,9 +4395,6 @@ Nam mô Hư Không Tạng Bồ Tát Ma Ha Tát（三稱） # 歸依
 
   function manualSourceIndexMap(volume, rows, columns) {
     const name = volume.name;
-    if (name.includes("如意寶輪王陀羅尼") && rows === 22 && columns === 21) {
-      return [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
-    }
     if (name.includes("消災吉祥神咒") && rows === 24 && columns === 22) {
       return [0, 1, 2, 3, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 16, 17, 18, 19, 20, 21];
     }
@@ -4736,6 +4734,7 @@ Nam mô Hư Không Tạng Bồ Tát Ma Ha Tát（三稱） # 歸依
   let searchMatches = [];
   let searchCursor = -1;
   let editingNoteId = null;
+  let activeAnnotationPanel = "";
 
   function volumeFor(index) {
     return volumes.find(volume => index >= volume.start && index <= volume.end) || volumes[0];
@@ -4856,9 +4855,10 @@ Nam mô Hư Không Tạng Bồ Tát Ma Ha Tát（三稱） # 歸依
       ["sanskritButton", "sanskritText", sanskrit],
       ["devanagariButton", "devanagariText", devanagari]
     ].forEach(([buttonId, textId, value]) => {
+      const isActive = activeAnnotationPanel === textId && Boolean(value);
       $(buttonId).hidden = !value;
-      $(buttonId).setAttribute("aria-expanded", "false");
-      $(textId).hidden = true;
+      $(buttonId).setAttribute("aria-expanded", String(isActive));
+      $(textId).hidden = !isActive;
       $(textId).textContent = value || "";
     });
     const editingNote = state.notes.find(note => note.id === editingNoteId);
@@ -5045,10 +5045,22 @@ Nam mô Hư Không Tạng Bồ Tát Ma Ha Tát（三稱） # 歸依
     updateSearchStatus();
   }
 
+  function formatVolumeOptionName(name) {
+    const preliminaryPractice = name.match(/^前行\s*·\s*(讚佛|觀想|頂禮|楞嚴咒讚)$/);
+    if (preliminaryPractice) return `${preliminaryPractice[1]} · 前行`;
+    const shurangamaAssembly = name.match(/^楞嚴咒\s*·\s*(第[一二三四五]會)$/);
+    if (shurangamaAssembly) return `${shurangamaAssembly[1]} · 楞嚴咒`;
+    const tenMantra = name.match(/^十小咒\s*·\s*\d+[.、．]?\s*(.+)$/);
+    if (tenMantra) return `${tenMantra[1]} · 十小咒`;
+    const otherMantra = name.match(/^其他咒語\s*·\s*(.+)$/);
+    if (otherMantra) return `${otherMantra[1]} · 其他咒語`;
+    return name;
+  }
+
   volumes.forEach(volume => {
     const option = document.createElement("option");
     option.value = String(volume.number);
-    option.textContent = `${String(volume.number).padStart(2, "0")} · ${volume.name}`;
+    option.textContent = formatVolumeOptionName(volume.name);
     $("volumeSelect").appendChild(option);
   });
 
@@ -5069,13 +5081,8 @@ Nam mô Hư Không Tạng Bồ Tát Ma Ha Tát（三稱） # 歸依
   ];
   annotationPanels.forEach(([buttonId, textId]) => {
     $(buttonId).addEventListener("click", () => {
-      const opening = $(textId).hidden;
-      annotationPanels.forEach(([otherButtonId, otherTextId]) => {
-        $(otherTextId).hidden = true;
-        $(otherButtonId).setAttribute("aria-expanded", "false");
-      });
-      $(textId).hidden = !opening;
-      $(buttonId).setAttribute("aria-expanded", String(opening));
+      activeAnnotationPanel = activeAnnotationPanel === textId ? "" : textId;
+      render();
     });
   });
   $("copyButton").addEventListener("click", copyVisibleSentences);

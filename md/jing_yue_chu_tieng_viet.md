@@ -656,11 +656,11 @@
 ## Thập tiểu chú Việt
 
 ### 01 Như Ý Bảo Luân Vương Đà La Ni
-01. Nam Mô Phật Đà Da # 佛
-02. Nam Mô Đạt Ma Da # 法
-03. Nam Mô Tăng Già Da # 僧
+01. Nam Mô Phật Đà Da # 禮佛
+02. Nam Mô Đạt Ma Da # 禮法
+03. Nam Mô Tăng Già Da # 禮僧
 04. Nam Mô Quán Tự Tại Bồ Tát Ma Ha Tát # 觀自在菩薩
-05. Cụ Đại Bi Tâm Giả # 大悲心
+05. Cụ Đại Bi Tâm Giả # 大悲
 06. Đát Điệt Tha # 即說咒曰
 07. Án # 唵
 08. Chước Yết Ra Phạt Để # 輪王
@@ -675,7 +675,7 @@
 17. Chấn Đa Mạc Ni # 如意寶珠
 18. Thước Ra Hồng # 成就
 19. Án # 唵
-20. Bát Lặc Đà # 心
+20. Bát Lặc Đà # 隨心
 21. Bát Đẳng Mê Hồng # 平等成就
 ### 02 Tiêu Tai Cát Tường Thần Chú
 01. Nẳng Mồ Tam Mãn Đa # 南無三滿多
