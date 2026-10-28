@@ -448,115 +448,115 @@
 
 ### Đệ ngũ hội
 
-435. Ðột sắc tra chất đa # duṣṭa-citta
-436. A mạt đác rị chất đa # amitra-citta
-437. Ô xà ha ra # ojā-hāra
-438. Dà ba ha ra # bala-hāra
-439. Lô địa ra ha ra # rudhira-hāra
-440. Ta bà ha ra # vasā-hāra
-441. Ma xà ha ra # majjā-hāra
-442. Xà đa ha ra # jāta-hāra
-443. Thị tỉ đa ha ra # jīvita-hāra
-444. Bạt lược dạ ha ra # āyuḥ-hāra
-445. Kiền đà ha ra # gandha-hāra
-446. Bố sữ ba ha ra # puṣpa-hāra
-447. Phả ra ha ra # prabhā-hāra
-448. Bà tả ha ra # vāk-hāra
-449. Bát ba chất đa # pāpa-citta
-450. Ðột sắc tra chất đa # duṣṭa-citta
-451. Lao đà ra chất đa # raudra-citta
-452. Dược xoa yết ra ha # yakṣa-graha
-453. Ra sát ta yết ra ha # rākṣasa-graha
-454. Bế lệ đa yết ra ha # preta-graha
-455. Tỳ xá giá yết ra ha # piśāca-graha
-456. Bộ đa yết ra ha # bhūta-graha
-457. Cưu bàn trà yết ra ha # kumbhāṇḍa-graha
-458. Tất kiền đà yết ra ha # skanda-graha
-459. Ô đát ma đà yết ra ha # unmāda-graha
-460. Xa dạ yết ra ha # chāyā-graha
-461. A bá tất ma ra yết ra ha # apasmāra-graha
-462. Trạch khê cách # tyajatha
-463. Trà kỳ ni yết ra ha # ḍākinī-graha
-464. Rị Phật đế yết ra ha # revatī-graha
-465. Xà di ca yết ra ha # jāmikā-graha
-466. Xá câu ni yết ra ha # śakunī-graha
-467. Lao đà ra # raudra
-468. Nan địa ca yết ra ha # nandikā-graha
-469. A lam bà yết ra ha # alamba-graha
-470. Kiền độ ba ni yết ra ha # gandharva-pāṇi-graha
-471. Thập phạt ra # sphara sphara
-472. Yên ca hê ca # ehi ehi
-473. Trị đế dược ca # cikitsaka
-474. Ðát lệ đế dược ca # prati-cikitsaka
-475. Giả đột thác ca # chedaka
-476. Ni đề thập phạt ra # nitya-sphara
-477. Tỉ sam ma thập phạt ra # sama-sphara
-478. Bạt để ca # pratīka
-479. Tỷ để ca # pītaka
-480. Thất lệ sắc mật ca # śrī-śrīmaka
-481. Ta nể bát để ca # sani-pātika
-482. Tát bà thập phạt ra # sarva-sphara
-483. Thất lô kiết đế # śrī-lokita
-484. Mạt đà bệ đạt lô chế kiếm # mahā-vidyā-locana
-485. A ỷ lô kiềm # arka-locana
-486. Mục khê lô kiềm # mukha-locana
-487. Yết rị đột lô kiềm # kṛta-locana
-488. Yết ra ha # graha
-489. Yết lam yết noa du lam # gala-karṇa-śūla
-490. Ðản đa du lam # danta-śūla
-491. Hất rị dạ du lam # hṛdaya-śūla
-492. Mạt mạ du lam # marma-śūla
-493. Bạt rị thất bà du lam # vakṣa-śūla
-494. Tỷ lật sắc tra du lam # pṛṣṭha-śūla
-495. Ô đà ra du lam # udara-śūla
-496. Yết tri du lam # kaṭi-śūla
-497. Bạt tất đế du lam # vasti-śūla
-498. Ô lô du lam # ūru-śūla
-499. Thường dà du lam # jaṅghā-śūla
-500. Hắc tất đa du lam # hasta-śūla
-501. Bạt đà du lam # pāda-śūla
+435. Ðột sắc tra chất đa # duṣṭa-cittā
+436. A mạt đác rị chất đa # amitrī-cittā
+437. Ô xà ha ra # ojā-āhārā
+438. Dà ba ha ra # garbha-āhārā
+439. Lô địa ra ha ra # rudhira-āhārā
+440. Ta bà ha ra # vasā-āhārā
+441. Ma xà ha ra # majjā-āhārā
+442. Xà đa ha ra # jāta-āhārā
+443. Thị tỉ đa ha ra # jīvita-āhārā
+444. Bạt lược dạ ha ra # mālya-āhārā
+445. Kiền đà ha ra # gandha-āhārāḥ
+446. Bố sữ ba ha ra # puṣpa-āhārāḥ
+447. Phả ra ha ra # phala-āhārāḥ
+448. Bà tả ha ra # sasya-āhārāḥ
+449. Bát ba chất đa # pāpa-cittā
+450. Ðột sắc tra chất đa # duṣṭa-cittā
+451. Lao đà ra chất đa # raudra-cittā
+452. Dược xoa yết ra ha # yakṣa-grahā
+453. Ra sát ta yết ra ha # rākṣasa-grahāḥ
+454. Bế lệ đa yết ra ha # preta-grahāḥ
+455. Tỳ xá giá yết ra ha # piśāca-grahā
+456. Bộ đa yết ra ha # bhūta-grahāḥ
+457. Cưu bàn trà yết ra ha # kumbhāṇḍa-grahāḥ
+458. Tất kiền đà yết ra ha # skanda-grahā
+459. Ô đát ma đà yết ra ha # unmāda-grahāḥ
+460. Xa dạ yết ra ha # chāyā-grahā
+461. A bá tất ma ra yết ra ha # apasmāra-grahā
+462. Trạch khê cách # ḍāka
+463. Trà kỳ ni yết ra ha # ḍākinī-grahā
+464. Rị Phật đế yết ra ha # revatī-grahā
+465. Xà di ca yết ra ha # jāmikā-grahāḥ
+466. Xá câu ni yết ra ha # śakunī-grahā
+467. Lao đà ra # raudrā-mātṛ
+468. Nan địa ca yết ra ha # nāndika-grahā
+469. A lam bà yết ra ha # ālambā-grahā
+470. Kiền độ ba ni yết ra ha # ghatnu-kaṇṭhapaṇinī-grahāḥ
+471. Thập phạt ra # jvarā
+472. Yên ca hê ca # ekāhikā
+473. Trị đế dược ca # dvaitīyakāḥ
+474. Ðát lệ đế dược ca # traitīyakāḥ
+475. Giả đột thác ca # cāturthakāḥ
+476. Ni đề thập phạt ra # nitya-jvarā
+477. Tỉ sam ma thập phạt ra # viṣama-jvarā
+478. Bạt để ca # vātikāḥ
+479. Tỷ để ca # paittikāḥ
+480. Thất lệ sắc mật ca # ślaiṣmikāḥ
+481. Ta nể bát để ca # sāṃnipātikāḥ
+482. Tát bà thập phạt ra # sarva-jvarāḥ
+483. Thất lô kiết đế # śiro-'rtiḥ
+484. Mạt đà bệ đạt lô chế kiếm # vārddha-bādha-arocakā
+485. A ỷ lô kiềm # akṣi-rogaṃ
+486. Mục khê lô kiềm # mukha-rogaṃ
+487. Yết rị đột lô kiềm # hṛd-rogaṃ
+488. Yết ra ha # gala-grahaṃ
+489. Yết lam yết noa du lam # karṇa-śūlaṃ
+490. Ðản đa du lam # danta-śūlaṃ
+491. Hất rị dạ du lam # hṛdaya-śūlaṃ
+492. Mạt mạ du lam # marman-śūlaṃ
+493. Bạt rị thất bà du lam # pārśva-śūlaṃ
+494. Tỷ lật sắc tra du lam # pṛṣṭha-śūlam
+495. Ô đà ra du lam # udara-śūlaṃ
+496. Yết tri du lam # kaṭi-śūlaṃ
+497. Bạt tất đế du lam # vasti-śūlaṃ
+498. Ô lô du lam # ūru-śūlaṃ
+499. Thường dà du lam # jaṅghā-śūlaṃ
+500. Hắc tất đa du lam # hasta-śūlaṃ
+501. Bạt đà du lam # pāda-śūlaṃ
 502. Ta phòng án dà # sarvāṅga
-503. Bát ra trượng dà du lam # praty-aṅga-śūla
-504. Bộ đa tỷ đa trà # bhūta-pretāḥ
+503. Bát ra trượng dà du lam # pratyaṅga-śūlaṃ
+504. Bộ đa tỷ đa trà # bhūta-vetāḍa
 505. Trà kỳ ni # ḍākinī
-506. Thập bà ra # sphara
-507. Ðà đột lô ca # dhātu-loka
-508. Kiến đốt lô kiết tri # gandha-loka-kṣiti
-509. Bà lộ đa tỳ # vāta
-510. Tát bát lô # sarvatra
-511. Ha lăng già # hāliṅga
-512. Du sa đát ra # suśastra
-513. Ta na yết ra # sana-kara
-514. Tỳ sa dụ ca # viṣayuka
-515. A kỳ ni # agni
+506. Thập bà ra # jvarā
+507. Ðà đột lô ca # dadrukāḥ
+508. Kiến đốt lô kiết tri # kaṇḍūḥ
+509. Bà lộ đa tỳ # kiṭibhā
+510. Tát bát lô # lūtā
+511. Ha lăng già # vaisarpā
+512. Du sa đát ra # loha-liṅgāḥ
+513. Ta na yết ra # śastra-saṃgara
+514. Tỳ sa dụ ca # viṣa-yoga
+515. A kỳ ni # agne
 516. Ô đà ca # udaka
-517. Mạt ra bệ ra # mārabhaya
-518. Kiến đa ra # gandhara
+517. Mạt ra bệ ra # māra-vaira
+518. Kiến đa ra # kāntāra
 519. A ca ra # akāla
-520. Mật rị đốt # amṛta
-521. Ðát liểm bộ ca # trāsa-bhaya
-522. Ðịa lật lặc tra # dhṛtarāṣṭra
-523. Tỷ rị sắc chất ca # bhīṣaṭaka
-524. Tát bà na câu ra # sarva-nakula
-525. Tứ dẫn dà tệ # catur-diśa
-526. Yết ra rị dược xoa # graha-yakṣa
-527. Ðác ra sô # takṣaka
-528. Mạt ra thị # māra-dūta
+520. Mật rị đốt # mṛtyo
+521. Ðát liểm bộ ca # tryambuka
+522. Ðịa lật lặc tra # trailāṭa
+523. Tỷ rị sắc chất ca # vṛścika
+524. Tát bà na câu ra # sarpa-nakula
+525. Tứ dẫn dà tệ # siṃha-vyāghra
+526. Yết ra rị dược xoa # ṛkṣa
+527. Ðác ra sô # tarakṣa
+528. Mạt ra thị # mārā-jīvīs
 529. Phệ đế sam # teṣāṃ
 530. Ta bệ sam # sarveṣāṃ
-531. Tất đát đa bát đác ra # sitātapatra
+531. Tất đát đa bát đác ra # sita-ātapatra
 532. Ma ha bạt xà lô # mahā-vajra
-533. Sắc ni sam # uṣṇīṣa
-534. Ma ha bát lặc trượng kỳ lam # mahā-pratyaṅgira
-535. Dạ ba đột đà # yāvat
+533. Sắc ni sam # uṣṇīṣaṃ
+534. Ma ha bát lặc trượng kỳ lam # mahā-pratyaṅgiraṃ
+535. Dạ ba đột đà # yāvad-dvādaśa
 536. Xá dụ xà na # yojana
-537. Biện đát lệ noa # maṇḍalena
+537. Biện đát lệ noa # abhy-antareṇa
 538. Tỳ đà da # vidyā
-539. Bàn đàm ca lô di # bandha-karomi
-540. Ðế thù # dṛḍha
-541. Bàn đàm ca lô di # bandha-karomi
+539. Bàn đàm ca lô di # bandhaṃ karomi
+540. Ðế thù # tejo
+541. Bàn đàm ca lô di # bandhaṃ karomi
 542. Bát ra tỳ đà # para-vidyā
-543. Bàn đàm ca lô di # bandha-karomi
+543. Bàn đàm ca lô di # bandhaṃ karomi
 544. Ðát điệt tha # tadyathā
 545. Án # oṃ
 546. A na lệ # anale
@@ -565,7 +565,7 @@
 549. Bạt xà ra # vajra
 550. Ðà rị # dhare
 551. Bàn đà bàn đà nể # bandha bandhani
-552. Bạt xà ra bán ni phấn # vajrapāṇi phaṭ
+552. Bạt xà ra bán ni phấn # vajra-pāṇiḥ phaṭ
 553. Hổ hồng đô lô ung phấn # hūṃ trūṃ phaṭ
 554. Ta bà ha # svāhā
 
@@ -586,75 +586,75 @@
 13. Hê Rị Ma Ha Bàn Đa Sa Mế # hari mahā-padma-same
 14. Tát Bà A Tha Đậu Du Bằng # sarvārtha-duḥkhopaśama
 15. A Thệ Dựng # ajeyaṃ
-16. Tát Bà Tát Đa (Na Ma Bà Tát Đa) Na Ma Bà Già # sarva-sattvānāṃ namo bhaga
-17. Ma Phạt Đạt Đậu # mokṣa-dātu
-18. Đát Điệt Tha # tadyathā
-19. Án A Bà Lô Hê # oṃ avaloke
-20. Lô Ca Đế # lokate
-21. Ca Ra Đế # karate
-22. Di Hê Rị # ehi hrīḥ
-23. Ma Ha Bồ Đề Tát Đỏa # mahā-bodhisattva
-24. Tát Bà Tát Bà # sarva sarva
-25. Ma Ra Ma Ra # māra māra
-26. Ma Hê Ma Hê Rị Đà Dựng # mahe mahe hṛdayaṃ
-27. Cu Lô Cu Lô Yết Mông # kuru kuru karma
-28. Độ Lô Độ Lô Phạt Xà Da Đế # turu turu vijayate
-29. Ma Ha Phạt Xà Da Đế # mahā-vijayate
-30. Đà Ra Đà Ra # dhara dhara
-31. Địa Rị Ni # dhāriṇī
-32. Thất Phật Ra Da # sphuraya
-33. Giá Ra Giá Ra # cala cala
-34. Mạ Mạ Phạt Ma Ra # mama vimala
-35. Mục Đế Lệ # mukte
-36. Y Hê Y Hê # ehi ehi
-37. Thất Na Thất Na # sthira sthira
-38. A Ra Sâm Phật Ra Xá Lợi # arasaṃ buddha-śarīra
-39. Phạt Sa Phạt Sâm # prasa prasa
-40. Phật Ra Xá Da # buddha-śaya
-41. Hô Lô Hô Lô Ma Ra # hulu hulu māra
-42. Hô Lô Hô Lô Hê Rị # hulu hulu hrīḥ
-43. Ta Ra Ta Ra # tārā tārā
-44. Tất Rị Tất Rị # siddhi siddhi
-45. Tô Rô Tô Rô # suru suru
-46. Bồ Đề Dạ Bồ Đề Dạ # bodhaya bodhaya
-47. Bồ Đà Dạ Bồ Đà Dạ # buddhaya buddhaya
-48. Di Đế Rị Dạ # maitreya
-49. Na Ra Cẩn Trì # narakiṃdhi
-50. Địa Rị Sắc Ni Na # dhāriṣṇina
-51. Ba Dạ Ma Na # bhayamāna
-52. Ta Bà Ha # svāhā
-53. Tất Đà Dạ # siddhaye
+16. Tát Bà Tát Đa Na Ma Bà Tát Đa # sarva-sattvānāṃ
+17. Na Ma Bà Già # namo bhaga
+18. Ma Phạt Đạt Đậu # mokṣa-dātu
+19. Đát Điệt Tha # tadyathā
+20. Án # oṃ
+21. A Bà Lô Hê # avaloke
+22. Lô Ca Đế # lokate
+23. Ca Ra Đế # karate
+24. Di Hê Rị # ehi hrīḥ
+25. Ma Ha Bồ Đề Tát Đỏa # mahā-bodhisattva
+26. Tát Bà Tát Bà # sarva sarva
+27. Ma Ra Ma Ra # māra māra
+28. Ma Hê Ma Hê Rị Đà Dựng # mahe mahe hṛdayaṃ
+29. Cu Lô Cu Lô Yết Mông # kuru kuru karma
+30. Độ Lô Độ Lô Phạt Xà Da Đế # turu turu vijayate
+31. Ma Ha Phạt Xà Da Đế # mahā-vijayate
+32. Đà Ra Đà Ra # dhara dhara
+33. Địa Rị Ni # dhāriṇī
+34. Thất Phật Ra Da # sphuraya
+35. Giá Ra Giá Ra # cala cala
+36. Mạ Mạ Phạt Ma Ra # mama vimala
+37. Mục Đế Lệ # mukte
+38. Y Hê Y Hê # ehi ehi
+39. Thất Na Thất Na # sthira sthira
+40. A Ra Sâm Phật Ra Xá Lợi # arasaṃ buddha-śarīra
+41. Phạt Sa Phạt Sâm # prasa prasa
+42. Phật Ra Xá Da # buddha-śaya
+43. Hô Lô Hô Lô Ma Ra # hulu hulu māra
+44. Hô Lô Hô Lô Hê Rị # hulu hulu hrīḥ
+45. Ta Ra Ta Ra # tārā tārā
+46. Tất Rị Tất Rị # siddhi siddhi
+47. Tô Rô Tô Rô # suru suru
+48. Bồ Đề Dạ Bồ Đề Dạ # bodhaya bodhaya
+49. Bồ Đà Dạ Bồ Đà Dạ # buddhaya buddhaya
+50. Di Đế Rị Dạ # maitreya
+51. Na Ra Cẩn Trì # narakiṃdhi
+52. Địa Rị Sắc Ni Na # dhāriṣṇina
+53. Ba Dạ Ma Na # bhayamāna
 54. Ta Bà Ha # svāhā
-55. Ma Ha Tất Đà Dạ # mahā-siddhaye
+55. Tất Đà Dạ # siddhaye
 56. Ta Bà Ha # svāhā
-57. Tất Đà Du Nghệ # siddha-yoge
-58. Thất Bàn Ra Dạ # sarvāya
-59. Ta Bà Ha # svāhā
-60. Na Ra Cẩn Trì # narakiṃdhi
+57. Ma Ha Tất Đà Dạ # mahā-siddhaye
+58. Ta Bà Ha # svāhā
+59. Tất Đà Du Nghệ # siddha-yoge
+60. Thất Bàn Ra Dạ # sarvāya
 61. Ta Bà Ha # svāhā
-62. Ma Ra Na Ra # māra nara
+62. Na Ra Cẩn Trì # narakiṃdhi
 63. Ta Bà Ha # svāhā
-64. Tất Ra Tăng A Mục Khê Da # śīla-saṃmukhāya
+64. Ma Ra Na Ra # māra nara
 65. Ta Bà Ha # svāhā
-66. Ta Bà Ma Ha A Tất Đà Dạ # sarva-mahā-siddhaye
+66. Tất Ra Tăng A Mục Khê Da # śīla-saṃmukhāya
 67. Ta Bà Ha # svāhā
-68. Giả Kiết Ra A Tất Đà Dạ # cakra-siddhaye
+68. Ta Bà Ma Ha A Tất Đà Dạ # sarva-mahā-siddhaye
 69. Ta Bà Ha # svāhā
-70. Ba Đà Ma Yết Tất Đà Dạ # padma-siddhaye
+70. Giả Kiết Ra A Tất Đà Dạ # cakra-siddhaye
 71. Ta Bà Ha # svāhā
-72. Na Ra Cẩn Trì Bàn Dà Ra Dạ # narakiṃdhi pāṇḍarāya
+72. Ba Đà Ma Yết Tất Đà Dạ # padma-siddhaye
 73. Ta Bà Ha # svāhā
-74. Ma Bà Lợi Thắng Yết Ra Dạ # mahāvali śaṅkarāya
+74. Na Ra Cẩn Trì Bàn Dà Ra Dạ # narakiṃdhi pāṇḍarāya
 75. Ta Bà Ha # svāhā
-76. Nam Mô Hắc Ra Đát Na Đa Ra Dạ Da # namo ratna-trayāya
-77. Nam Mô A Rị Da # namo ārya
-78. Bà Lô Yết Đế # avalokiteśvara
-79. Thước Bàn Ra Dạ # śubhrāya
-80. Ta Bà Ha # svāhā
-81. Án Tất Điện Đô # oṃ siddhyantu
-82. Mạn Đà Ra # maṇḍala
-83. Bạt Đà Dạ # bhadrāya
-84. Ta Bà Ha # svāhā
+76. Ma Bà Lợi Thắng Yết Ra Dạ # mahāvali śaṅkarāya
+77. Ta Bà Ha # svāhā
+78. Nam Mô Hắc Ra Đát Na Đa Ra Dạ Da # namo ratna-trayāya
+79. Nam Mô A Rị Da # namo ārya
+80. Bà Lô Yết Đế # avalokiteśvara
+81. Thước Bàn Ra Dạ # śubhrāya
+82. Ta Bà Ha # svāhā
+83. Án Tất Điện Đô # oṃ siddhyantu
+84. Mạn Đà Ra Bạt Đà Dạ Ta Bà Ha # maṇḍala bhadrāya svāhā
 
 ## Thập chú Sanskrit
 
@@ -773,16 +773,16 @@
 01. Án # oṃ
 02. Ma Ni Bát Di Hồng # maṇi padme hūṃ
 03. Ma Hạc Nghê Nha Nạp # mahā-jñāna
-04. Tích Đô Đạt Ba Đạt # citta utpāda
-05. Tích Đặt Ta Nạp # siddha-jñāna
-06. Vi Đạt Rị Cát # vidyā-dhṛk
-07. Tát Nhi Cán Nhi Tháp # sarva-skandha
-08. Bốc Rị Tất Tháp Cát # pratiṣṭhita
-09. Nạp Bổ Ra Nạp # na pūraṇa
-10. Náp Bốc Rị # na pūri
-11. Thưu Thất Ban Nạp Nại Ma Lô Kiết # suṣṭhu padma avalokita
-12. Thuyết Ra Da # śrāya
-13. Tóa Ha # svāhā
+04. Tích Đô Đạt Ba Đạt # cittotpāda
+05. Tích Đạt Ta Nạp # cittasya na
+06. Vi Đạt Rị Cát # vitarka
+07. Tát Nhi Cáng Nhi Tháp # sarvārtha
+08. Bốc Rị Tất Tháp Cát # bhūri-siddhaka
+09. Nạp Bổ Ra Nạp # na purāṇa
+10. Nạp Bốc Rị # na pra-
+11. Thưu Thất Ban Nạp # -tyutpanna
+12. Nại Ma Lô Kiết # namo loke-
+13. Thuyết Ra Da Tóa Ha # -śvarāya svāhā
 
 ### 08 Qi Fo Mie Zui Zhen Yan
 01. Ly Bà Ly Bà Đế # lipa lipate
@@ -1316,115 +1316,115 @@
 
 ### Đệ ngũ
 
-435. Ðột sắc tra chất đa # दुष्टचित्त
-436. A mạt đác rị chất đa # अमित्रचित्त
-437. Ô xà ha ra # ओजाहार
-438. Dà ba ha ra # बलहार
-439. Lô địa ra ha ra # रुधिरहार
-440. Ta bà ha ra # वसाहार
-441. Ma xà ha ra # मज्जाहार
-442. Xà đa ha ra # जातहार
-443. Thị tỉ đa ha ra # जीवितहार
-444. Bạt lược dạ ha ra # आयुःहार
-445. Kiền đà ha ra # गन्धहार
-446. Bố sữ ba ha ra # पुष्पहार
-447. Phả ra ha ra # प्रभाहार
-448. Bà tả ha ra # वाक्हार
-449. Bát ba chất đa # पापचित्त
-450. Ðột sắc tra chất đa # दुष्टचित्त
-451. Lao đà ra chất đa # रौद्रचित्त
-452. Dược xoa yết ra ha # यक्षग्रह
-453. Ra sát ta yết ra ha # राक्षसग्रह
-454. Bế lệ đa yết ra ha # प्रेतग्रह
-455. Tỳ xá giá yết ra ha # पिशाचग्रह
-456. Bộ đa yết ra ha # भूतग्रह
-457. Cưu bàn trà yết ra ha # कुम्भाण्डग्रह
-458. Tất kiền đà yết ra ha # स्कन्दग्रह
-459. Ô đát ma đà yết ra ha # उन्मादग्रह
-460. Xa dạ yết ra ha # छायाग्रह
-461. A bá tất ma ra yết ra ha # अपस्मारग्रह
-462. Trạch khê cách # त्यजथ
-463. Trà kỳ ni yết ra ha # डाकिनीग्रह
-464. Rị Phật đế yết ra ha # रेवतीग्रह
-465. Xà di ca yết ra ha # जामिकाग्रह
-466. Xá câu ni yết ra ha # शकुनीग्रह
-467. Lao đà ra # रौद्र
-468. Nan địa ca yết ra ha # नन्दिकाग्रह
-469. A lam bà yết ra ha # अलम्बग्रह
-470. Kiền độ ba ni yết ra ha # गन्धर्वपाणिग्रह
-471. Thập phạt ra # स्फर स्फर
-472. Yên ca hê ca # एहि एहि
-473. Trị đế dược ca # चिकित्सक
-474. Ðát lệ đế dược ca # प्रतिचिकित्सक
-475. Giả đột thác ca # छेदक
-476. Ni đề thập phạt ra # नित्यस्फर
-477. Tỉ sam ma thập phạt ra # समस्फर
-478. Bạt để ca # प्रतीक
-479. Tỷ để ca # पीतक
-480. Thất lệ sắc mật ca # श्रीश्रीमक
-481. Ta nể bát để ca # सनिपातिक
-482. Tát bà thập phạt ra # सर्वस्फर
-483. Thất lô kiết đế # श्रीलोकित
-484. Mạt đà bệ đạt lô chế kiếm # महाविद्यालोचन
-485. A ỷ lô kiềm # अर्कलोचन
-486. Mục khê lô kiềm # मुखलोचन
-487. Yết rị đột lô kiềm # कृतलोचन
-488. Yết ra ha # ग्रह
-489. Yết lam yết noa du lam # गलकर्णशूल
-490. Ðản đa du lam # दन्तशूल
-491. Hất rị dạ du lam # हृदयशूल
-492. Mạt mạ du lam # मर्मशूल
-493. Bạt rị thất bà du lam # वक्षशूल
-494. Tỷ lật sắc tra du lam # पृष्ठशूल
-495. Ô đà ra du lam # उदरशूल
-496. Yết tri du lam # कटिशूल
-497. Bạt tất đế du lam # वस्तिशूल
-498. Ô lô du lam # ऊरुशूल
-499. Thường dà du lam # जङ्घाशूल
-500. Hắc tất đa du lam # हस्तशूल
-501. Bạt đà du lam # पादशूल
+435. Ðột sắc tra chất đa # दुष्ट-चित्ता
+436. A mạt đác rị chất đa # अमित्री-चित्ता
+437. Ô xà ha ra # ओजा-आहारा
+438. Dà ba ha ra # गर्भ-आहारा
+439. Lô địa ra ha ra # रुधिर-आहारा
+440. Ta bà ha ra # वसा-आहारा
+441. Ma xà ha ra # मज्जा-आहारा
+442. Xà đa ha ra # जात-आहारा
+443. Thị tỉ đa ha ra # जीवित-आहारा
+444. Bạt lược dạ ha ra # माल्य-आहारा
+445. Kiền đà ha ra # गन्ध-आहाराः
+446. Bố sữ ba ha ra # पुष्प-आहाराः
+447. Phả ra ha ra # फल-आहाराः
+448. Bà tả ha ra # सस्य-आहाराः
+449. Bát ba chất đa # पाप-चित्ता
+450. Ðột sắc tra chất đa # दुष्ट-चित्ता
+451. Lao đà ra chất đa # रौद्र-चित्ता
+452. Dược xoa yết ra ha # यक्ष-ग्रहा
+453. Ra sát ta yết ra ha # राक्षस-ग्रहाः
+454. Bế lệ đa yết ra ha # प्रेत-ग्रहाः
+455. Tỳ xá giá yết ra ha # पिशाच-ग्रहा
+456. Bộ đa yết ra ha # भूत-ग्रहाः
+457. Cưu bàn trà yết ra ha # कुम्भाण्ड-ग्रहाः
+458. Tất kiền đà yết ra ha # स्कन्द-ग्रहा
+459. Ô đát ma đà yết ra ha # उन्माद-ग्रहाः
+460. Xa dạ yết ra ha # छाया-ग्रहा
+461. A bá tất ma ra yết ra ha # अपस्मार-ग्रहा
+462. Trạch khê cách # डाक
+463. Trà kỳ ni yết ra ha # डाकिनी-ग्रहा
+464. Rị Phật đế yết ra ha # रेवती-ग्रहा
+465. Xà di ca yết ra ha # जामिका-ग्रहाः
+466. Xá câu ni yết ra ha # शकुनी-ग्रहा
+467. Lao đà ra # रौद्रा-मातृ
+468. Nan địa ca yết ra ha # नान्दिक-ग्रहा
+469. A lam bà yết ra ha # आलम्बा-ग्रहा
+470. Kiền độ ba ni yết ra ha # घत्नु-कण्ठपणिनी-ग्रहाः
+471. Thập phạt ra # ज्वरा
+472. Yên ca hê ca # एकाहिका
+473. Trị đế dược ca # द्वैतीयकाः
+474. Ðát lệ đế dược ca # त्रैतीयकाः
+475. Giả đột thác ca # चातुर्थकाः
+476. Ni đề thập phạt ra # नित्य-ज्वरा
+477. Tỉ sam ma thập phạt ra # विषम-ज्वरा
+478. Bạt để ca # वातिकाः
+479. Tỷ để ca # पैत्तिकाः
+480. Thất lệ sắc mật ca # श्लैष्मिकाः
+481. Ta nể bát để ca # सांनिपातिकाः
+482. Tát bà thập phạt ra # सर्व-ज्वराः
+483. Thất lô kiết đế # शिरो-ऽर्तिः
+484. Mạt đà bệ đạt lô chế kiếm # वार्द्ध-बाध-अरोचका
+485. A ỷ lô kiềm # अक्षि-रोगं
+486. Mục khê lô kiềm # मुख-रोगं
+487. Yết rị đột lô kiềm # हृद्-रोगं
+488. Yết ra ha # गल-ग्रहं
+489. Yết lam yết noa du lam # कर्ण-शूलं
+490. Ðản đa du lam # दन्त-शूलं
+491. Hất rị dạ du lam # हृदय-शूलं
+492. Mạt mạ du lam # मर्मन्-शूलं
+493. Bạt rị thất bà du lam # पार्श्व-शूलं
+494. Tỷ lật sắc tra du lam # पृष्ठ-शूलम्
+495. Ô đà ra du lam # उदर-शूलं
+496. Yết tri du lam # कटि-शूलं
+497. Bạt tất đế du lam # वस्ति-शूलं
+498. Ô lô du lam # ऊरु-शूलं
+499. Thường dà du lam # जङ्घा-शूलं
+500. Hắc tất đa du lam # हस्त-शूलं
+501. Bạt đà du lam # पाद-शूलं
 502. Ta phòng án dà # सर्वाङ्ग
-503. Bát ra trượng dà du lam # प्रत्यङ्गशूल
-504. Bộ đa tỷ đa trà # भूतप्रेताः
+503. Bát ra trượng dà du lam # प्रत्यङ्ग-शूलं
+504. Bộ đa tỷ đa trà # भूत-वेताड
 505. Trà kỳ ni # डाकिनी
-506. Thập bà ra # स्फर
-507. Ðà đột lô ca # धातुलोक
-508. Kiến đốt lô kiết tri # गन्धलोकक्षिति
-509. Bà lộ đa tỳ # वात
-510. Tát bát lô # सर्वत्र
-511. Ha lăng già # हालिङ्ग
-512. Du sa đát ra # सुशस्त्र
-513. Ta na yết ra # सनकर
-514. Tỳ sa dụ ca # विषयुक
-515. A kỳ ni # अग्नि
+506. Thập bà ra # ज्वरा
+507. Ðà đột lô ca # दद्रुकाः
+508. Kiến đốt lô kiết tri # कण्डूः
+509. Bà lộ đa tỳ # किटिभा
+510. Tát bát lô # लूता
+511. Ha lăng già # वैसर्पा
+512. Du sa đát ra # लोह-लिङ्गाः
+513. Ta na yết ra # शस्त्र-संगर
+514. Tỳ sa dụ ca # विष-योग
+515. A kỳ ni # अग्ने
 516. Ô đà ca # उदक
-517. Mạt ra bệ ra # मारभय
-518. Kiến đa ra # गन्धर
+517. Mạt ra bệ ra # मार-वैर
+518. Kiến đa ra # कान्तार
 519. A ca ra # अकाल
-520. Mật rị đốt # अमृत
-521. Ðát liểm bộ ca # त्रासभय
-522. Ðịa lật lặc tra # धृतराष्ट्र
-523. Tỷ rị sắc chất ca # भीषटक
-524. Tát bà na câu ra # सर्वनकुल
-525. Tứ dẫn dà tệ # चतुर्दिश
-526. Yết ra rị dược xoa # ग्रहयक्ष
-527. Ðác ra sô # तक्षक
-528. Mạt ra thị # मारदूत
-529. Phệ đế sam # तेषाम्
-530. Ta bệ sam # सर्वेषाम्
-531. Tất đát đa bát đác ra # सितातपत्र
-532. Ma ha bạt xà lô # महावज्र
-533. Sắc ni sam # उष्णीष
-534. Ma ha bát lặc trượng kỳ lam # महाप्रत्यङ्गिर
-535. Dạ ba đột đà # यावत्
+520. Mật rị đốt # मृत्यो
+521. Ðát liểm bộ ca # त्र्यम्बुक
+522. Ðịa lật lặc tra # त्रैलाट
+523. Tỷ rị sắc chất ca # वृश्चिक
+524. Tát bà na câu ra # सर्प-नकुल
+525. Tứ dẫn dà tệ # सिंह-व्याघ्र
+526. Yết ra rị dược xoa # ऋक्ष
+527. Ðác ra sô # तरक्ष
+528. Mạt ra thị # मारा-जीवीस्
+529. Phệ đế sam # तेषां
+530. Ta bệ sam # सर्वेषां
+531. Tất đát đa bát đác ra # सित-आतपत्र
+532. Ma ha bạt xà lô # महा-वज्र
+533. Sắc ni sam # उष्णीषं
+534. Ma ha bát lặc trượng kỳ lam # महा-प्रत्यङ्गिरं
+535. Dạ ba đột đà # यावद्-द्वादश
 536. Xá dụ xà na # योजन
-537. Biện đát lệ noa # मण्डलेन
+537. Biện đát lệ noa # अभ्य्-अन्तरेण
 538. Tỳ đà da # विद्या
-539. Bàn đàm ca lô di # बन्धकरोमि
-540. Ðế thù # दृढ
-541. Bàn đàm ca lô di # बन्धकरोमि
-542. Bát ra tỳ đà # परविद्या
-543. Bàn đàm ca lô di # बन्धकरोमि
+539. Bàn đàm ca lô di # बन्धं करोमि
+540. Ðế thù # तेजो
+541. Bàn đàm ca lô di # बन्धं करोमि
+542. Bát ra tỳ đà # पर-विद्या
+543. Bàn đàm ca lô di # बन्धं करोमि
 544. Ðát điệt tha # तद्यथा
 545. Án # ॐ
 546. A na lệ # अनले
@@ -1433,11 +1433,11 @@
 549. Bạt xà ra # वज्र
 550. Ðà rị # धरे
 551. Bàn đà bàn đà nể # बन्ध बन्धनि
-552. Bạt xà ra bán ni phấn # वज्रपाणि फट्
+552. Bạt xà ra bán ni phấn # वज्र-पाणिः फट्
 553. Hổ hồng đô lô ung phấn # हूं त्रूं फट्
 554. Ta bà ha # स्वाहा
 
-## Dhú Đại Bi Devanagari cdbvd
+## Chú Đại Bi Devanagari cdbvd
 
 01. Nam Mô Hắc Ra Đát Na Đa Ra Dạ Da # नमो रत्नत्रयाय
 02. Nam Mô A Rị Da # नमो आर्य
@@ -1454,76 +1454,75 @@
 13. Hê Rị Ma Ha Bàn Đa Sa Mế # हरि महापद्मसमे
 14. Tát Bà A Tha Đậu Du Bằng # सर्वार्थदुःखोपशम
 15. A Thệ Dựng # अजेयं
-16. Tát Bà Tát Đa (Na Ma Bà Tát Đa) Na Ma Bà Già # सर्वसत्त्वानां नमो भग
-17. Ma Phạt Đạt Đậu # मोक्षदातु
-18. Đát Điệt Tha # तद्यथा
-19. Án A Bà Lô Hê # ॐ अवलोके
-20. Lô Ca Đế # लोकते
-21. Ca Ra Đế # करते
-22. Di Hê Rị # एहि ह्रीः
-23. Ma Ha Bồ Đề Tát Đỏa # महाबोधिसत्त्व
-24. Tát Bà Tát Bà # सर्व सर्व
-25. Ma Ra Ma Ra # मारा मारा
-26. Ma Hê Ma Hê Rị Đà Dựng # महे महे हृदयं
-27. Cu Lô Cu Lô Yết Mông # कुरु कुरु कर्म
-28. Độ Lô Độ Lô Phạt Xà Da Đế # तुरु तुरु विजयते
-29. Ma Ha Phạt Xà Da Đế # महाविजयते
-30. Đà Ra Đà Ra # धर धर
-31. Địa Rị Ni # धारिणि
-32. Thất Phật Ra Da # स्फुरय
-33. Giá Ra Giá Ra # चल चल
-34. Mạ Mạ Phạt Ma Ra # मम विमल
-35. Mục Đế Lệ # मुक्ते
-36. Y Hê Y Hê # एहि एहि
-37. Thất Na Thất Na # स्थिर स्थिर
-38. A Ra Sâm Phật Ra Xá Lợi # अरसं बुद्धशरीर
-39. Phạt Sa Phạt Sâm # प्रस प्रस
-40. Phật Ra Xá Da # बुद्धशय
-41. Hô Lô Hô Lô Ma Ra # हुलु हुलु मारा
-42. Hô Lô Hô Lô Hê Rị # हुलु हुलु ह्रीः
-43. Ta Ra Ta Ra # तारा तारा
-44. Tất Rị Tất Rị # सिद्धि सिद्धि
-45. Tô Rô Tô Rô # सुरु सुरु
-46. Bồ Đề Dạ Bồ Đề Dạ # बोधय बोधय
-47. Bồ Đà Dạ Bồ Đà Dạ # बुद्धय बुद्धय
-48. Di Đế Rị Dạ # मैत्रेय
-49. Na Ra Cẩn Trì # नरकिंधि
-50. Địa Rị Sắc Ni Na # धारिष्णिण
-51. Ba Dạ Ma Na # भयमान
-52. Ta Bà Ha # स्वाहा
-53. Tất Đà Dạ # सिद्धये
+16. Tát Bà Tát Đa Na Ma Bà Tát Đa # सर्वसत्त्वानां
+17. Na Ma Bà Già # नमो भग
+18. Ma Phạt Đạt Đậu # मोक्षदातु
+19. Đát Điệt Tha # तद्यथा
+20. Án # ॐ
+21. A Bà Lô Hê # अवलोके
+22. Lô Ca Đế # लोकते
+23. Ca Ra Đế # करते
+24. Di Hê Rị # एहि ह्रीः
+25. Ma Ha Bồ Đề Tát Đỏa # महाबोधिसत्त्व
+26. Tát Bà Tát Bà # सर्व सर्व
+27. Ma Ra Ma Ra # मारा मारा
+28. Ma Hê Ma Hê Rị Đà Dựng # महे महे हृदयं
+29. Cu Lô Cu Lô Yết Mông # कुरु कुरु कर्म
+30. Độ Lô Độ Lô Phạt Xà Da Đế # तुरु तुरु विजयते
+31. Ma Ha Phạt Xà Da Đế # महाविजयते
+32. Đà Ra Đà Ra # धर धर
+33. Địa Rị Ni # धारिणि
+34. Thất Phật Ra Da # स्फुरय
+35. Giá Ra Giá Ra # चल चल
+36. Mạ Mạ Phạt Ma Ra # मम विमल
+37. Mục Đế Lệ # मुक्ते
+38. Y Hê Y Hê # एहि एहि
+39. Thất Na Thất Na # स्थिर स्थिर
+40. A Ra Sâm Phật Ra Xá Lợi # अरसं बुद्धशरीर
+41. Phạt Sa Phạt Sâm # प्रस प्रस
+42. Phật Ra Xá Da # बुद्धशय
+43. Hô Lô Hô Lô Ma Ra # हुलु हुलु मारा
+44. Hô Lô Hô Lô Hê Rị # हुलु हुलु ह्रीः
+45. Ta Ra Ta Ra # तारा तारा
+46. Tất Rị Tất Rị # सिद्धि सिद्धि
+47. Tô Rô Tô Rô # सुरु सुरु
+48. Bồ Đề Dạ Bồ Đề Dạ # बोधय बोधय
+49. Bồ Đà Dạ Bồ Đà Dạ # बुद्धय बुद्धय
+50. Di Đế Rị Dạ # मैत्रेय
+51. Na Ra Cẩn Trì # नरकिंधि
+52. Địa Rị Sắc Ni Na # धारिष्णिण
+53. Ba Dạ Ma Na # भयमान
 54. Ta Bà Ha # स्वाहा
-55. Ma Ha Tất Đà Dạ # महासिद्धये
+55. Tất Đà Dạ # सिद्धये
 56. Ta Bà Ha # स्वाहा
-57. Tất Đà Du Nghệ # सिद्धयोगे
-58. Thất Bàn Ra Dạ # सर्वाय
-59. Ta Bà Ha # स्वाहा
-60. Na Ra Cẩn Trì # नरकिंधि
+57. Ma Ha Tất Đà Dạ # महासिद्धये
+58. Ta Bà Ha # स्वाहा
+59. Tất Đà Du Nghệ # सिद्धयोगे
+60. Thất Bàn Ra Dạ # सर्वाय
 61. Ta Bà Ha # स्वाहा
-62. Ma Ra Na Ra # मार नर
+62. Na Ra Cẩn Trì # नरकिंधि
 63. Ta Bà Ha # स्वाहा
-64. Tất Ra Tăng A Mục Khê Da # शीलसंमुखाय
+64. Ma Ra Na Ra # मार नर
 65. Ta Bà Ha # स्वाहा
-66. Ta Bà Ma Ha A Tất Đà Dạ # सर्वमहासिद्धये
+66. Tất Ra Tăng A Mục Khê Da # शीलसंमुखाय
 67. Ta Bà Ha # स्वाहा
-68. Giả Kiết Ra A Tất Đà Dạ # चक्रसिद्धये
+68. Ta Bà Ma Ha A Tất Đà Dạ # सर्वमहासिद्धये
 69. Ta Bà Ha # स्वाहा
-70. Ba Đà Ma Yết Tất Đà Dạ # पद्मसिद्धये
+70. Giả Kiết Ra A Tất Đà Dạ # चक्रसिद्धये
 71. Ta Bà Ha # स्वाहा
-72. Na Ra Cẩn Trì Bàn Dà Ra Dạ # नरकिंधि पाण्डराय
+72. Ba Đà Ma Yết Tất Đà Dạ # पद्मसिद्धये
 73. Ta Bà Ha # स्वाहा
-74. Ma Bà Lợi Thắng Yết Ra Dạ # महावलि शङ्कराय
+74. Na Ra Cẩn Trì Bàn Dà Ra Dạ # नरकिंधि पाण्डराय
 75. Ta Bà Ha # स्वाहा
-76. Nam Mô Hắc Ra Đát Na Đa Ra Dạ Da # नमो रत्नत्रयाय
-77. Nam Mô A Rị Da # नमो आर्य
-78. Bà Lô Yết Đế # अवलोकितेश्वर
-79. Thước Bàn Ra Dạ # शुभ्राय
-80. Ta Bà Ha # स्वाहा
-81. Án Tất Điện Đô # ॐ सिद्ध्यन्तु
-82. Mạn Đà Ra # मण्डल
-83. Bạt Đà Dạ # भद्राय
-84. Ta Bà Ha # स्वाहा
-
+76. Ma Bà Lợi Thắng Yết Ra Dạ # महावलि शङ्कराय
+77. Ta Bà Ha # स्वाहा
+78. Nam Mô Hắc Ra Đát Na Đa Ra Dạ Da # नमो रत्नत्रयाय
+79. Nam Mô A Rị Da # नमो आर्य
+80. Bà Lô Yết Đế # अवलोकितेश्वर
+81. Thước Bàn Ra Dạ # शुभ्राय
+82. Ta Bà Ha # स्वाहा
+83. Án Tất Điện Đô # ॐ सिद्ध्यन्तु
+84. Mạn Đà Ra Bạt Đà Dạ Ta Bà Ha # मण्डल भद्राय स्वाहा
 
 ## Thập chú Devanagari
 
@@ -1644,16 +1643,16 @@
 01. Án # ॐ
 02. Ma Ni Bát Di Hồng # मणि पद्मे हूं
 03. Ma Hạc Nghê Nha Nạp # महाज्ञान
-04. Tích Đô Đạt Ba Đạt # चित्त उत्पाद
-05. Tích Đặt Ta Nạp # सिद्धज्ञान
-06. Vi Đạt Rị Cát # विद्याधृक्
-07. Tát Nhi Cán Nhi Tháp # सर्वस्कन्ध
-08. Bốc Rị Tất Tháp Cát # प्रतिष्ठित
-09. Nạp Bổ Ra Nạp # न पूरण
-10. Náp Bốc Rị # न पूरि
-11. Thưu Thất Ban Nạp Nại Ma Lô Kiết # सुष्ठु पद्म अवलोकित
-12. Thuyết Ra Da # श्राय
-13. Tóa Ha # स्वाहा
+04. Tích Đô Đạt Ba Đạt # चित्तोत्पाद
+05. Tích Đạt Ta Nạp # चित्तस्य न
+06. Vi Đạt Rị Cát # वितर्क
+07. Tát Nhi Cáng Nhi Tháp # सर्वार्थ
+08. Bốc Rị Tất Tháp Cát # भूरि-सिद्धक
+09. Nạp Bổ Ra Nạp # न पुराण
+10. Nạp Bốc Rị # न प्र-
+11. Thưu Thất Ban Nạp # -त्युत्पन्न
+12. Nại Ma Lô Kiết # नमो लोके-
+13. Thuyết Ra Da Tóa Ha # -श्वराय स्वाहा
 
 ### 08 Qi Fo Mie Zui Zhen Yan
 01. Ly Bà Ly Bà Đế # लिप लिपते
