@@ -414,7 +414,7 @@
   <div id="annotationArea" class="annotation-area" hidden>
     <div class="annotation-buttons">
       <button id="annotationButton" type="button" aria-expanded="false">註解</button>
-      <button id="vietnameseButton" type="button" aria-expanded="false">Chú thích tiếng Việt</button>
+      <button id="vietnameseButton" type="button" aria-expanded="false">越南</button>
     </div>
     <span id="annotationText" hidden></span>
     <span id="vietnameseText" lang="vi" hidden></span>
@@ -2618,7 +2618,7 @@ Nam mô Hư Không Tạng Bồ Tát Ma Ha Tát（三稱） # 歸依
       }
       const annotation = line.match(/^(.*?)(?:\s*#\s*)(.+)$/);
       if (!annotation) return;
-      if (!current) beginVolume(majorHeading || "Chú thích tiếng Việt");
+      if (!current) beginVolume(majorHeading || "越南語註音");
       const text = annotation[1].replace(/^\d+[.、]\s*/, "").trim();
       if (text) current.items.push({ text, annotation: annotation[2].trim() });
     });
