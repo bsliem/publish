@@ -226,6 +226,16 @@
       -webkit-user-select: none;
     }
     #card:active:not(:disabled) { background: var(--panel-active); }
+    .annotation-area { margin-top: 8px; padding: 9px 11px; border: 1px solid #403528; border-radius: 12px; background: #1b1712; font-family: system-ui, sans-serif; }
+    .annotation-area[hidden] { display: none; }
+    .annotation-buttons { display: flex; flex-wrap: wrap; gap: 8px; }
+    #baihuaButton, #englishButton, #vietnameseButton, #pinyinButton { min-height: 34px; padding: 5px 10px; border: 1px solid var(--border); border-radius: 9px; background: var(--panel); color: var(--text); font-size: 13px; cursor: pointer; }
+    #baihuaButton, #englishButton { color: var(--gold); }
+    #vietnameseButton { color: var(--green); }
+    #baihuaButton[aria-expanded="true"], #englishButton[aria-expanded="true"], #vietnameseButton[aria-expanded="true"], #pinyinButton[aria-expanded="true"] { outline: 2px solid var(--gold); outline-offset: 3px; }
+    #baihuaText, #englishText, #vietnameseText, #pinyinText { display: block; margin: 0 0 9px; color: #ffd75a; font-size: 24px; font-weight: 600; line-height: 1.5; text-shadow: 0 1px 2px #000; }
+    #baihuaText, #englishText { font-size: 21px; }
+    #baihuaText[hidden], #englishText[hidden], #vietnameseText[hidden], #pinyinText[hidden] { display: none; }
     #sentence {
       max-width: 100%;
       font-size: var(--font-size);
@@ -418,6 +428,18 @@
     <span id="nextOne" class="context-sentence near" aria-hidden="true"></span>
     <span id="nextTwo" class="context-sentence far" aria-hidden="true"></span>
   </button>
+  <div id="annotationArea" class="annotation-area">
+    <span id="baihuaText" lang="zh-Hant" hidden></span>
+    <span id="englishText" lang="en" hidden></span>
+    <span id="vietnameseText" lang="vi" hidden></span>
+    <span id="pinyinText" lang="zh-Latn-pinyin" hidden></span>
+    <div class="annotation-buttons">
+      <button id="baihuaButton" type="button" aria-expanded="false">白話</button>
+      <button id="englishButton" type="button" aria-expanded="false">英語</button>
+      <button id="vietnameseButton" type="button" aria-expanded="false">越語</button>
+      <button id="pinyinButton" type="button" aria-expanded="false">拼音</button>
+    </div>
+  </div>
 
   <nav class="nav" aria-label="切換經句">
     <button id="previousButton" type="button">← 上一句</button>
@@ -870,6 +892,10 @@
 佛告阿難。諸佛如來，語無虛妄。若復有人，身具四重十波羅夷，瞬息即經此方他方阿鼻地獄，乃至窮盡十方無間，靡不經歷。能以一念將此法門，於末劫中開示未學。是人罪障，應念銷滅。變其所受地獄苦因，成安樂國。得福超越前之施人，百倍千倍千萬億倍，如是乃至算數譬喻所不能及。
 阿難。若有眾生，能誦此經，能持此咒，如我廣說，窮劫不盡。依我教言，如教行道，直成菩提，無復魔業。佛說此經已。比丘、比丘尼、優婆塞、優婆夷。一切世間天人阿修羅，及諸他方菩薩二乘，聖仙童子，并初發心大力鬼神，皆大歡喜，作禮而去。
 </script>
+<script src="leng_yan_jing_bai_hua.js"></script>
+<script src="leng_yan_jing_english.js"></script>
+<script src="leng_yan_jing_han_viet.js"></script>
+<script src="leng_yan_jing_pinyin.js"></script>
 <script>
 (async () => {
   "use strict";
@@ -939,6 +965,11 @@
     }
   });
   finishVolume();
+
+  const baiHuaByItem = items.map((_, index) => window.LENG_YAN_JING_BAI_HUA?.[index] || "");
+  const englishByItem = items.map((_, index) => window.LENG_YAN_JING_ENGLISH?.[index] || "");
+  const hanVietByItem = items.map((_, index) => window.LENG_YAN_JING_HAN_VIET?.[index] || "");
+  const pinyinByItem = items.map((_, index) => window.LENG_YAN_JING_PINYIN?.[index] || "");
 
   if (!items.length || volumes.length !== 10) {
     $("sentence").textContent = "無法讀取經文內容。";
@@ -1100,6 +1131,7 @@
   let searchMatches = [];
   let searchCursor = -1;
   let editingNoteId = null;
+  let activeAnnotationPanel = "";
 
   function volumeFor(index) {
     return volumes.find(volume => index >= volume.start && index <= volume.end) || volumes[0];
@@ -1207,6 +1239,23 @@
     showHighlightedSentence($("sentence"), items[state.current].text);
     showContext("nextOne", state.current + 1);
     showContext("nextTwo", state.current + 2);
+    const baiHua = baiHuaByItem[state.current] || "";
+    const english = englishByItem[state.current] || "";
+    const hanViet = hanVietByItem[state.current] || "";
+    const pinyin = pinyinByItem[state.current] || "";
+    $("annotationArea").hidden = !baiHua && !english && !hanViet && !pinyin;
+    [
+      ["baihuaButton", "baihuaText", baiHua],
+      ["englishButton", "englishText", english],
+      ["vietnameseButton", "vietnameseText", hanViet],
+      ["pinyinButton", "pinyinText", pinyin]
+    ].forEach(([buttonId, textId, value]) => {
+      const isActive = activeAnnotationPanel === textId && Boolean(value);
+      $(buttonId).hidden = !value;
+      $(buttonId).setAttribute("aria-expanded", String(isActive));
+      $(textId).hidden = !isActive;
+      $(textId).textContent = value;
+    });
     $("volumeSelect").value = String(volume.number);
     $("volumePosition").textContent = `第${volume.number}卷`;
     const editingNote = state.notes.find(note => note.id === editingNoteId);
@@ -1408,6 +1457,17 @@
     const bounds = event.currentTarget.getBoundingClientRect();
     if (event.clientX < bounds.left + bounds.width / 2) previousSentence();
     else nextSentence();
+  });
+  [
+    ["baihuaButton", "baihuaText"],
+    ["englishButton", "englishText"],
+    ["vietnameseButton", "vietnameseText"],
+    ["pinyinButton", "pinyinText"]
+  ].forEach(([buttonId, textId]) => {
+    $(buttonId).addEventListener("click", () => {
+      activeAnnotationPanel = activeAnnotationPanel === textId ? "" : textId;
+      render();
+    });
   });
   $("copyButton").addEventListener("click", copyVisibleSentences);
   $("saveNoteButton").addEventListener("click", saveNote);
