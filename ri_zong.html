@@ -4252,6 +4252,7 @@ Nam mô Hư Không Tạng Bồ Tát Ma Ha Tát（三稱） # 歸依
 南無地藏王菩薩！（三稱）
 </script>
 <script src="ri_zong_pinyin.js"></script>
+<script src="ri_zong_leng_yan_pdf_pinyin.js"></script>
 <script>
 (async () => {
   "use strict";
@@ -4347,7 +4348,16 @@ Nam mô Hư Không Tạng Bồ Tát Ma Ha Tát（三稱） # 歸依
     }
   });
   finishVolume();
-  const pinyinByItem = items.map(item => window.RI_ZONG_PINYIN?.[item.text] || "");
+  // Pinyin của năm hội Chú Lăng Nghiêm dùng thứ tự câu trong PDF nguồn,
+  // vì cùng một chữ/cụm có thể có âm tụng khác với Pinyin Hán ngữ thông thường.
+  let lengYanPinyinIndex = 0;
+  const pinyinByItem = items.map(item => {
+    const volumeName = volumes[item.volume - 1]?.name || "";
+    if (volumeName.startsWith("楞嚴咒 · 第") && window.RI_ZONG_LENG_YAN_PINYIN) {
+      return window.RI_ZONG_LENG_YAN_PINYIN[lengYanPinyinIndex++] || "";
+    }
+    return window.RI_ZONG_PINYIN?.[item.text] || "";
+  });
 
   function parseVietnameseVolumes() {
     const parsedVolumes = [];
