@@ -3588,7 +3588,7 @@ Nam mô Hư Không Tạng Bồ Tát Ma Ha Tát（三稱） # 歸依
 213. 羅剎 # 羅剎
 214. 婆伽梵 # 世尊
 215. 薩怛他 # 真實
-216. 伽都烏瑟膩釤 # 佛頂
+216. 伽都瑟膩釤 # 佛頂
 217. 波囉點 # 光明
 218. 闍吉利 # 勇猛
 219. 摩訶娑訶薩囉 # 大威力
@@ -4256,6 +4256,26 @@ Nam mô Hư Không Tạng Bồ Tát Ma Ha Tát（三稱） # 歸依
 <script>
 (async () => {
   "use strict";
+
+  // PDF trang 8–9 đặt ranh giới câu khác với phần văn bản trong app.
+  // Sửa riêng đoạn cuối Hội 2 đến câu 27 Hội 3 để một âm không tràn sang câu sau.
+  const lengYanPinyinFix = [
+    "qié dū sè ní shān", "bō là diǎn", "shé jí lì", "mó hē suō hē sà là",
+    "bó shù suō hē sà là", "shì lì shā", "jù zhī suō hē sà ní",
+    "dì lì ā bì tí shì pó lì duō", "zhā zhā yīng jiā", "mó hē bá shé lú tuó là",
+    "dì lì pú pó nuó", "màn chá là", "wū xìn", "suō xī dì", "bó pó dū", "mó mó",
+    "yìn tù nuó mó mó xiè", "là shé pó yè", "zhǔ là bá yè", "ā qì ní pó yè",
+    "wū tuó jiā pó yè", "pí shā pó yè", "shě sà duō là pó yè", "pó là zhuó jié là pó yè",
+    "tū sè chā pó yè", "ā shě nǐ pó yè", "ā jiā là", "mì lì zhù pó yè",
+    "tuó là ní bù mí jiàn", "bō qié bō tuó pó yè", "wū là jiā pó duō pó yè",
+    "lā shé tán chá pó yè", "nuó qié pó yè", "pí tiáo dá pó yè", "sū bō là ná pó yè",
+    "yào chā jiē là hē", "là chā sī jiē là hē", "bì lì duō jiē là hē",
+    "pí shě zhē jiē là hē", "bù duō jiē là hē", "jiū pán chá jiē là hē",
+    "bǔ dān nuó jiē là hē", "jiā zhā bǔ dān nuó jiē là hē", "xī qián dù jiē là hē"
+  ];
+  if (Array.isArray(window.RI_ZONG_LENG_YAN_PINYIN)) {
+    window.RI_ZONG_LENG_YAN_PINYIN.splice(215, lengYanPinyinFix.length, ...lengYanPinyinFix);
+  }
 
   const STORAGE_KEY = "ri_zong_reader_v1";
   const $ = id => document.getElementById(id);
