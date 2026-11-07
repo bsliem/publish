@@ -1,0 +1,783 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="theme-color" content="#081521">
+<title>佛頂尊勝陀羅尼</title>
+
+<style>
+/* ==== BASE ==== */
+*{
+  box-sizing:border-box;
+  -webkit-tap-highlight-color:transparent
+}
+html,body{
+  margin:0;
+  width:100%;
+  height:100%;
+  overflow:hidden;
+  background:#081521;
+  color:#d7e1e9;
+  font-family:-apple-system,BlinkMacSystemFont,
+    "Segoe UI",Arial,sans-serif;
+  -webkit-text-size-adjust:100%;
+}
+body{
+  position:fixed;
+  inset:0
+}
+.app{
+  height:100vh;
+  height:100svh;
+  height:100dvh;
+  display:flex;
+  flex-direction:column;
+  padding:6px 9px calc(8px + env(safe-area-inset-bottom));
+  overflow:hidden;
+}
+
+/* ==== HEADER ==== */
+.title{
+  text-align:center;
+  font-size:20px;
+  font-weight:700;
+  margin:0;
+  flex-shrink:0
+}
+.subtitle{
+  text-align:center;
+  color:#8ba0af;
+  font-size:11px;
+  margin:2px 0 7px;
+  flex-shrink:0
+}
+
+/* ==== BUTTONS ==== */
+button{
+  border:1px solid #40596c;
+  background:#132838;
+  color:#d9e1e8;
+  border-radius:13px;
+  min-height:43px;
+  font-size:14px;
+  font-weight:700;
+  padding:4px 5px;
+  touch-action:manipulation
+}
+button.active{
+  background:#30485a;
+  border-color:#e0b94f;
+  color:#ffe39a
+}
+
+/* ==== TOP CONTROLS ==== */
+.toolbar{
+  display:grid;
+  grid-template-columns:65px 65px minmax(0,1fr);
+  gap:7px;
+  margin-bottom:7px;
+  flex-shrink:0;
+}
+#resetBtn{color:#e6c679}
+
+.zoom-box{
+  display:flex;
+  align-items:center;
+  gap:7px;
+  padding:0 10px;
+  border:1px solid #40596c;
+  background:#132838;
+  border-radius:13px;
+  min-width:0
+}
+.zoom-label{
+  color:#d7e1e9;
+  font-size:13px;
+  white-space:nowrap
+}
+.zoom-value{
+  color:#e6c679;
+  font-size:12px;
+  min-width:20px;
+  text-align:right;
+  font-variant-numeric:tabular-nums
+}
+#zoomSlider{
+  flex:1;
+  width:100%;
+  min-width:0;
+  height:30px;
+  margin:0;
+  accent-color:#e6c679;
+  touch-action:pan-x
+}
+
+/* ==== PICKER ==== */
+.picker{
+  display:none;
+  grid-template-columns:repeat(8,minmax(0,1fr));
+  gap:5px;
+  margin-bottom:6px;
+  max-height:125px;
+  overflow:auto;
+  flex-shrink:0
+}
+.picker.show{display:grid}
+.picker button{
+  min-height:37px;
+  font-size:14px;
+  border-radius:10px
+}
+
+/* ==== STATUS ==== */
+.status{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin:0 3px 5px;
+  font-size:14px;
+  color:#aebdc9;
+  flex-shrink:0
+}
+.bar{
+  height:5px;
+  background:#294051;
+  border-radius:20px;
+  overflow:hidden;
+  margin-bottom:7px;
+  flex-shrink:0
+}
+.fill{
+  height:100%;
+  background:#e6c679;
+  width:0
+}
+
+/* ==== READING CARD ==== */
+.card{
+  flex:1 1 0;
+  min-height:0;
+  background:#102636;
+  border:1px solid #40596c;
+  border-radius:22px;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column
+}
+
+/* Independent scroll area */
+.reading{
+  flex:1;
+  min-height:0;
+  overflow-y:auto;
+  overflow-x:hidden;
+  -webkit-overflow-scrolling:touch;
+  overscroll-behavior:contain;
+  padding:14px 13px;
+  scrollbar-width:none
+}
+.reading::-webkit-scrollbar{
+  display:none
+}
+
+/* Short text stays centered.
+   Long text scrolls without clipping. */
+.reading-inner{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  min-height:100%;
+  width:100%;
+  text-align:center
+}
+
+.maintext{
+  width:100%;
+  font-family:"Times New Roman",Georgia,serif;
+  font-size:30px;
+  line-height:1.38;
+  font-weight:400;
+  color:#fff0c9;
+  overflow-wrap:anywhere;
+  word-break:normal;
+  hyphens:none
+}
+.maintext.vietnamese{
+  font-family:-apple-system,BlinkMacSystemFont,
+    "Segoe UI",Arial,sans-serif;
+  line-height:1.48;
+  font-weight:400
+}
+
+/* ==== DETAILS ==== */
+.detail{
+  display:none;
+  width:100%;
+  margin-top:15px;
+  padding-top:14px;
+  border-top:1px solid #304858
+}
+.detail.show{display:block}
+.devanagari{
+  font-size:25px;
+  line-height:1.42;
+  color:#c6d3dc;
+  overflow-wrap:anywhere
+}
+.meaning{
+  font-size:23px;
+  line-height:1.5;
+  color:#e0bb59;
+  margin-top:13px;
+  overflow-wrap:anywhere
+}
+
+/* ==== BOTTOM NAV ==== */
+.nav{
+  display:grid;
+  grid-template-columns:1.15fr .7fr 1fr 1.15fr;
+  gap:5px;
+  margin-top:7px;
+  flex-shrink:0
+}
+.nav button{
+  min-height:45px;
+  font-size:13px;
+  padding:4px 2px
+}
+
+.keys{
+  text-align:center;
+  color:#607a8c;
+  font-size:10px;
+  margin-top:4px;
+  flex-shrink:0
+}
+
+/* ==== SMALL IPHONE ==== */
+@media(max-width:390px){
+  .title{font-size:19px}
+  .toolbar{
+    grid-template-columns:58px 58px minmax(0,1fr);
+    gap:5px
+  }
+  .zoom-box{
+    padding:0 6px;
+    gap:4px
+  }
+  .zoom-label{font-size:12px}
+  .nav button{font-size:12px}
+  .reading{padding:12px 10px}
+}
+@media(max-height:620px){
+  .subtitle{margin-bottom:4px}
+  .toolbar{margin-bottom:4px}
+  .keys{display:none}
+}
+</style>
+</head>
+
+<body>
+<div class="app">
+
+  <!-- ==== TITLE ==== -->
+  <div class="title">佛頂尊勝陀羅尼</div>
+  <div class="subtitle">
+    Uṣṇīṣa Vijaya Dhāraṇī · 16句
+  </div>
+
+  <!-- ==== TOP TOOLBAR ==== -->
+  <div class="toolbar">
+    <button id="pickBtn" onclick="togglePicker()">選句</button>
+    <button id="resetBtn" onclick="resetFirst()">重頭</button>
+
+    <div class="zoom-box">
+      <span class="zoom-label">字級</span>
+      <input
+        id="zoomSlider"
+        type="range"
+        min="20"
+        max="48"
+        step="1"
+        value="30"
+        oninput="setZoom(this.value)"
+        aria-label="調整字級"
+      >
+      <span id="zoomValue" class="zoom-value">30</span>
+    </div>
+  </div>
+
+  <!-- ==== VERSE PICKER ==== -->
+  <div id="picker" class="picker"></div>
+
+  <!-- ==== STATUS ==== -->
+  <div class="status">
+    <div id="position">第 1 / 16 句</div>
+    <div id="modeLabel">梵語</div>
+  </div>
+
+  <div class="bar">
+    <div id="fill" class="fill"></div>
+  </div>
+
+  <!-- ==== READING CARD ==== -->
+  <div id="card" class="card">
+    <div id="reading" class="reading">
+      <div class="reading-inner">
+
+        <div id="maintext" class="maintext"></div>
+
+        <div id="detail" class="detail">
+          <div id="devanagari" class="devanagari"></div>
+          <div id="meaning" class="meaning"></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ==== NAVIGATION ==== -->
+  <div class="nav">
+    <button onclick="prev()">← 上一句</button>
+    <button id="vietBtn" onclick="toggleVietnamese()">越語</button>
+    <button id="detailBtn" onclick="toggleDetail(event)">梵字 / 義</button>
+    <button onclick="next()">下一句 →</button>
+  </div>
+
+  <div class="keys">
+    Space / → / ↓ 下一句 · ← / ↑ 上一句 · V 越語 · D 梵字 · Home 重頭
+  </div>
+
+</div>
+
+<script>
+// ==== DATA: 16 VERSES ====
+var ITEMS=[
+{
+n:"01",
+s:"Namo bhagavate trailokya-prativiśiṣṭāya buddhāya bhagavate tadyathā oṃ",
+v:"Nam mô ba ga va tê, Trai lô ki ya, Pra ti vi sís ta ya, Bút đa ya, Ba ga va tê, Ta đi ya tha, Um.",
+d:"नमो भगवते त्रैलोक्यप्रतिविशिष्टाय बुद्धाय भगवते तद्यथा ॐ",
+m:"歸命世尊・三界最勝佛・即說咒曰・唵"
+},
+{
+n:"02",
+s:"Viśodhaya viśodhaya asama-sama samantā-vabhāsa spharaṇa-gati-gahana",
+v:"Vì sụt đà yà, Vì sụt đà yà, A sa ma, Sa ma, Sa man ta, Wa ba sas-pha ra na, Ga ti ga ha na.",
+d:"विशोधय विशोधय असमसम समन्तावभास स्फरणगतिगहन",
+m:"清淨・清淨・無等同等・普遍光明・周遍照耀"
+},
+{
+n:"03",
+s:"Svabhāva-viśuddhe abhiṣiñcatu mām sugata-vara-vacanāmṛtābhiṣekai mahā",
+v:"Sô ba wa, Vi sút đê, A bi xin cha tu, Mam, Su ga ta, Wa ra, Wa cha na, A mê ri ta, A bi xê kai, Ma ha.",
+d:"स्वभावविशुद्धे अभिषिञ्चतु माम् सुगतवरवचनामृताभिषेकै महा",
+m:"自性清淨・灌頂於我・善逝勝語・甘露灌頂"
+},
+{
+n:"04",
+s:"Mantra-padai āhara āhara āyuḥ-saṃdhāraṇi śodhaya śodhaya gagana-viśuddhe",
+v:"Man tra, Pa đai, A ha ra, A ha ra, A yu sâm đa ra ni, Sút đa ya, Sút đa ya, Ga ga na, Wi sút đê.",
+d:"मन्त्रपदै आहर आहर आयुःसंधारणि शोधय शोधय गगनविशुद्धे",
+m:"真言句・攝受攝受・持命長壽・清淨虛空"
+},
+{
+n:"05",
+s:"Uṣṇīṣa-vijaya-viśuddhe sahasra-raśmi-saṃcodite",
+v:"Gus ni sa, Wi cha ya, Wi shút đê, Sa hás ra, Rás mi, Sam chô đi tê.",
+d:"उष्णीषविजयविशुद्धे सहस्ररश्मिसंचोदिते",
+m:"佛頂尊勝・清淨・千光照耀"
+},
+{
+n:"06",
+s:"Sarva-tathāgatāvalokani ṣaṭ-pāramitā-paripūrani",
+v:"Sa wa, Ta tha ga ta, A va lô ka ni, Sát pa ra mi ta, Pa ri pu ra ni.",
+d:"सर्वतथागतावलोकनि षट्पारमितापरिपूरणि",
+m:"一切如來觀察・六波羅蜜圓滿"
+},
+{
+n:"07",
+s:"Sarva-tathāgata-mati-daśa-bhūmi-pratiṣṭhite",
+v:"Sa wa, Ta tha ga ta, Ma ti, Đa sa, Bu mi, Pra tis ti tê.",
+d:"सर्वतथागतमतिदशभूमिप्रतिष्ठिते",
+m:"一切如來智慧・安住十地"
+},
+{
+n:"08",
+s:"Sarva-tathāgata-hṛdayādhiṣṭhānādhiṣṭhita mahā-mudre vajra-kāya-saṃhatana",
+v:"Sa wa, Ta tha ga ta, Ri đa ya, A đis ta na, Đis ti ta, Ma ha, Mu trê, Wa cha ka ya, Sam hát ta na.",
+d:"सर्वतथागतहृदयाधिष्ठानाधिष्ठित महामुद्रे वज्रकायसंहतन",
+m:"一切如來心印加持・大印契・金剛身成就"
+},
+{
+n:"09",
+s:"Viśuddhe sarvāvaraṇāpāya-durgati-pariśuddhe prati-nivartaya āyuḥ-śuddhe",
+v:"Wi sút đê, Sa wa wa ra na, A pa ya, Đưa ga ti, Pa ri vi sút đê, Pra ti ni wa ta ya, A yu sút đê.",
+d:"विशुद्धे सर्वावरणापायदुर्गतिपरिशुद्धे प्रतिनिवर्तय आयुःशुद्धे",
+m:"清淨・一切障礙・惡趣苦難清淨・還復壽命"
+},
+{
+n:"10",
+s:"Samayādhiṣṭhite maṇi maṇi mahā-maṇi tathatā-bhūta-koṭi-pariśuddhe visphuṭa",
+v:"Sa ma ya, A đis ti tê, Ma ni ma ni, Ma ha ma ni, Ta tha ta, Bu ta, Bu ta kô ti, Pa ri sút đê, Vis phu ta.",
+d:"समयाधिष्ठिते मणि मणि महामणि तथताभूतकोटिपरिशुद्धे विस्फुट",
+m:"三昧耶加持・如意寶珠・大寶珠・真如法界清淨顯現"
+},
+{
+n:"11",
+s:"Buddhi-śuddhe jaya jaya vijaya vijaya smara smara sarva-buddhādhiṣṭhita",
+v:"Bút đi sút đê, Cha ya cha ya, Wi cha ya, Wi cha ya, Sma ra sma ra, Sa wa, Bút đa, A đis ti ta.",
+d:"बुद्धिशुद्धे जय जय विजय विजय स्मर स्मर सर्वबुद्धाधिष्ठित",
+m:"智慧清淨・勝利勝利・大勝利・憶念諸佛加持"
+},
+{
+n:"12",
+s:"Śuddhe vajri vajra-garbhe vajraṃ bhavatu mama śarīram",
+v:"Sút đê, Wa tri wa tra, Ga bê wa trăm, Ba wa tu, Ma ma, Sa ri râm.",
+d:"शुद्धे वज्रि वज्रगर्भे वज्रं भवतु मम शरीरम्",
+m:"清淨金剛・金剛藏・願我身成金剛身"
+},
+{
+n:"13",
+s:"Sarva-sattvānāṃ ca kāya-pariśuddhe sarva-gati-pariśuddhe",
+v:"Sa wa, Sát wa năm, Cha ka ya, Pa ri vi sút đê, Sa wa ga ti, Pa ri sút đê.",
+d:"सर्वसत्त्वानां च कायपरिशुद्धे सर्वगतिपरिशुद्धे",
+m:"一切眾生身清淨・一切趣向清淨"
+},
+{
+n:"14",
+s:"Sarva-tathāgata-siñca me samā-śvāsa yantu sarva-tathāgata-samāśvāsādhiṣṭhite",
+v:"Sa wa, Ta tha ga ta, Xin cha mê, Sa ma soa sa yan tu, Sa wa, Ta tha ga ta, Sa ma soa sa, A đis ti tê.",
+d:"सर्वतथागतसिञ्च मे समाश्वास यन्तु सर्वतथागतसमाश्वासाधिष्ठिते",
+m:"一切如來灌頂於我・賜予安慰・一切如來安慰加持"
+},
+{
+n:"15",
+s:"Budhya budhya vibudhya vibudhya bodhaya bodhaya vibodhaya vibodhaya",
+v:"Bu đi ya, Bu đi ya, Vi bu đi ya, Vi bu đi ya, Bồ đà ya, Bồ đà ya, Vi bồ đà ya, Vi bồ đà ya.",
+d:"बुध्य बुध्य विबुध्य विबुध्य बोधय बोधay vibोधay vibोधay",
+m:"覺悟覺悟・廣大覺悟・令覺悟・令遍覺悟"
+},
+{
+n:"16",
+s:"Samanta-pariśuddhe sarva-tathāgata-hṛdayādhiṣṭhānādhiṣṭhita mahā-mudre svāhā",
+v:"Sa man ta, Pa ri shút đê, Sa wa, Ta tha ga ta, Ri đa ya, A đis tá na, Đis tí ta, Ma ha, Mu trê, Soa ha.",
+d:"समन्तपरिशुद्धे सर्वतथागतहृदयाधिष्ठानाधिष्ठित महामुद्रे स्वाहा",
+m:"普遍清淨・一切如來心印加持・大印契・娑婆訶"
+}
+];
+
+// ==== STORAGE ====
+var KEY="pdtt_clean_v3";
+var LANGKEY="pdtt_language_v1";
+var ZOOMKEY="pdtt_zoom_v1";
+
+var index=0;
+var vietnamese=false;
+var detailOpen=false;
+var zoom=30;
+
+var touchX=0;
+var touchY=0;
+var swiped=false;
+var suppressClick=false;
+
+function byId(id){
+  return document.getElementById(id);
+}
+
+function save(){
+  try{
+    localStorage.setItem(KEY,String(index));
+    localStorage.setItem(
+      LANGKEY,vietnamese?"vi":"sa"
+    );
+    localStorage.setItem(ZOOMKEY,String(zoom));
+  }catch(e){}
+}
+
+function load(){
+  try{
+    var v=parseInt(localStorage.getItem(KEY),10);
+    if(!isNaN(v)){
+      index=Math.max(0,Math.min(ITEMS.length-1,v));
+    }
+
+    vietnamese=
+      localStorage.getItem(LANGKEY)==="vi";
+
+    var z=parseInt(
+      localStorage.getItem(ZOOMKEY),10
+    );
+    if(!isNaN(z)){
+      zoom=Math.max(20,Math.min(48,z));
+    }
+  }catch(e){}
+}
+
+// ==== ZOOM SLIDER ====
+function setZoom(value){
+  zoom=Math.max(20,Math.min(48,Number(value)||30));
+
+  byId("zoomSlider").value=zoom;
+  byId("zoomValue").textContent=zoom;
+
+  // Sanskrit and Vietnamese share one main font size.
+  byId("maintext").style.fontSize=zoom+"px";
+
+  // Detail text scales proportionally.
+  byId("devanagari").style.fontSize=
+    Math.round(zoom*0.83)+"px";
+
+  byId("meaning").style.fontSize=
+    Math.round(zoom*0.76)+"px";
+
+  save();
+}
+
+// ==== TEXT MODE ====
+function renderText(){
+  var it=ITEMS[index];
+  var main=byId("maintext");
+
+  main.textContent=vietnamese?it.v:it.s;
+  main.classList.toggle("vietnamese",vietnamese);
+
+  byId("vietBtn").classList.toggle(
+    "active",vietnamese
+  );
+
+  byId("modeLabel").textContent=
+    vietnamese?"越語":"梵語";
+
+  setZoom(zoom);
+}
+
+function toggleVietnamese(){
+  vietnamese=!vietnamese;
+  renderText();
+  byId("reading").scrollTop=0;
+  save();
+}
+
+// ==== RENDER VERSE ====
+function render(){
+  var it=ITEMS[index];
+
+  byId("position").textContent=
+    "第 "+(index+1)+" / "+ITEMS.length+" 句";
+
+  byId("fill").style.width=
+    ((index+1)/ITEMS.length*100)+"%";
+
+  byId("devanagari").textContent=it.d;
+  byId("meaning").textContent=it.m;
+
+  detailOpen=false;
+  byId("detail").classList.remove("show");
+  byId("detailBtn").classList.remove("active");
+
+  renderText();
+  updatePicker();
+  save();
+
+  byId("reading").scrollTop=0;
+}
+
+// ==== NAVIGATION ====
+function next(){
+  index=(index+1)%ITEMS.length;
+  render();
+}
+
+function prev(){
+  index=(index-1+ITEMS.length)%ITEMS.length;
+  render();
+}
+
+function resetFirst(){
+  index=0;
+  byId("picker").classList.remove("show");
+  render();
+}
+
+// ==== DETAILS ====
+function toggleDetail(e){
+  if(e){
+    e.preventDefault();
+    e.stopPropagation();
+  }
+
+  detailOpen=!detailOpen;
+
+  byId("detail").classList.toggle(
+    "show",detailOpen
+  );
+  byId("detailBtn").classList.toggle(
+    "active",detailOpen
+  );
+
+  byId("reading").scrollTop=0;
+}
+
+// ==== PICKER ====
+function buildPicker(){
+  var p=byId("picker");
+  p.innerHTML="";
+
+  for(var i=0;i<ITEMS.length;i++){
+    var b=document.createElement("button");
+
+    b.textContent=String(i+1);
+    b.setAttribute("data-i",String(i));
+
+    b.onclick=function(e){
+      e.preventDefault();
+      e.stopPropagation();
+
+      index=parseInt(
+        this.getAttribute("data-i"),10
+      );
+
+      p.classList.remove("show");
+      render();
+    };
+
+    p.appendChild(b);
+  }
+}
+
+function updatePicker(){
+  var bs=byId("picker").getElementsByTagName("button");
+
+  for(var i=0;i<bs.length;i++){
+    bs[i].classList.toggle("active",i===index);
+  }
+}
+
+function togglePicker(){
+  byId("picker").classList.toggle("show");
+  updatePicker();
+}
+
+// ==== TOUCH / SWIPE ====
+byId("reading").addEventListener(
+  "touchstart",
+  function(e){
+    swiped=false;
+    if(e.touches.length){
+      touchX=e.touches[0].clientX;
+      touchY=e.touches[0].clientY;
+    }
+  },
+  {passive:true}
+);
+
+byId("reading").addEventListener(
+  "touchend",
+  function(e){
+    if(!e.changedTouches.length)return;
+
+    var dx=e.changedTouches[0].clientX-touchX;
+    var dy=e.changedTouches[0].clientY-touchY;
+
+    if(
+      Math.abs(dx)>50 &&
+      Math.abs(dx)>Math.abs(dy)*1.4
+    ){
+      swiped=true;
+      suppressClick=true;
+      e.preventDefault();
+
+      if(dx<0)next();
+      else prev();
+
+      setTimeout(function(){
+        suppressClick=false;
+      },350);
+    }
+  },
+  {passive:false}
+);
+
+// Tap advances only when not showing details.
+byId("reading").addEventListener(
+  "click",
+  function(e){
+    if(swiped||suppressClick){
+      swiped=false;
+      return;
+    }
+    if(!detailOpen)next();
+  }
+);
+
+// ==== HARDWARE KEYBOARD ====
+document.addEventListener("keydown",function(e){
+  var k=e.key||"";
+  if(e.repeat)return;
+
+  if(
+    e.code==="Space" ||
+    k===" " ||
+    k==="ArrowRight" ||
+    k==="ArrowDown"
+  ){
+    e.preventDefault();
+    next();
+    return;
+  }
+
+  if(k==="ArrowLeft"||k==="ArrowUp"){
+    e.preventDefault();
+    prev();
+    return;
+  }
+
+  if(k==="v"||k==="V"){
+    e.preventDefault();
+    toggleVietnamese();
+    return;
+  }
+
+  if(k==="d"||k==="D"){
+    e.preventDefault();
+    toggleDetail(e);
+    return;
+  }
+
+  if(k==="Home"){
+    e.preventDefault();
+    resetFirst();
+    return;
+  }
+});
+
+// ==== VIEWPORT ====
+function stabilizeViewport(){
+  window.scrollTo(0,0);
+  document.documentElement.scrollTop=0;
+  document.body.scrollTop=0;
+}
+
+window.addEventListener(
+  "pageshow",stabilizeViewport
+);
+
+window.addEventListener("resize",function(){
+  stabilizeViewport();
+});
+
+// ==== INITIALIZE ====
+buildPicker();
+load();
+setZoom(zoom);
+render();
+stabilizeViewport();
+
+</script>
+</body>
+</html>
