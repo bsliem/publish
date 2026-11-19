@@ -1,0 +1,1298 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#17130f">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <title>佛頂尊勝陀羅尼經 · 逐句讀誦</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #17130f;
+      --panel: #211b15;
+      --panel-active: #2b231a;
+      --border: #594a38;
+      --text: #f4ead8;
+      --muted: #b9a991;
+      --gold: #d9bd80;
+      --green: #9bbca5;
+      --font-size: 44px;
+    }
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Songti TC", "Noto Serif TC", "STSong", "PingFang TC", serif;
+    }
+    button, input, select { font: inherit; }
+    button, select { touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
+    button:focus-visible, input:focus-visible, select:focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 3px;
+    }
+    button:disabled { opacity: .4; }
+    main {
+      width: min(100%, 820px);
+      min-height: 100vh;
+      min-height: 100svh;
+      margin: auto;
+      padding: max(14px, env(safe-area-inset-top)) 14px max(24px, env(safe-area-inset-bottom));
+    }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+    h1 {
+      margin: 0;
+      color: var(--gold);
+      font-size: 19px;
+      font-weight: 600;
+      letter-spacing: .04em;
+    }
+    #saveStatus { color: var(--green); font: 12px/1.4 system-ui, sans-serif; white-space: nowrap; }
+    .toolbar {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto auto auto;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    select, .tool-button, input {
+      min-height: 44px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: var(--panel);
+      color: var(--text);
+    }
+    select { min-width: 0; padding: 7px 34px 7px 12px; font: 16px system-ui, sans-serif; }
+    .tool-button { min-width: 46px; padding: 7px 12px; font: 16px system-ui, sans-serif; cursor: pointer; }
+    .search-panel {
+      margin: -2px 0 10px;
+      padding: 10px;
+      border: 1px solid #403528;
+      border-radius: 13px;
+      background: #1b1712;
+      font-family: system-ui, sans-serif;
+    }
+    .search-panel[hidden] { display: none; }
+    .search-form {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 7px;
+    }
+    .search-form input {
+      width: 100%;
+      min-width: 0;
+      padding: 7px 10px;
+      font-size: 16px;
+    }
+    .search-form button,
+    .search-navigation button {
+      min-height: 42px;
+      padding: 7px 11px;
+      border: 1px solid var(--border);
+      border-radius: 11px;
+      background: var(--panel);
+      color: var(--text);
+      font: 14px system-ui, sans-serif;
+      cursor: pointer;
+    }
+    .search-navigation {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      margin-top: 8px;
+    }
+    #searchResult {
+      flex: 1;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.4;
+    }
+    mark {
+      padding: 0 .08em;
+      border-radius: .12em;
+      background: #d9bd80;
+      color: #17130f;
+    }
+    .meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin: 8px 3px;
+      color: var(--muted);
+      font: 14px/1.5 system-ui, sans-serif;
+    }
+    .current-jump {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 5px;
+      white-space: nowrap;
+    }
+    .current-jump input {
+      width: 76px;
+      min-height: 36px;
+      padding: 5px 7px;
+      text-align: center;
+      font-size: 15px;
+      font-variant-numeric: tabular-nums;
+    }
+    .current-jump button {
+      min-height: 36px;
+      padding: 5px 10px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: var(--panel);
+      color: var(--text);
+      font: 14px system-ui, sans-serif;
+      cursor: pointer;
+    }
+    #progress {
+      -webkit-appearance: none;
+      appearance: none;
+      display: block;
+      width: 100%;
+      min-height: 28px;
+      height: 28px;
+      margin: -6px 0 8px;
+      padding: 0;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      cursor: pointer;
+      touch-action: pan-y;
+    }
+    #progress::-webkit-slider-runnable-track {
+      height: 7px;
+      border-radius: 8px;
+      background: linear-gradient(
+        to right,
+        var(--gold) 0%,
+        var(--gold) var(--range-progress, 0%),
+        #33291f var(--range-progress, 0%),
+        #33291f 100%
+      );
+    }
+    #progress::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 20px;
+      height: 20px;
+      margin-top: -6.5px;
+      border: 2px solid #f4ead8;
+      border-radius: 50%;
+      background: var(--gold);
+      box-shadow: 0 0 0 2px #33291f;
+    }
+    #progress::-moz-range-track {
+      height: 7px;
+      border-radius: 8px;
+      background: #33291f;
+    }
+    #progress::-moz-range-progress {
+      height: 7px;
+      border-radius: 8px;
+      background: var(--gold);
+    }
+    #progress::-moz-range-thumb {
+      width: 16px;
+      height: 16px;
+      border: 2px solid #f4ead8;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+    #card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      width: 100%;
+      min-height: 46vh;
+      min-height: 46svh;
+      padding: 28px 22px;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      background: var(--panel);
+      color: var(--text);
+      cursor: pointer;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+    #card:active:not(:disabled) { background: var(--panel-active); }
+    .annotation-area { margin-top: 8px; padding: 9px 11px; border: 1px solid #403528; border-radius: 12px; background: #1b1712; font-family: system-ui, sans-serif; }
+    .annotation-area[hidden] { display: none; }
+    .annotation-buttons { display: flex; flex-wrap: wrap; gap: 8px; }
+    #baihuaButton, #englishButton, #vietnameseButton, #pinyinButton { min-height: 34px; padding: 5px 10px; border: 1px solid var(--border); border-radius: 9px; background: var(--panel); color: var(--text); font-size: 13px; cursor: pointer; }
+    #baihuaButton, #englishButton { color: var(--gold); }
+    #vietnameseButton { color: var(--green); }
+    #baihuaButton[aria-expanded="true"], #englishButton[aria-expanded="true"], #vietnameseButton[aria-expanded="true"], #pinyinButton[aria-expanded="true"] { outline: 2px solid var(--gold); outline-offset: 3px; }
+    #baihuaText, #englishText, #vietnameseText, #pinyinText { display: block; margin: 0 0 9px; color: #ffd75a; font-size: 24px; font-weight: 600; line-height: 1.5; text-shadow: 0 1px 2px #000; }
+    #baihuaText, #englishText { font-size: 21px; }
+    #baihuaText[hidden], #englishText[hidden], #vietnameseText[hidden], #pinyinText[hidden] { display: none; }
+    #sentence {
+      max-width: 100%;
+      font-size: var(--font-size);
+      font-weight: 400;
+      line-height: 1.7;
+      letter-spacing: .045em;
+      overflow-wrap: anywhere;
+      text-align: left;
+    }
+    .context-sentence {
+      width: 100%;
+      color: var(--muted);
+      font-size: max(18px, calc(var(--font-size) * .48));
+      font-weight: 400;
+      line-height: 1.55;
+      letter-spacing: .035em;
+      overflow-wrap: anywhere;
+      text-align: left;
+    }
+    .context-sentence.near { opacity: .55; }
+    .context-sentence.far { opacity: .28; }
+    .context-sentence[hidden] { display: none; }
+    .nav {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 12px;
+    }
+    .nav button {
+      min-height: 52px;
+      padding: 10px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: var(--panel);
+      color: var(--text);
+      font: 18px system-ui, sans-serif;
+      cursor: pointer;
+    }
+    .volume-info {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      white-space: nowrap;
+    }
+    .copy-row {
+      position: relative;
+      display: flex;
+      align-items: center;
+      min-height: 34px;
+      font-family: system-ui, sans-serif;
+    }
+    #copyButton {
+      min-height: 34px;
+      padding: 5px 8px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: var(--panel);
+      color: var(--muted);
+      font-size: 13px;
+      cursor: pointer;
+    }
+    #copyStatus {
+      position: absolute;
+      left: calc(100% + 5px);
+      color: var(--green);
+      font-size: 12px;
+      white-space: nowrap;
+    }
+    .hint { margin: 9px 0 14px; color: #95856e; text-align: center; font: 13px/1.5 system-ui, sans-serif; }
+    details {
+      margin-top: 14px;
+      padding: 13px;
+      border: 1px solid #403528;
+      border-radius: 14px;
+      background: #1b1712;
+      font-family: system-ui, sans-serif;
+    }
+    summary { color: var(--muted); cursor: pointer; font-size: 15px; }
+    .actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+    .actions button { min-height: 42px; padding: 8px 12px; border: 1px solid var(--border); border-radius: 11px; background: var(--panel); color: var(--text); font: 14px system-ui, sans-serif; }
+    .note-context { margin: 10px 0 6px; color: var(--muted); font: 13px/1.45 system-ui, sans-serif; }
+    .note-fields { display: grid; gap: 8px; }
+    .note-fields input, .note-fields textarea { box-sizing: border-box; width: 100%; border: 1px solid var(--border); border-radius: 10px; background: var(--panel-active); color: var(--text); font: 14px/1.45 system-ui, sans-serif; }
+    .note-fields input { min-height: 36px; padding: 6px 9px; }
+    .note-fields textarea { min-height: 84px; padding: 8px 9px; resize: vertical; }
+    .note-list { display: grid; gap: 8px; margin-top: 12px; }
+    .note-item { padding: 9px; border: 1px solid #403528; border-radius: 10px; background: var(--panel); }
+    .note-meta { color: var(--gold); font: 12px/1.4 system-ui, sans-serif; }
+    .note-sentence { margin-top: 5px; color: var(--muted); font-size: 14px; }
+    .note-body { margin-top: 5px; white-space: pre-wrap; font: 14px/1.5 system-ui, sans-serif; }
+    .note-delete { float: right; border: 0; background: transparent; color: #b9a991; font-size: 12px; cursor: pointer; }
+    .note-edit { float: right; margin-right: 9px; border: 0; background: transparent; color: var(--green); font-size: 12px; cursor: pointer; }
+    .note-go { float: right; margin-right: 9px; border: 0; background: transparent; color: var(--gold); font-size: 12px; cursor: pointer; }
+    #noteNotice { min-height: 0; margin: 8px 0 0; color: var(--green); font: 13px/1.5 system-ui, sans-serif; }
+    #noteNotice:empty { display: none; }
+    #notice { min-height: 0; margin: 10px 0 0; color: var(--gold); font: 13px/1.5 system-ui, sans-serif; }
+    #notice:empty { display: none; }
+    @media (min-width: 640px) {
+      main { padding-left: 24px; padding-right: 24px; }
+      #sentence, .context-sentence { text-align: center; }
+    }
+    @media (max-width: 520px) {
+      main {
+        padding: max(10px, env(safe-area-inset-top)) 10px
+          calc(max(20px, env(safe-area-inset-bottom)) + 86px);
+      }
+      header { margin: 0 2px 10px; }
+      h1 { font-size: 18px; }
+      .toolbar { gap: 6px; margin-bottom: 8px; }
+      select { min-height: 42px; padding-left: 10px; }
+      .tool-button { min-width: 44px; min-height: 42px; padding: 6px 10px; }
+      #searchToggle { min-width: 52px; padding-inline: 8px; font-size: 14px; }
+      .search-panel { margin-bottom: 8px; padding: 8px; }
+      .search-navigation button { min-height: 38px; padding: 5px 8px; font-size: 13px; }
+      .meta { gap: 6px; margin: 6px 2px; font-size: 13px; }
+      .current-jump { gap: 3px; }
+      .current-jump input { width: 64px; min-height: 34px; padding: 4px; font-size: 16px; }
+      .current-jump button { min-height: 34px; padding: 4px 7px; font-size: 13px; }
+      #progress { margin-bottom: 4px; }
+      #card {
+        min-height: 0;
+        gap: 10px;
+        padding: 20px 14px;
+        border-radius: 20px;
+      }
+      #sentence { line-height: 1.55; letter-spacing: .025em; }
+      .context-sentence {
+        font-size: max(16px, calc(var(--font-size) * .43));
+        line-height: 1.42;
+        letter-spacing: .02em;
+      }
+      .nav { gap: 8px; margin-top: 9px; }
+      .nav button { min-height: 48px; padding: 8px; font-size: 17px; }
+      #copyButton { min-height: 34px; padding: 4px 7px; font-size: 12px; }
+      .hint { margin: 7px 0 10px; font-size: 12px; }
+      details { margin-top: 10px; padding: 11px; }
+    }
+    @media (max-width: 380px) {
+      .meta { align-items: stretch; flex-direction: column; }
+      .current-jump { justify-content: flex-start; }
+    }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>佛頂尊勝陀羅尼經</h1>
+    <span id="saveStatus">自動儲存</span>
+  </header>
+
+  <div class="toolbar">
+    <select id="volumeSelect" aria-label="選擇篇章"></select>
+    <button id="smallerButton" class="tool-button" type="button" aria-label="縮小字體">A−</button>
+    <button id="largerButton" class="tool-button" type="button" aria-label="放大字體">A+</button>
+    <button id="searchToggle" class="tool-button" type="button" aria-expanded="false" aria-controls="searchPanel">搜尋</button>
+  </div>
+  <div id="searchPanel" class="search-panel" hidden>
+    <div class="search-form">
+      <input id="searchInput" type="search" placeholder="搜尋經文，例如：善住天子" aria-label="搜尋經文">
+      <button id="searchButton" type="button">搜尋</button>
+    </div>
+    <div class="search-navigation">
+      <span id="searchResult" role="status"></span>
+      <button id="searchPrevious" type="button" disabled>上一處</button>
+      <button id="searchNext" type="button" disabled>下一處</button>
+    </div>
+  </div>
+
+  <div class="meta">
+    <div class="volume-info">
+      <span id="volumePosition"></span>
+      <div class="copy-row">
+        <button id="copyButton" type="button" aria-label="複製前一句、目前句與後一句">複製</button>
+        <span id="copyStatus" role="status"></span>
+      </div>
+    </div>
+    <div class="current-jump">
+      <span>第</span>
+      <input id="jumpInput" type="number" inputmode="numeric" min="1" step="1" aria-label="本篇句次">
+      <span>/ <span id="chapterTotal"></span>句</span>
+      <button id="jumpButton" type="button">前往</button>
+    </div>
+  </div>
+  <input id="progress" type="range" min="1" value="1" aria-label="拖曳至本篇指定句">
+
+  <button id="card" type="button" aria-label="已誦此句，顯示下一句">
+    <span id="previousTwo" class="context-sentence far" aria-hidden="true"></span>
+    <span id="previousOne" class="context-sentence near" aria-hidden="true"></span>
+    <span id="sentence" lang="zh-Hant"></span>
+    <span id="nextOne" class="context-sentence near" aria-hidden="true"></span>
+    <span id="nextTwo" class="context-sentence far" aria-hidden="true"></span>
+  </button>
+  <div id="annotationArea" class="annotation-area">
+    <span id="baihuaText" lang="zh-Hant" hidden></span>
+    <span id="englishText" lang="en" hidden></span>
+    <span id="vietnameseText" lang="vi" hidden></span>
+    <span id="pinyinText" lang="zh-Latn-pinyin" hidden></span>
+    <div class="annotation-buttons">
+      <button id="baihuaButton" type="button" aria-expanded="false">白話</button>
+      <button id="englishButton" type="button" aria-expanded="false">English translation</button>
+      <button id="vietnameseButton" type="button" aria-expanded="false">Hán Việt</button>
+      <button id="pinyinButton" type="button" aria-expanded="false">Pinyin</button>
+    </div>
+  </div>
+
+  <nav class="nav" aria-label="切換經句">
+    <button id="previousButton" type="button">← 上一句</button>
+    <button id="nextButton" type="button">下一句 →</button>
+  </nav>
+  <p id="hint" class="hint">點按經句或空白鍵：下一句 · ← → 切換 · ↑ ↓ 捲動</p>
+
+  <details>
+    <summary>進度備份</summary>
+    <div class="actions">
+      <button id="restartButton" type="button">重新開始本篇</button>
+      <button id="exportButton" type="button">匯出進度</button>
+      <button id="importButton" type="button">匯入進度</button>
+    </div>
+    <p id="notice" role="status"></p>
+  </details>
+  <details>
+    <summary>筆記</summary>
+    <p id="noteContext" class="note-context"></p>
+    <div class="note-fields">
+      <input id="noteAudioTime" type="text" inputmode="text" placeholder="MP3 時間，例如：12:34" aria-label="MP3 時間">
+      <textarea id="noteText" placeholder="寫下意義、心得、提醒或待辦事項…" aria-label="筆記內容"></textarea>
+    </div>
+    <div class="actions">
+      <button id="saveNoteButton" type="button">儲存筆記</button>
+      <button id="cancelNoteEditButton" type="button" hidden>取消編輯</button>
+    </div>
+    <p id="noteNotice" role="status"></p>
+    <div id="noteList" class="note-list"></div>
+  </details>
+  <input id="importFile" type="file" accept=".json,application/json" hidden>
+</main>
+
+<script id="sutraSource" type="text/plain">
+## 佛頂尊勝陀羅尼經
+### 01 正經
+佛頂尊勝陀羅尼經  
+罽賓國沙門佛陀波利奉　詔譯  
+如是我聞：
+一時，薄伽梵在室羅筏，住誓多林給孤獨園，與大苾芻眾千二百五十人俱，又與諸大菩薩僧萬二千人俱。
+爾時，三十三天於善法堂會，有一天子名曰善住，與諸大天遊於園觀，又與大天受勝尊貴，與諸天女前後圍繞，歡喜遊戲，種種音樂，共相娛樂，受諸快樂。
+爾時，善住天子即於夜分聞有聲言：「善住天子却後七日命將欲盡，命終之後生贍部洲，受七返畜生身，即受地獄苦。從地獄出，希得人身，生於貧賤。處於母胎，即無兩目。」
+爾時，善住天子聞此聲已，即大驚怖，身毛皆竪，愁憂不樂，速疾往詣天帝釋所，悲啼號哭，惶怖無計。頂禮帝釋二足尊已，白帝釋言：「聽我所說。我與諸天女共相圍繞受諸快樂，聞有聲言：『善住天子却後七日命將欲盡。命終之後生贍部洲，七返受畜生身，受七身已即墮諸地獄，從地獄出，希得人身，生貧賤家，而無兩目。』天帝！云何令我得免斯苦？」
+爾時，帝釋聞善住天子語已，甚大驚愕，即自思惟：「此善住天子受何七返惡道之身？」爾時，帝釋須臾靜住，入定諦觀，即見善住當受七返惡道之身，所謂猪、狗、野干、獼猴、蟒蛇、烏、鷲等身，食諸穢惡不淨之物。爾時，帝釋觀見善住天子當墮七返惡道之身，極助苦惱，痛割於心，諦思：「無計，何所歸依？唯有如來、應、正等覺，令其善住得免斯苦。」
+爾時，帝釋即於此日初夜分時，以種種花鬘、塗香、末香，以妙天衣莊嚴執持，往詣誓多林園。於世尊所，到已頂禮佛足，右繞七匝，即於佛前廣大供養，佛前胡跪，而白佛言：「世尊！善住天子云何當受七返畜生惡道之身？」具如上說。
+爾時，如來頂上放種種光，遍滿十方一切世界已，其光還來繞佛三匝，從佛口入。佛便微笑告帝釋言：「天帝！有陀羅尼名為『如來佛頂尊勝』，能淨一切惡道，能淨除一切生死苦惱，又能淨除諸地獄、閻羅王界、畜生之苦，又破一切地獄，能迴向善道。
+「天帝！此佛頂尊勝陀羅尼，若有人聞，一經於耳，先世所造一切地獄惡業，悉皆消滅，當得清淨之身，隨所生處憶持不忘。從一佛剎至一佛剎，從一天界至一天界，遍歷三十三天，所生之處憶持不忘。
+「天帝！若人命欲將終，須臾憶念此陀羅尼，還得增壽，得身口意淨，身無苦痛，隨其福利隨處安隱，一切如來之所觀視，一切天神恒常侍衛，為人所敬，惡障消滅，一切菩薩同心覆護。
+「天帝！若人能須臾讀誦此陀羅尼者，此人所有一切地獄、畜生、閻羅王界、餓鬼之苦，破壞消滅，無有遺餘。諸佛剎土及諸天宮，一切菩薩所住之門，無有障礙，隨意趣入。」
+爾時，帝釋白佛言：「世尊！唯願如來為眾生說增益壽命之法。」
+爾時，世尊知帝釋意心之所念，樂聞佛說是陀羅尼法，即說呪曰：
+◎「曩謨一　婆誐嚩帝二　怛喇二合路枳也三二合　鉢囉底四　尾始瑟吒二合野五　沒馱野六　婆誐縛帝七　怛儞也二合他八　唵九　尾戍馱野十　娑麼娑麼三滿哆十一　嚩婆娑十二　娑頗二合囉拏十三　蘖帝誐賀曩十四　娑嚩二合婆嚩尾秫弟十五　阿鼻詵左覩𤚥十六　素蘖哆十七　嚩囉嚩左曩十八　阿蜜㗚二合哆十九　鼻矖罽二十　摩賀曼怛囉二合橎乃二十一　阿賀囉阿賀囉二十二　阿庾散馱囉柅二十三　戍馱野戍馱野二十四　誐誐曩尾秫弟二十五　鄔瑟膩灑二十六　尾惹野尾秫弟二十七　娑賀娑囉二十八二合　囉濕銘二十九二合　散𭉷儞帝三十　薩嚩怛他蘖哆三十一　嚩路迦𩕳三十二　殺橎引囉弭哆三十三　跛哩布囉抳三十四　薩嚩怛他引蘖哆三十五　紇哩二合娜野三十六　地瑟姹二合曩三十七　地瑟耻二合跢三十八　摩賀母捺哩三十九二合　嚩日囉二合迦野四十　僧賀跢曩尾秫弟四十一　薩嚩嚩囉拏四十二　跛野訥蘖帝四十三　跛哩尾秫弟四十四　鉢囉二合底四十五　𩕳𮧬跢野四十六　阿欲秫弟四十七　三摩野四十八　地瑟耻二合帝四十九　麼柅麼柅五十　摩賀麼柅五十一　怛闥哆五十二　部跢句致五十三　跛哩秫弟五十四　尾窣普二合吒五十五　沒地秫弟五十六　惹野惹野五十七　尾惹野尾惹野五十八　娑麼囉五十九　薩嚩沒馱六十　地瑟耻二合哆秫弟六十一　嚩日哩二合嚩日囉二合蘖陛六十二　嚩日囕六十三二合　婆嚩覩麼麼六十四稱名　舍哩囕六十五　薩嚩薩怛嚩六十六二合　難上左迦野六十七　尾秫弟六十八　薩嚩誐帝六十九　跛哩秫弟七十　薩嚩怛他蘖哆七十一　三麼濕嚩二合　娑演覩七十二　薩嚩怛他蘖哆七十三　三麼濕嚩二合娑七十四　地瑟耻二合帝七十五　沒地野沒地野七十六　尾沒地野七十七　冒馱野冒馱野七十八　尾冒馱野尾冒馱野七十九　三滿哆八十　跛哩秫弟八十一　薩嚩怛他蘖哆八十二　紇哩二合娜野八十三　地瑟姹二合曩八十四　地瑟耻二合哆八十五　摩賀母捺㘑二合　娑嚩二合賀」
+佛告帝釋言：「此呪名『淨除一切惡道佛頂尊勝陀羅尼』，能除一切罪業等障，能破一切穢惡道苦。天帝！此大陀羅尼，八十八殑伽沙俱胝百千諸佛同共宣說，隨喜受持，大日如來智印印之，為破一切眾生穢惡道苦故，為一切地獄、畜生、閻羅王界眾生得解脫故，臨急苦難、墮生死海中眾生得解脫故，短命、薄福、無救護眾生、樂造雜染惡業眾生得饒益故。又此陀羅尼於贍部洲住持力故，能令地獄惡道眾生、種種流轉生死薄福眾生、不信善惡業失正道眾生等，得解脫義故。」
+佛告天帝：「我說此陀羅尼付囑於汝，汝當授與善住天子，復當受持、讀誦、思惟、愛樂、憶念、供養，於贍部洲與一切眾生，廣為宣說此陀羅尼印，亦為一切諸天子故，說此陀羅尼印，付囑於汝。天帝！汝當善持守護，勿令忘失。天帝！若人須臾得聞此陀羅尼，千劫已來積造惡業重障，應受種種流轉生死，地獄、餓鬼、畜生、閻羅王界、阿修羅身、夜叉、羅剎、鬼神、布單那、羯吒布單那、阿波娑摩囉、蚊虻、龜、狗、蟒蛇、一切諸鳥及諸猛獸、一切蠢動含靈，乃至蟻子之身，更不重受。即得轉生，諸佛如來、一生補處菩薩同會處生，或得大姓婆羅門家生，或得大剎利種家生，或得豪貴最勝家生。天帝！此人得如上貴處生者，皆由聞此陀羅尼故，轉所生處，皆得清淨。天帝！乃至得到菩提道場最勝之處，皆由讚美此陀羅尼功德。如是，天帝！此陀羅尼名為『吉祥能淨一切惡道』。此佛頂尊勝陀羅尼，猶如日藏摩尼之寶，淨無瑕穢，淨等虛空，光焰照徹，無不周遍。若諸眾生持此陀羅尼，亦復如是，亦如閻浮檀金明淨柔軟，令人喜見，不為穢惡之所染著。天帝！若有眾生持此陀羅尼，亦復如是，乘斯善淨，得生善道。天帝！此陀羅尼所在之處，若能書寫、流通、受持、讀誦、聽聞、供養，能如是者，一切惡道皆得清淨，一切地獄苦惱悉皆消滅。」
+佛告天帝：「若人能書寫此陀羅尼，安高幢上，或安高山，或安樓上，乃至安置窣堵波中，天帝！若有苾芻、苾芻尼、優婆塞、優婆夷、族姓男、族姓女，於幢等上或見，或與相近，其影映身，或風吹陀羅尼上、幢等上，塵落在身上，天帝！彼諸眾生所有罪業，應墮惡道、地獄、畜生、閻羅王界、餓鬼界、阿修羅身惡道之苦，皆悉不受，亦不為罪垢染污。天帝！此等眾生，為一切諸佛之所授記，皆得不退轉於阿耨多羅三藐三菩提。
+「天帝！何況更以多諸供具：華鬘、塗香、末香、幢幡蓋等，衣服、瓔珞，作諸莊嚴，於四衢道造窣堵波，安置陀羅尼，合掌恭敬，旋繞行道，歸依禮拜。天帝！彼人能如是供養者，名摩訶薩埵，真是佛子，持法棟梁，又是如來全身舍利窣堵波塔。」
+爾時，閻摩羅法王於時夜分來詣佛所。到已以種種天衣、妙華、塗香莊嚴，供養佛已，繞佛七匝，頂禮佛足，而作是言：「我聞如來演說讚持大力陀羅尼，故來修學。若有受持讀誦是陀羅尼者，我常隨逐守護，不令持者墮於地獄，以彼隨順如來言教而護念之。」
+爾時，護世四天大王繞佛三匝，白佛言：「世尊！唯願如來為我廣說持陀羅尼法。」
+爾時，佛告四天王：「汝今諦聽！我當為汝宣說受持此陀羅尼法，亦為短命諸眾生說。當先洗浴，著新淨衣，白月圓滿十五日時，持齋誦此陀羅尼，滿其千遍，令短命眾生還得增壽、永離病苦，一切業障悉皆消滅，一切地獄諸苦亦得解脫。諸飛鳥、畜生、含靈之類，聞此陀羅尼，一經於耳，盡此一身更不復受。」
+佛言：「若人遇大惡病，聞此陀羅尼，即得永離。一切諸病，亦得消滅。應墮惡道，亦得除斷。即得往生寂靜世界，從此身已後，更不受胞胎之身。所生之處蓮華化生，一切生處憶持不忘，常識宿命。」
+佛言：「若人先造一切極重惡業，遂即命終，乘斯惡業，應墮地獄，或墮畜生、閻羅王界，或墮餓鬼乃至墮大阿鼻地獄，或生水中，或生禽獸異類之身。取其亡者隨身分骨，以土一把，誦此陀羅尼二十一遍，散亡者骨上，即得生天。」
+佛言：「若人能日日誦此陀羅尼二十一遍，應消一切世間廣大供養，捨身往生極樂世界。若常誦念，得大涅槃，復增壽命，受勝快樂。捨此身已，即得往生種種微妙諸佛剎土，常與諸佛俱會一處，一切如來恒為演說微妙之義，一切世尊即受其記，身光照曜一切剎土。」
+佛言：「若誦此陀羅尼法，於其佛前，先取淨土作壇，隨其大小，方四角作。以種種草華散於壇上，燒眾名香，右膝著地胡跪，心常念佛，作慕陀羅尼印。屈其頭指，以大母指押，合掌當其心上，誦此陀羅尼一百八遍訖，於其壇中如雲王雨華，能遍供養八十八俱胝殑伽沙那庾多百千諸佛。彼佛世尊咸共讚言：『善哉希有！真是佛子！』即得無障礙智三昧，得大菩提心莊嚴三昧。持此陀羅尼法應如是。」
+佛告天帝：「我以此方便，一切眾生應墮地獄道，令得解脫，一切惡道亦得清淨，復令持者增益壽命。天帝！汝去將我此陀羅尼授與善住天子，滿其七日，汝與善住俱來見我。」
+爾時，天帝於世尊所受此陀羅尼法，奉持還於本天，授與善住天子。爾時，善住天子，受此陀羅尼已，滿六日六夜，依法受持，一切願滿。應受一切惡道等苦，即得解脫，住菩提道，增壽無量，甚大歡喜，高聲歎言：「希有如來！希有妙法！希有明驗！甚為難得，令我解脫！」爾時，帝釋至第七日，與善住天子將諸天眾，嚴持華鬘、塗香、末香、寶幢、幡蓋、天衣、瓔珞，微妙莊嚴，往詣佛所，設大供養，以妙天衣及諸瓔珞供養世尊，繞百千匝，於佛前立，踊躍歡喜，坐而聽法。
+爾時，世尊舒金色臂，摩善住天子頂，而為說法，授菩提記。佛言：「此經名『淨除一切惡道佛頂尊勝陀羅尼』，汝當受持。」
+爾時，大眾聞法歡喜，信受奉行。
+佛頂尊勝陀羅尼經  
+### 02 尊勝陀羅尼第一本
+◎那莫薄伽跋帝一  啼隷路迦稽㖿反鉢囉底㖿翊可反毘失瑟咤㖿長余何反聲，下同勃陀耶一云歸命聖尊三世勝覺二  薄伽跋底三  怛姪他四  唵長五  毘輸陀耶馱音大娑摩三漫多皤婆娑漫音文六  娑破囉拏揭底伽訶那娑婆皤輸秫地輸律反，下音同阿鼻詵去聲者蘇揭多伐折那八  阿𪢗㗚多毘曬平音罽九  阿上聲訶羅去聲阿訶羅下同十  阿輸散陀長聲羅尼十一  輸馱耶輸馱耶馱音並太十二  伽伽那毘秫提那去十三  烏瑟尼沙毘逝耶秫提輸音十四舜入  娑訶娑囉喝囉濕弭珊珠地帝帝音伭十五  薩婆怛他揭多地瑟咤長聲那頞地瑟恥帝亦丁儞反慕𭉐隸慕音母干隸音犁十六  跋折囉迦長聲耶僧訶多那秫提十七  薩婆伐羅拏毘秫提十八  鉢羅底底丁儞反儞伐怛耶阿瑜秫提十九  薩末耶阿地瑟恥帝底丁儞反，帝音伭二十  末禰末禰二十一  怛闥多部多俱胝鉢唎秫提二十二  毘薩普吒勃地秫提毘音弭，薩音悉二十三  社耶社耶餘何反，下同二十四  毘社耶毘社耶二十五  薩末囉薩末囉勃陀頞地瑟恥多秫提底丁儞反二十六  跋折梨跋折囉揭鞞二十七  跋折濫婆伐都二十八  麼麼受持者於此自稱名薩婆薩埵𡃂迦長聲耶毘秫提二十九  薩婆揭底鉢唎秫提底丁儞反三十句  薩婆怛他揭多三摩濕婆娑遏地瑟恥帝底丁儞反三十一帝音伭也  勃陀地耶反勃陀同上蒱馱耶蒱馱耶馱音太三漫多鉢唎秫提三十二  薩婆怛他揭多地瑟咤長聲那頞地瑟恥帝底丁儞反三十三  娑婆訶
+### 03 尊勝陀羅尼第二本
+◎那謨薄伽跋帝一  啼隷路迦稽㖿切鉢囉底毘失瑟咤㖿餘何切，下同，長聲勃陀耶一云歸命聖尊三世勝覺二  薄伽跋底三  怛姪他四  唵長聲五  毘輸馱音太耶娑摩三漫音文多皤婆娑六  娑破囉拏揭底伽訶那七  娑婆皤輸秫輸律切，下同地阿鼻詵去聲者蘇揭多伐折那八  阿嘧㗚多毘曬鷄取罽切，平聲九  阿上聲訶羅去聲阿訶囉下同十  阿瑜散陀長聲羅尼十一  輸舜入聲馱音太，下同耶輸馱耶十二  伽伽那去聲毘秫提十三  烏瑟尼沙毘逝耶秫提十四  娑訶娑囉喝囉濕弭珊珠地帝十五  薩婆怛他揭多地瑟咤長聲那頞地瑟恥帝丁儞切慕音母𭉐隷音犁十六  跋折囉迦長聲耶僧訶多那秫提十七  薩婆伐羅拏毘秫提十八  鉢羅底丁儞切儞伐怛耶阿瑜秫提十九  薩末那阿地瑟恥帝音低二十  末禰末禰二十一  怛闥多部多俱胝鉢唎秫提二十二  毘音弭薩音悉普吒勃地秫提二十三  社耶社耶餘何切，下同二十四  毘社耶毘社耶二十五  薩末囉薩末囉勃陀頞地瑟恥多秫提二十六  跋折梨跋折囉揭鞞二十七  跋折濫婆伐都二十八  麼麼受持者於此自稱名薩婆薩埵𡃂迦長聲耶毘秝提二十九  薩婆揭底丁儞切鉢唎秫提三十  薩婆怛他揭多三摩濕婆娑遏地瑟恥帝低字呼三十一  勃陀地耶切勃陀同上蒱馱音太耶蒱馱音太耶三漫多鉢唎秫提三十二  薩婆怛他揭多地瑟咤長聲那頞地瑟恥帝三十三  娑婆訶
+</script>
+<script>
+window.FO_DING_ENGLISH = ["The Sutra of the Uṣṇīṣa Vijaya Dhāraṇī","Translated by imperial command by the monk Buddhapāli of Kashmir.","Thus I have heard: At one time, the Blessed One was staying in Śrāvastī, in the Jeta Grove, in the Anāthapiṇḍika Park, together with a great assembly of one thousand two hundred and fifty bhikkhus, and also with a great assembly of twelve thousand bodhisattva monks.","At that time, in the Hall of Virtue in the Thirty-Three Heavens, there was a prince named Shan-zhu. He was strolling in the garden with the great devas, and he was honored by the great devas. He was surrounded by celestial maidens, both in front and behind, and they joyfully played together, enjoying various forms of music and entertainment, and experiencing all kinds of pleasures.","At that time, the Heavenly Prince Shan-zhu heard a voice in the middle of the night saying, \"The Heavenly Prince Shan-zhu will die in seven days. After his death, he will be reborn in the Jambudvīpa continent, take seven rebirths as an animal, and then suffer in hell.\"","Emerging from hell, he obtained a human body and was born into poverty and low status.","In the womb, there are no two eyes.","At that time, when the Heavenly Prince Shan-zhu heard this voice, he was greatly frightened, and the hairs on his body stood on end. He was distressed and unhappy, and he quickly went to the Heavenly King Shakra, weeping and wailing, terrified and at a loss.","After paying homage to the Two-footed Noble One, Indra, he said to Indra, \"Listen to what I have to say.","I was surrounded by celestial maidens and enjoyed all kinds of pleasures. Then I heard a voice saying, \"The life of the celestial prince Shan-zhu will come to an end in seven days.\"","After death, he was reborn in Jambudvīpa, and was reborn as an animal seven times. After being reborn as an animal seven times, he fell into the hells. When he emerged from the hells, he hoped to be reborn as a human being, but he was born into a poor and lowly family, and he was blind.","\"Jade Emperor!\"","How can I be spared from this suffering?","At that time, when Śakra, the King of the Gods, heard the words of the Prince of Good Abode, he was greatly astonished and thought to himself, \"What kind of seven rebirths in the evil realms did the Prince of Good Abode undergo?\"","At that time, Śakra remained still for a moment and entered into deep meditation. He then saw that Shan-zhu was destined to be reborn seven times in the realms of woe, namely as a pig, a dog, a jackal, a monkey, a python, a crow, and a vulture, and would consume all kinds of foul and impure substances.","At that time, Śakra, the King of the Gods, saw that the Prince of Good Abode was destined to fall into the seven evil realms, and he felt extremely distressed and heartbroken. He pondered, \"There is no way out. To whom should I turn for refuge?\"","Only the Tathāgata, the Arhat, the Perfectly Enlightened One, can enable him to abide well and be free from this suffering.","At that time, at the beginning of the night on this day, Śakra, holding various flower garlands, scented oils, powdered incense, and adorned with exquisite celestial robes, went to the Śītavana Grove.","Upon arriving before the Blessed One, he prostrated at the Buddha's feet, circumambulated him seven times, and then made extensive offerings before the Buddha. He knelt before the Buddha and said, \"Blessed One!","How should the virtuous prince be reborn seven times in the realm of animals and other lower realms?","\"As stated above.\"","At that time, various lights emanated from the crown of the Tathagata, filling all the worlds in the ten directions. The lights then returned, circled the Buddha three times, and entered through the Buddha's mouth.","The Buddha smiled and said to Śakra: \"Heavenly King!","There is a Dharani called \"Tathagata's Supreme Wisdom,\" which can purify all evil paths, eliminate all the sufferings of life and death, and also purify the sufferings of hells, the realm of Yama, and animals. It can also destroy all hells and lead beings to the path of goodness.","\"Heavenly Emperor!","If anyone hears this Usnisavijaya Dharani, all the evil karma of hell created in previous lives will be eradicated as soon as it enters their ears. They will attain a pure body and retain a clear memory of it wherever they are reborn.","From one Buddha realm to another, from one heavenly realm to another, traversing the Thirty-Three Heavens, he remembers where he was born and does not forget.","\"Heavenly Emperor!","If a person's life is about to end, by remembering this dhāraṇī for a moment, he will regain longevity, purify his body, speech, and mind, be free from physical pain, and enjoy peace and security wherever he goes. He will be observed by all Tathāgatas, constantly guarded by all celestial beings, respected by others, and his negative obstacles will be eliminated. All Bodhisattvas will unite in protecting him.","\"Heavenly Emperor!","If a person can recite this Dharani for a short while, all the sufferings of hell, animals, the realm of King Yama, and hungry ghosts will be completely destroyed and annihilated, leaving no trace.","The Buddha lands and heavenly palaces, the abodes of all Bodhisattvas, are unobstructed and can be entered at will.","At that time, Śakra said to the Buddha, \"Blessed One!","I only hope that the Tathagata will teach all beings the method to prolong their lives.","At that time, the Blessed One knew what Śakra was thinking in his mind, and was happy to hear the Buddha speak of this Dharani. He then recited the mantra: ◎ \"Namo1 Bhagavate2 Trailokyaprati3 Viśiṣṭāya4 Buddhāya5 Bhagavate6 Tadyathā7 Om8 Viśuddhāya9 Samasama Samanta10 Prabhasvara11 Sparana12 Gṛhītagṛhānā13 Svabhavaviśuddhe14 Abhisaṃskṛte15 Sugata16 Varavacane17 Amṛtadhāre19 Viśuddhe20 Mahā Mantra 21. Ahara Ahara 22. Ayusandharani 23. Sudhaya Sudhaya 24. Gagana Visuddhi 25. Usnisa 26. Vijaya Visuddhi 27. Sahasra 28. Rasmi 29. Sandhini 30. Sarva Tathagata 31. Lokaksiti 32. Ksina Mita 33. Paripurnati 34. Sarva Tathagata 35. Hrih Naya 36. Dhisana 37. Dhisita 38. Maha Mudri 39. 9. Jñānavajra 10. Kāya 11. Saṃghātānāviśuddhi 12. Sarvavarāṇa 13. Pāyanirgate 14. Pariviśuddhi 15. Pra 16. Śuddhayā 17. Āyuśuddhi 18. Samaya 19. Dhiṣṭhite 20. Maṇimaṇi 21. Mahāmaṇi 22. Tathātā 23. Butakucita 24. Pariśuddhi 25. Viṣṭuta 26. Buddhiśuddhi 27. Jayajaya 28. Vijayavijaya 29. Smara 30. Sarvabuddha 10. Dhih 11. Dhoro 12. Dhih 13. Dhih 14. Dhih 15. Dhih 16. Dhih 17. Dhih 18. Dhih 19. Dhih 20. Dhih 21. Dhih 22. Dhih 23. Dhih 24. Dhih 25. Dhih 26. Dhih 27. Dhih 28. Dhih 29. Dhih 30. Dhih 31. Dhih 32. Dhih 33. Dhih 34. Dhih 35. Dhih 36. Dhih 37. Dhih 38. Dhih 39. Dhih 40. Dhih 41. Dhih 42. Dhih 43. Dhih 44. Dhih 45. Dhih 46. Dhih 47. Dhih 48. Dhih 49. Dhih 50. Dhih 51. Dhih 52. Dhih 53. Dhih 54. Dhih 55. Dhih 56. Dhih 57. Dhih 58. Dhih 59. Dhih 60. Dhih 61. Dhih 62. Dhih 63. Dhih 64. Dhih 65. Dhih 66. Dhih 67. Dhih 68. Dhih 69. Dhih 70. Dhih 71. Dhih 72. Dhih 73. Dhih 74. Dhih 75. Dhih 76. Dhih 77. Dhih 78. Dhih 79. Dhih 80. Dhih 8. Maotuo Ye 9. Maotuo Ye 79. Sanman Duo 80. Parishidi 81. Sarva Tathagata 82. Hrih (two characters combined) Nay 83. Dishi Cha (two characters combined) Na 84. Dishi Chi (two characters combined) Duo 85. Maha Mu Na (two characters combined) Sarva (two characters combined) Ha. The Buddha told Shakra, \"This mantra is called 'The Buddha-Top Supreme Victory Dharani for Purifying All Evil Paths.' It can eliminate all karmic obstructions and break through the suffering of all impure and evil paths.\"","Jade Emperor!","This great Dharani was proclaimed by eighty-eight kotis of Ganges sands of hundreds of thousands of Buddhas, who rejoiced and embraced it. It was sealed with the wisdom seal of the Vairocana Buddha to dispel the sufferings of all sentient beings in the impure realms, to liberate all beings in the realms of hell, animals, and Yama, to liberate beings facing imminent suffering and those sinking into the sea of birth and death, and to benefit beings with short lifespans, little fortune, no means of salvation, and those who habitually create impure and unwholesome karma.","Furthermore, due to the power of this Dharani residing in the Southern Continent, it can lead beings in hellish realms, those undergoing various cycles of birth and death with limited merit, and those who have strayed from the right path due to a lack of faith in karmic principles, to attain liberation.","The Buddha said to the Heavenly King, \"I entrust this Dharani to you. You should impart it to the Heavenly Prince Shan-zhu. He should then uphold, recite, contemplate, cherish, remember, and make offerings to it. He should widely proclaim this Dharani seal in Jambudvipa to all sentient beings, and also explain this Dharani seal to all heavenly princes, entrusting it to you.\"","Jade Emperor!","You should diligently uphold and safeguard it, and not let it be forgotten.","Jade Emperor!","If a person hears this Dharani for a moment, the heavy obstacles of evil karma accumulated over thousands of kalpas, which would cause him to undergo various cycles of birth and death, to be reborn as a hell-dweller, a hungry ghost, an animal, in the realm of Yama, as an Asura, a Yaksha, a Rakshasa, a ghost, a Pishacha, a Katapishacha, an Apasmara, a mosquito, a fly, a turtle, a dog, a python, all kinds of birds and ferocious beasts, all sentient beings, even as an ant, will no longer be experienced.","They will be reborn immediately. All Buddhas and Tathagatas, as well as Bodhisattvas who are one lifetime away from Buddhahood, will be reborn in the same place. They may be born into a prominent Brahmin family, a noble Kshatriya family, or a distinguished and highly esteemed family.","Jade Emperor!","All those who are born in such noble places as mentioned above will have their places of rebirth purified upon hearing this Dharani.","Jade Emperor!","Even attaining the most exalted place in the Bodhi Dojō is due to the merits of praising this dhāraṇī.","Indeed, Heavenly Emperor!","This Dharani is called \"Auspiciousness That Can Purify All Evil Paths.\"","This Usnisavijaya Dharani is like the precious jewel of the Sun Treasury, pure and flawless, as pure as empty space, with a radiant light that illuminates everything without exception.","If all sentient beings uphold this Dharani, it will be the same. It is like the pure and soft luster of gold, which is pleasing to the eye and not tainted by filth and evil.","Jade Emperor!","If all beings uphold this Dharani, it will be the same. By relying on this pure goodness, they will be born into a good path.","Jade Emperor!","Wherever this Dharani is found, if it can be written, circulated, upheld, recited, heard, and offered, and if one can do so, all evil paths will be purified, and all the sufferings of hell will be completely eliminated.","The Buddha said to the Heavenly Emperor, \"If a person can write down this Dharani and place it on a high banner, or on a high mountain, or on a high building, or even in a stupa, Heavenly Emperor!","If a bhikshu, bhikshuni, upāsaka, upāsikā, male or female of good family, sees the banner, etc., or is near it, and its shadow falls on their body, or the wind blows on the dhāraṇī or the banner, etc., and dust falls on their body, O Heavenly King!","All the sins of these sentient beings, which should lead them to fall into the realms of woe, hell, animals, the realm of King Yama, the realm of hungry ghosts, and the realm of Asuras, will not affect them, nor will they be tainted by the defilements of sin.","Jade Emperor!","These sentient beings, having received the predictions of all Buddhas, will not regress from Anuttara Samyak Sambodhi.","\"Heavenly Emperor!","Moreover, with numerous offerings such as flower garlands, scented ointments, powdered incense, banners, canopies, etc., as well as clothing and jewelry, he adorned the place. He built stupas at the crossroads, enshrined dharanis, and with palms pressed together in reverence, he circumambulated the path, taking refuge and offering prostrations.","Jade Emperor!","Those who can make such offerings are called Mahāsattvas. They are truly the sons of the Buddha, the pillars of the Dharma, and also the stūpas containing the complete relics of the Tathāgata.","At that time, King Yama came to the Buddha during the night.","After adorning the Buddha with various celestial garments, exquisite flowers, and scented unguents, and making offerings to him, they circumambulated the Buddha seven times, bowed to his feet, and said, \"We heard the Tathagata expound and praise the Mahābala Dhāraṇī, so we have come to learn and practice it.\"","If one recites this dhāraṇī, I will always follow and protect him, and will not let him fall into hell. I will protect and care for him because he follows the teachings of the Tathāgata.","At that time, the Four Heavenly Kings who protect the world circumambulated the Buddha three times and said to the Buddha, \"Blessed One!","I only hope that the Tathagata will expound to me the method of upholding the Dharani.","\"At that time, the Buddha said to the Four Heavenly Kings, 'Listen carefully!","I will expound to you the method of upholding this Dharani, and I will also expound it to all sentient beings with short lifespans.","First, take a bath and put on clean clothes. On the fifteenth day of the month when the moon is full, observe a fast and recite this dhāraṇī a thousand times. This will enable sentient beings with short lifespans to have their lives extended and to be forever free from illness and suffering. All karmic obstacles will be eliminated, and they will also be liberated from all the sufferings of hell.","Birds, animals, and all sentient beings, upon hearing this dhāraṇī, will never be reborn in these forms again.","The Buddha said, \"If a person suffers from a serious illness and hears this Dharani, he will be forever free from it.\"","All diseases will also be eliminated.","Those who should fall into the realms of woe can also be liberated.","You will immediately enter the peaceful world of the afterlife, and after this life, you will no longer be reborn in a womb.","Lotus flowers bloom wherever he is born, and he remembers all the places of his birth, always aware of his destiny.","The Buddha said, \"If a person has previously committed all kinds of extremely grave evil deeds and then dies, he will, due to these evil deeds, fall into hell, or into the realm of animals or the realm of Yama, or into the realm of hungry ghosts, or even into the Great Avīci Hell, or be born in the water, or be born as an animal or other strange creature.\"","Take the ashes of the deceased, along with a handful of soil, recite this Dharani twenty-one times, and scatter it on the bones of the deceased, and they will be reborn in heaven.","The Buddha said, \"If a person can recite this Dharani twenty-one times every day, all the vast offerings in the world will be eliminated, and he will give up his body and be reborn in the Pure Land.\"","If you recite it often, you will attain great nirvana, prolong your life, and experience supreme happiness.","Having abandoned this body, one will be reborn in the various subtle Buddha lands, constantly meeting with all the Buddhas. All Tathagatas will always expound subtle and profound meanings, and all World-Honored Ones will bestow predictions. Their bodies will illuminate all Buddha lands.","The Buddha said, \"If you recite this Dharani, first make an altar with pure earth in front of the Buddha. Depending on its size, make it square with four corners.","Scatter various fragrant flowers on the altar, burn various kinds of incense, kneel on the right knee, constantly think of the Buddha in your heart, and make the mudra.","Bend your index finger and press it with your thumb. Place your palms together over your heart. Recite this dhāraṇī 108 times. In the maṇḍala, it will be like a cloud king raining flowers, capable of making offerings to 88 koṭi Ganges-sand-like innumerable hundreds of thousands of buddhas.","All the Buddhas and World-Honored Ones praised him, saying, \"Excellent! How extraordinary!","What a true child of Buddha!","\"He will immediately attain the samādhi of unobstructed wisdom and the samādhi of the great bodhicitta.","One should uphold this Dharani practice in this way.","The Buddha said to the Heavenly Emperor, \"With this expedient means, all sentient beings who should fall into the hell realm will be liberated, and all evil realms will also be purified. Moreover, those who uphold it will have their lifespans extended.\"","Jade Emperor!","Go and impart this Dharani to Prince Shan-zhu. After seven days, you and Shan-zhu shall come to see me together.","At that time, the Heavenly King received this Dharani from the Blessed One, and returned to his own heaven to bestow it upon the Heavenly Prince Shan-zhu.","At that time, after receiving this Dharani, the Heavenly Prince Shan-zhu practiced it according to the Dharma for six days and six nights, and all his wishes were fulfilled.","They should endure all the sufferings of the evil paths, etc., and then they will be liberated, abide in the path to enlightenment, have their lifespan extended immeasurably, and experience great joy. They will exclaim loudly, \"How rare is the Tathagata!","A rare and wonderful method!","A rare and remarkable result!","It's so rare, and it's such a relief!","At that time, on the seventh day, Śakra, along with the Prince of Good Abode and the heavenly assembly, prepared exquisite flower garlands, scented oils, powdered incense, jeweled banners, canopies, celestial robes, and necklaces. With these splendidly adorned offerings, they went to the Buddha and presented grand offerings. They offered the exquisite celestial robes and necklaces to the Blessed One, circumambulated him hundreds of thousands of times, stood before the Buddha, rejoiced with great joy, and sat down to listen to the Dharma.","At that time, the Blessed One extended His golden arm, touched the crown of the head of the Heavenly Prince Shan-zhu, and preached the Dharma to him, bestowing upon him the prediction of enlightenment.","The Buddha said, \"This sutra is called 'The Buddha-Top Supreme Dharani for Purifying All Evil Paths.' You should receive and uphold it.\"","At that time, the assembly was delighted to hear the Dharma and accepted it with faith, vowing to put it into practice.","The Sutra of the Uṣṇīṣa Vijaya Dhāraṇī","Dhāraṇī phonetic passage; recite according to the original transcription.","Dhāraṇī phonetic passage; recite according to the original transcription.","Dhāraṇī phonetic passage; recite according to the original transcription.","Dhāraṇī phonetic passage; recite according to the original transcription.","Dhāraṇī phonetic passage; recite according to the original transcription.","Dhāraṇī phonetic passage; recite according to the original transcription.","Dhāraṇī phonetic passage; recite according to the original transcription.","Dhāraṇī phonetic passage; recite according to the original transcription.","Dhāraṇī phonetic passage; recite according to the original transcription.","Dhāraṇī phonetic passage; recite according to the original transcription.","Dhāraṇī phonetic passage; recite according to the original transcription.","Dhāraṇī phonetic passage; recite according to the original transcription.","Dhāraṇī phonetic passage; recite according to the original transcription.","Dhāraṇī phonetic passage; recite according to the original transcription.","Dhāraṇī phonetic passage; recite according to the original transcription.","Dhāraṇī phonetic passage; recite according to the original transcription.","Dhāraṇī phonetic passage; recite according to the original transcription.","Dhāraṇī phonetic passage; recite according to the original transcription.","Dhāraṇī phonetic passage; recite according to the original transcription.","Dhāraṇī phonetic passage; recite according to the original transcription.","Dhāraṇī phonetic passage; recite according to the original transcription.","Dhāraṇī phonetic passage; recite according to the original transcription.","Dhāraṇī phonetic passage; recite according to the original transcription.","Dhāraṇī phonetic passage; recite according to the original transcription.","Dhāraṇī phonetic passage; recite according to the original transcription.","Dhāraṇī phonetic passage; recite according to the original transcription.","Dhāraṇī phonetic passage; recite according to the original transcription.","Dhāraṇī phonetic passage; recite according to the original transcription.","Dhāraṇī phonetic passage; recite according to the original transcription.","Dhāraṇī phonetic passage; recite according to the original transcription.","Dhāraṇī phonetic passage; recite according to the original transcription.","Dhāraṇī phonetic passage; recite according to the original transcription.","Dhāraṇī phonetic passage; recite according to the original transcription.","Dhāraṇī phonetic passage; recite according to the original transcription.","Dhāraṇī phonetic passage; recite according to the original transcription.","Dhāraṇī phonetic passage; recite according to the original transcription.","Dhāraṇī phonetic passage; recite according to the original transcription.","Dhāraṇī phonetic passage; recite according to the original transcription.","Dhāraṇī phonetic passage; recite according to the original transcription.","Dhāraṇī phonetic passage; recite according to the original transcription.","Dhāraṇī phonetic passage; recite according to the original transcription.","Dhāraṇī phonetic passage; recite according to the original transcription.","Dhāraṇī phonetic passage; recite according to the original transcription.","Dhāraṇī phonetic passage; recite according to the original transcription.","Dhāraṇī phonetic passage; recite according to the original transcription.","Dhāraṇī phonetic passage; recite according to the original transcription.","Dhāraṇī phonetic passage; recite according to the original transcription.","Dhāraṇī phonetic passage; recite according to the original transcription.","Dhāraṇī phonetic passage; recite according to the original transcription.","Dhāraṇī phonetic passage; recite according to the original transcription.","Dhāraṇī phonetic passage; recite according to the original transcription.","Dhāraṇī phonetic passage; recite according to the original transcription.","Dhāraṇī phonetic passage; recite according to the original transcription.","Dhāraṇī phonetic passage; recite according to the original transcription.","Dhāraṇī phonetic passage; recite according to the original transcription.","Dhāraṇī phonetic passage; recite according to the original transcription.","Dhāraṇī phonetic passage; recite according to the original transcription.","Dhāraṇī phonetic passage; recite according to the original transcription.","Dhāraṇī phonetic passage; recite according to the original transcription.","Dhāraṇī phonetic passage; recite according to the original transcription.","Dhāraṇī phonetic passage; recite according to the original transcription.","Dhāraṇī phonetic passage; recite according to the original transcription.","Dhāraṇī phonetic passage; recite according to the original transcription.","Dhāraṇī phonetic passage; recite according to the original transcription.","Dhāraṇī phonetic passage; recite according to the original transcription.","Dhāraṇī phonetic passage; recite according to the original transcription.","Dhāraṇī phonetic passage; recite according to the original transcription."];
+window.FO_DING_HAN_VIET = ["phật đảnh tôn thắng đà la ni kinh","kế tân quốc sa môn phật đà ba lợi phụng chiếu dịch","như thị ngã văn： nhất thời， bạc già phạm tại thất la phiệt， trụ thệ đa lâm cấp cô độc viên， dữ đại bật sô chúng thiên nhị bách ngũ thập nhân câu， hựu dữ chư đại bồ tát tăng vạn nhị thiên nhân câu。","nhĩ thời， tam thập tam thiên ư thiện pháp đường hội， hữu nhất thiên tử danh viết thiện trụ， dữ chư đại thiên du ư viên quán， hựu dữ đại thiên thọ thắng tôn quý， dữ chư thiên nữ tiền hậu vi nhiễu， hoan hỉ du hí， chủng chủng âm nhạo， cộng tướng hỷ nhạo， thọ chư khoái nhạo。","nhĩ thời， thiện trụ thiên tử tức ư dạ phân văn hữu thanh ngôn： 「 thiện trụ thiên tử khước hậu thất nhật mạng tương dục tận， mạng chung chi hậu sanh thiệm bộ châu， thọ thất phản súc sanh thân， tức thọ địa ngục khổ。","tùng địa ngục xuất， hi đắc nhân thân， sanh ư bần tiện。","xứ ư mẫu thai， tức vô lưỡng mục。","」 nhĩ thời， thiện trụ thiên tử văn thử thanh dĩ， tức đại kinh bố， thân mao giai thụ， sầu ưu bất nhạo， tốc tật vãng nghệ thiên đế thích sở， bi đề hiệu khốc， hoàng bố vô kế。","đảnh lễ đế thích nhị túc tôn dĩ， bạch đế thích ngôn： 「 thính ngã sở thuyết。","ngã dữ chư thiên nữ cộng tướng vi nhiễu thọ chư khoái nhạo， văn hữu thanh ngôn： 『 thiện trụ thiên tử khước hậu thất nhật mạng tương dục tận。","mạng chung chi hậu sanh thiệm bộ châu， thất phản thọ súc sanh thân， thọ thất thân dĩ tức đọa chư địa ngục， tùng địa ngục xuất， hi đắc nhân thân， sanh bần tiện gia， nhi vô lưỡng mục。","』 thiên đế！","vân hà linh ngã đắc miễn tư khổ？","」 nhĩ thời， đế thích văn thiện trụ thiên tử ngữ dĩ， thậm đại kinh ngạc， tức tự tư duy： 「 thử thiện trụ thiên tử thọ hà thất phản ác đạo chi thân？","」 nhĩ thời， đế thích tu du tĩnh trụ， nhập định đế quán， tức kiến thiện trụ đương thọ thất phản ác đạo chi thân， sở vị trư、 cẩu、 dã can、 mi hầu、 mãng xà、 ô、 thứu đẳng thân， thực chư uế ác bất tịnh chi vật。","nhĩ thời， đế thích quán kiến thiện trụ thiên tử đương đọa thất phản ác đạo chi thân， cực trợ khổ não， thống cát ư tâm， đế tư： 「 vô kế， hà sở quy y？","duy hữu như lai、 ưng、 chánh đẳng giác， linh kỳ thiện trụ đắc miễn tư khổ。","」 nhĩ thời， đế thích tức ư thử nhật sơ dạ phân thời， dĩ chủng chủng hoa man、 đồ hương、 mạt hương， dĩ diệu thiên y trang nghiêm chấp trì， vãng nghệ thệ đa lâm viên。","ư thế tôn sở， đáo dĩ đảnh lễ phật túc， hữu nhiễu thất táp， tức ư phật tiền quảng đại cúng dường， phật tiền hồ quỳ， nhi bạch phật ngôn： 「 thế tôn！","thiện trụ thiên tử vân hà đương thọ thất phản súc sanh ác đạo chi thân？","」 cụ như thượng thuyết。","nhĩ thời， như lai đảnh thượng phóng chủng chủng quang， biến mãn thập phương nhất thiết thế giới dĩ， kỳ quang hoàn lai nhiễu phật tam táp， tùng phật khẩu nhập。","phật tiện vi tiếu cáo đế thích ngôn： 「 thiên đế！","hữu đà la ni danh vi 『 như lai phật đảnh tôn thắng 』， năng tịnh nhất thiết ác đạo， năng tịnh trừ nhất thiết sanh tử khổ não， hựu năng tịnh trừ chư địa ngục、 diêm la vương giới、 súc sanh chi khổ， hựu phá nhất thiết địa ngục， năng hồi hướng thiện đạo。","「 thiên đế！","thử phật đảnh tôn thắng đà la ni， nhược hữu nhân văn， nhất kinh ư nhĩ， tiên thế sở tạo nhất thiết địa ngục ác nghiệp， tất giai tiêu diệt， đương đắc thanh tịnh chi thân， tùy sở sanh xứ ức trì bất vong。","tùng nhất phật sát chí nhất phật sát， tùng nhất thiên giới chí nhất thiên giới， biến lịch tam thập tam thiên， sở sanh chi xứ ức trì bất vong。","「 thiên đế！","nhược nhân mạng dục tương chung， tu du ức niệm thử đà la ni， hoàn đắc tăng thọ， đắc thân khẩu ý tịnh， thân vô khổ thống， tùy kỳ phước lợi tùy xứ an ẩn， nhất thiết như lai chi sở quán thị， nhất thiết thiên thần hằng thường thiết vệ， vi nhân sở kính， ác chướng tiêu diệt， nhất thiết bồ tát đồng tâm phú hộ。","「 thiên đế！","nhược nhân năng tu du độc tụng thử đà la ni giả， thử nhân sở hữu nhất thiết địa ngục、 súc sanh、 diêm la vương giới、 ngạ quỷ chi khổ， phá hoại tiêu diệt， vô hữu di dư。","chư phật sát độ cập chư thiên cung， nhất thiết bồ tát sở trụ chi môn， vô hữu chướng ngại， tùy ý thú nhập。","」 nhĩ thời， đế thích bạch phật ngôn： 「 thế tôn！","duy nguyện như lai vi chúng sanh thuyết tăng ích thọ mạng chi pháp。","」 nhĩ thời， thế tôn tri đế thích ý tâm chi sở niệm， nhạo văn phật thuyết thị đà la ni pháp， tức thuyết chú viết： ◎ 「 nẵng mô nhất bà nga phược đế nhị đát lạt nhị hợp lộ chỉ dã tam nhị hợp bát ra để tứ vĩ thủy sắt tra nhị hợp dã ngũ một đà dã lục bà nga phược đế thất đát nễ dã nhị hợp tha bát án cửu vĩ thú đà dã thập ta mạ ta mạ tam mãn đớ thập nhất phược bà ta thập nhị ta phả nhị hợp ra noa thập tam nghiệt đế nga hạ nẵng thập tứ ta phược nhị hợp bà phược vĩ 秫 đệ thập ngũ a tị sân tả đổ 𤚥 thập lục tố nghiệt đớ thập thất phược ra phược tả nẵng thập bát a mật lật nhị hợp đớ thập cửu tị sỉ kế nhị thập ma hạ mạn đát ra nhị hợp phiên nãi nhị thập nhất a hạ ra a hạ ra nhị thập nhị a dữu tán đà ra nễ nhị thập tam thú đà dã thú đà dã nhị thập tứ nga nga nẵng vĩ 秫 đệ nhị thập ngũ ô sắt nị sái nhị thập lục vĩ nhạ dã vĩ 秫 đệ nhị thập thất ta hạ ta ra nhị thập bát nhị hợp ra thấp minh nhị thập cửu nhị hợp tán 𭉷 nễ đế tam thập tát phược đát tha nghiệt đớ tam thập nhất phược lộ ca 𩕳 tam thập nhị sát phiên dẫn ra nhị đớ tam thập tam bả lý bố ra nễ tam thập tứ tát phược đát tha dẫn nghiệt đớ tam thập ngũ hột lý nhị hợp na dã tam thập lục địa sắt xá nhị hợp nẵng tam thập thất địa sắt sỉ nhị hợp đa tam thập bát ma hạ mẫu nại lý tam thập cửu nhị hợp phược nhật ra nhị hợp ca dã tứ thập tăng hạ đa nẵng vĩ 秫 đệ tứ thập nhất tát phược phược ra noa tứ thập nhị bả dã nột nghiệt đế tứ thập tam bả lý vĩ 秫 đệ tứ thập tứ bát ra nhị hợp để tứ thập ngũ 𩕳 𮧬 đa dã tứ thập lục a dục 秫 đệ tứ thập thất tam ma dã tứ thập bát địa sắt sỉ nhị hợp đế tứ thập cửu mạ nễ mạ nễ ngũ thập ma hạ mạ nễ ngũ thập nhất đát thát đớ ngũ thập nhị bộ đa cú nhí ngũ thập tam bả lý 秫 đệ ngũ thập tứ vĩ tốt phổ nhị hợp tra ngũ thập ngũ một địa 秫 đệ ngũ thập lục nhạ dã nhạ dã ngũ thập thất vĩ nhạ dã vĩ nhạ dã ngũ thập bát ta mạ ra ngũ thập cửu tát phược một đà lục thập địa sắt sỉ nhị hợp đớ 秫 đệ lục thập nhất phược nhật lý nhị hợp phược nhật ra nhị hợp nghiệt bệ lục thập nhị phược nhật lãm lục thập tam nhị hợp bà phược đổ mạ mạ lục thập tứ xưng danh xá lý lãm lục thập ngũ tát phược tát đát phược lục thập lục nhị hợp nan thượng tả ca dã lục thập thất vĩ 秫 đệ lục thập bát tát phược nga đế lục thập cửu bả lý 秫 đệ thất thập tát phược đát tha nghiệt đớ thất thập nhất tam mạ thấp phược nhị hợp ta diễn đổ thất thập nhị tát phược đát tha nghiệt đớ thất thập tam tam mạ thấp phược nhị hợp ta thất thập tứ địa sắt sỉ nhị hợp đế thất thập ngũ một địa dã một địa dã thất thập lục vĩ một địa dã thất thập thất mạo đà dã mạo đà dã thất thập bát vĩ mạo đà dã vĩ mạo đà dã thất thập cửu tam mãn đớ bát thập bả lý 秫 đệ bát thập nhất tát phược đát tha nghiệt đớ bát thập nhị hột lý nhị hợp na dã bát thập tam địa sắt xá nhị hợp nẵng bát thập tứ địa sắt sỉ nhị hợp đớ bát thập ngũ ma hạ mẫu nại lê nhị hợp ta phược nhị hợp hạ 」 phật cáo đế thích ngôn： 「 thử chú danh 『 tịnh trừ nhất thiết ác đạo phật đảnh tôn thắng đà la ni 』， năng trừ nhất thiết tội nghiệp đẳng chướng， năng phá nhất thiết uế ác đạo khổ。","thiên đế！","thử đại đà la ni， bát thập bát căng già sa câu chi bách thiên chư phật đồng cộng tuyên thuyết， tùy hỉ thọ trì， đại nhật như lai trí ấn ấn chi， vi phá nhất thiết chúng sanh uế ác đạo khổ cố， vi nhất thiết địa ngục、 súc sanh、 diêm la vương giới chúng sanh đắc giải thoát cố， lâm cấp khổ nan、 đọa sanh tử hải trung chúng sanh đắc giải thoát cố， đoản mạng、 bạc phước、 vô cứu hộ chúng sanh、 nhạo tạo tạp nhiễm ác nghiệp chúng sanh đắc nhiêu ích cố。","hựu thử đà la ni ư thiệm bộ châu trụ trì lực cố， năng linh địa ngục ác đạo chúng sanh、 chủng chủng lưu chuyển sanh tử bạc phước chúng sanh、 bất tín thiện ác nghiệp thất chánh đạo chúng sanh đẳng， đắc giải thoát nghĩa cố。","」 phật cáo thiên đế： 「 ngã thuyết thử đà la ni phó chúc ư nhữ， nhữ đương thọ dữ thiện trụ thiên tử， phục đương thọ trì、 độc tụng、 tư duy、 ái nhạo、 ức niệm、 cúng dường， ư thiệm bộ châu dữ nhất thiết chúng sanh， quảng vi tuyên thuyết thử đà la ni ấn， diệc vi nhất thiết chư thiên tử cố， thuyết thử đà la ni ấn， phó chúc ư nhữ。","thiên đế！","nhữ đương thiện trì thủ hộ， vật linh vong thất。","thiên đế！","nhược nhân tu du đắc văn thử đà la ni， thiên kiếp dĩ lai tích tạo ác nghiệp trọng chướng， ưng thọ chủng chủng lưu chuyển sanh tử， địa ngục、 ngạ quỷ、 súc sanh、 diêm la vương giới、 a tu la thân、 dạ xoa、 la sát、 quỷ thần、 bố đan na、 yết tra bố đan na、 a ba ta ma ra、 văn manh、 quy、 cẩu、 mãng xà、 nhất thiết chư điểu cập chư mãnh thú、 nhất thiết xuẩn động hàm linh， nãi chí nghĩ tử chi thân， cánh bất trọng thọ。","tức đắc chuyển sanh， chư phật như lai、 nhất sanh bổ xứ bồ tát đồng hội xứ sanh， hoặc đắc đại tánh bà la môn gia sanh， hoặc đắc đại sát lợi chủng gia sanh， hoặc đắc hào quý tối thắng gia sanh。","thiên đế！","thử nhân đắc như thượng quý xứ sanh giả， giai do văn thử đà la ni cố， chuyển sở sanh xứ， giai đắc thanh tịnh。","thiên đế！","nãi chí đắc đáo bồ đề đạo tràng tối thắng chi xứ， giai do tán mĩ thử đà la ni công đức。","như thị， thiên đế！","thử đà la ni danh vi 『 kiết tường năng tịnh nhất thiết ác đạo 』。","thử phật đảnh tôn thắng đà la ni， do như nhật tạng ma ni chi bảo， tịnh vô hà uế， tịnh đẳng hư không， quang diễm chiếu triệt， vô bất châu biến。","nhược chư chúng sanh trì thử đà la ni， diệc phục như thị， diệc như diêm phù đàn kim minh tịnh nhu nhuyễn， linh nhân hỉ kiến， bất vi uế ác chi sở nhiễm trước。","thiên đế！","nhược hữu chúng sanh trì thử đà la ni， diệc phục như thị， thừa tư thiện tịnh， đắc sanh thiện đạo。","thiên đế！","thử đà la ni sở tại chi xứ， nhược năng thư tả、 lưu thông、 thọ trì、 độc tụng、 thính văn、 cúng dường， năng như thị giả， nhất thiết ác đạo giai đắc thanh tịnh， nhất thiết địa ngục khổ não tất giai tiêu diệt。","」 phật cáo thiên đế： 「 nhược nhân năng thư tả thử đà la ni， an cao tràng thượng， hoặc an cao sơn， hoặc an lâu thượng， nãi chí an trí tốt đổ ba trung， thiên đế！","nhược hữu bật sô、 bật sô ni、 ưu bà tắc、 ưu bà di、 tộc tánh nam、 tộc tánh nữ， ư tràng đẳng thượng hoặc kiến， hoặc dữ tướng cận， kỳ ảnh ánh thân， hoặc phong xuy đà la ni thượng、 tràng đẳng thượng， trần lạc tại thân thượng， thiên đế！","bỉ chư chúng sanh sở hữu tội nghiệp， ưng đọa ác đạo、 địa ngục、 súc sanh、 diêm la vương giới、 ngạ quỷ giới、 a tu la thân ác đạo chi khổ， giai tất bất thọ， diệc bất vi tội cấu nhiễm ô。","thiên đế！","thử đẳng chúng sanh， vi nhất thiết chư phật chi sở thọ kí， giai đắc bất thối chuyển ư a nậu đa la tam miệu tam bồ đề。","「 thiên đế！","hà huống cánh dĩ đa chư cúng cụ： hoa man、 đồ hương、 mạt hương、 tràng phan cái đẳng， y phục、 anh lạc， tác chư trang nghiêm， ư tứ cù đạo tạo tốt đổ ba， an trí đà la ni， hợp chưởng cung kính， triền nhiễu hành đạo， quy y lễ bái。","thiên đế！","bỉ nhân năng như thị cúng dường giả， danh ma ha tát đỏa， chân thị phật tử， trì pháp đống lương， hựu thị như lai toàn thân xá lợi tốt đổ ba tháp。","」 nhĩ thời， diêm ma la pháp vương ư thời dạ phân lai nghệ phật sở。","đáo dĩ dĩ chủng chủng thiên y、 diệu hoa、 đồ hương trang nghiêm， cúng dường phật dĩ， nhiễu phật thất táp， đảnh lễ phật túc， nhi tác thị ngôn： 「 ngã văn như lai diễn thuyết tán trì đại lực đà la ni， cố lai tu học。","nhược hữu thọ trì độc tụng thị đà la ni giả， ngã thường tùy trục thủ hộ， bất linh trì giả đọa ư địa ngục， dĩ bỉ tùy thuận như lai ngôn giáo nhi hộ niệm chi。","」 nhĩ thời， hộ thế tứ thiên đại vương nhiễu phật tam táp， bạch phật ngôn： 「 thế tôn！","duy nguyện như lai vi ngã quảng thuyết trì đà la ni pháp。","」 nhĩ thời， phật cáo tứ thiên vương： 「 nhữ kim đế thính！","ngã đương vi nhữ tuyên thuyết thọ trì thử đà la ni pháp， diệc vi đoản mạng chư chúng sanh thuyết。","đương tiên tẩy dục， trước tân tịnh y， bạch nguyệt viên mãn thập ngũ nhật thời， trì trai tụng thử đà la ni， mãn kỳ thiên biến， linh đoản mạng chúng sanh hoàn đắc tăng thọ、 vĩnh ly bệnh khổ， nhất thiết nghiệp chướng tất giai tiêu diệt， nhất thiết địa ngục chư khổ diệc đắc giải thoát。","chư phi điểu、 súc sanh、 hàm linh chi loại， văn thử đà la ni， nhất kinh ư nhĩ， tận thử nhất thân cánh bất phục thọ。","」 phật ngôn： 「 nhược nhân ngộ đại ác bệnh， văn thử đà la ni， tức đắc vĩnh ly。","nhất thiết chư bệnh， diệc đắc tiêu diệt。","ưng đọa ác đạo， diệc đắc trừ đoạn。","tức đắc vãng sanh tịch tĩnh thế giới， tùng thử thân dĩ hậu， cánh bất thọ bào thai chi thân。","sở sanh chi xứ liên hoa hóa sanh， nhất thiết sanh xứ ức trì bất vong， thường thức túc mạng。","」 phật ngôn： 「 nhược nhân tiên tạo nhất thiết cực trọng ác nghiệp， toại tức mạng chung， thừa tư ác nghiệp， ưng đọa địa ngục， hoặc đọa súc sanh、 diêm la vương giới， hoặc đọa ngạ quỷ nãi chí đọa đại a tị địa ngục， hoặc sanh thủy trung， hoặc sanh cầm thú dị loại chi thân。","thủ kỳ vong giả tùy thân phân cốt， dĩ độ nhất bả， tụng thử đà la ni nhị thập nhất biến， tán vong giả cốt thượng， tức đắc sanh thiên。","」 phật ngôn： 「 nhược nhân năng nhật nhật tụng thử đà la ni nhị thập nhất biến， ưng tiêu nhất thiết thế gian quảng đại cúng dường， xả thân vãng sanh cực nhạo thế giới。","nhược thường tụng niệm， đắc đại niết bàn， phục tăng thọ mạng， thọ thắng khoái nhạo。","xả thử thân dĩ， tức đắc vãng sanh chủng chủng vi diệu chư phật sát độ， thường dữ chư phật câu hội nhất xứ， nhất thiết như lai hằng vi diễn thuyết vi diệu chi nghĩa， nhất thiết thế tôn tức thọ kỳ kí， thân quang chiếu diệu nhất thiết sát độ。","」 phật ngôn： 「 nhược tụng thử đà la ni pháp， ư kỳ phật tiền， tiên thủ tịnh độ tác đàn， tùy kỳ đại tiểu， phương tứ giác tác。","dĩ chủng chủng thảo hoa tán ư đàn thượng， thiêu chúng danh hương， hữu tất trước địa hồ quỳ， tâm thường niệm phật， tác mộ đà la ni ấn。","khuất kỳ đầu chỉ， dĩ đại mẫu chỉ áp， hợp chưởng đương kỳ tâm thượng， tụng thử đà la ni nhất bách bát biến hất， ư kỳ đàn trung như vân vương vũ hoa， năng biến cúng dường bát thập bát câu chi căng già sa na dữu đa bách thiên chư phật。","bỉ phật thế tôn hàm cộng tán ngôn： 『 thiện tai hi hữu！","chân thị phật tử！","』 tức đắc vô chướng ngại trí tam muội， đắc đại bồ đề tâm trang nghiêm tam muội。","trì thử đà la ni pháp ưng như thị。","」 phật cáo thiên đế： 「 ngã dĩ thử phương tiện， nhất thiết chúng sanh ưng đọa địa ngục đạo， linh đắc giải thoát， nhất thiết ác đạo diệc đắc thanh tịnh， phục linh trì giả tăng ích thọ mạng。","thiên đế！","nhữ khứ tương ngã thử đà la ni thọ dữ thiện trụ thiên tử， mãn kỳ thất nhật， nhữ dữ thiện trụ câu lai kiến ngã。","」 nhĩ thời， thiên đế ư thế tôn sở thọ thử đà la ni pháp， phụng trì hoàn ư bổn thiên， thọ dữ thiện trụ thiên tử。","nhĩ thời， thiện trụ thiên tử， thọ thử đà la ni dĩ， mãn lục nhật lục dạ， y pháp thọ trì， nhất thiết nguyện mãn。","ưng thọ nhất thiết ác đạo đẳng khổ， tức đắc giải thoát， trụ bồ đề đạo， tăng thọ vô lượng， thậm đại hoan hỉ， cao thanh thán ngôn： 「 hi hữu như lai！","hi hữu diệu pháp！","hi hữu minh nghiệm！","thậm vi nan đắc， linh ngã giải thoát！","」 nhĩ thời， đế thích chí đệ thất nhật， dữ thiện trụ thiên tử tương chư thiên chúng， nghiêm trì hoa man、 đồ hương、 mạt hương、 bảo tràng、 phan cái、 thiên y、 anh lạc， vi diệu trang nghiêm， vãng nghệ phật sở， thiết đại cúng dường， dĩ diệu thiên y cập chư anh lạc cúng dường thế tôn， nhiễu bách thiên táp， ư phật tiền lập， dõng dược hoan hỉ， tọa nhi thính pháp。","nhĩ thời， thế tôn thư kim sắc tý， ma thiện trụ thiên tử đảnh， nhi vi thuyết pháp， thọ bồ đề kí。","phật ngôn： 「 thử kinh danh 『 tịnh trừ nhất thiết ác đạo phật đảnh tôn thắng đà la ni 』， nhữ đương thọ trì。","」 nhĩ thời， đại chúng văn pháp hoan hỉ， tín thọ phụng hành。","phật đảnh tôn thắng đà la ni kinh","◎ na mạc bạc già bạt đế nhất","đề lệ lộ ca khể gia phản bát ra để gia dực khả phản tỳ thất sắt trá gia trường dư hà phản thanh， hạ đồng bột đà da nhất vân quy mạng thánh tôn tam thế thắng giác nhị","bạc già bạt để tam","đát đẹt tha tứ","án trường ngũ","tỳ du đà da đà âm đại ta ma tam mạn đa bà bà ta mạn âm văn lục","ta phá ra noa yết để già ha na ta bà bà du 秫 địa du luật phản， hạ âm đồng a tị sân khứ thanh giả tô yết đa phạt chiết na bát","a 𪢗 lật đa tỳ sái bình âm kế cửu","a thượng thanh ha la khứ thanh a ha la hạ đồng thập","a du tán đà trường thanh la ni thập nhất","du đà da du đà da đà âm tịnh thái thập nhị","già già na tỳ 秫 đề na khứ thập tam","ô sắt ni sa tỳ thệ da 秫 đề du âm thập tứ thuấn nhập","ta ha ta ra hắc ra thấp nhị san châu địa đế đế âm huyền thập ngũ","tát bà đát tha yết đa địa sắt trá trường thanh na át địa sắt sỉ đế diệc đinh nễ phản mộ 𭉐 lệ mộ âm mẫu can lệ âm lê] thập lục","bạt chiết ra ca trường thanh da tăng ha đa na 秫 đề thập thất","tát bà phạt la noa tỳ 秫 đề thập bát","bát la để để đinh nễ phản nễ phạt đát da a du 秫 đề thập cửu","tát mạt da a địa sắt sỉ đế để đinh nễ phản， đế âm huyền nhị thập","mạt nễ mạt nễ nhị thập nhất","đát thát đa bộ đa câu chi bát rị 秫 đề nhị thập nhị","tỳ tát phổ tra bột địa 秫 đề tỳ âm nhị， tát âm tất nhị thập tam","xả da xả da dư hà phản， hạ đồng nhị thập tứ","tỳ xả da tỳ xả da nhị thập ngũ","tát mạt ra tát mạt ra bột đà át địa sắt sỉ đa 秫 đề để đinh nễ phản nhị thập lục","bạt chiết lê bạt chiết ra yết bệ nhị thập thất","bạt chiết lạm bà phạt đô nhị thập bát","mạ mạ thọ trì giả ư thử tự xưng danh tát bà tát đỏa 𡃂 ca trường thanh da tỳ 秫 đề nhị thập cửu","tát bà yết để bát rị 秫 đề để đinh nễ phản tam thập cú","tát bà đát tha yết đa tam ma thấp bà ta át địa sắt sỉ đế để đinh nễ phản tam thập nhất đế âm huyền dã","bột đà địa da phản bột đà đồng thượng bồ đà da bồ đà da đà âm thái tam mạn đa bát rị 秫 đề tam thập nhị","tát bà đát tha yết đa địa sắt trá trường thanh na át địa sắt sỉ đế để đinh nễ phản tam thập tam","ta bà ha","◎ na mô bạc già bạt đế nhất","đề lệ lộ ca khể gia thiết bát ra để tỳ thất sắt trá gia dư hà thiết， hạ đồng， trường thanh bột đà da nhất vân quy mạng thánh tôn tam thế thắng giác nhị","bạc già bạt để tam","đát đẹt tha tứ","án trường thanh ngũ","tỳ du đà âm thái da ta ma tam mạn âm văn đa bà bà ta lục","ta phá ra noa yết để già ha na thất","ta bà bà du 秫 du luật thiết， hạ đồng địa a tị sân khứ thanh giả tô yết đa phạt chiết na bát","a mật lật đa tỳ sái kê thủ kế thiết， bình thanh cửu","a thượng thanh ha la khứ thanh a ha ra hạ đồng thập","a du tán đà trường thanh la ni thập nhất","du thuấn nhập thanh đà âm thái， hạ đồng da du đà da thập nhị","già già na khứ thanh tỳ 秫 đề thập tam","ô sắt ni sa tỳ thệ da 秫 đề thập tứ","ta ha ta ra hắc ra thấp nhị san châu địa đế thập ngũ","tát bà đát tha yết đa địa sắt trá trường thanh na át địa sắt sỉ đế đinh nễ thiết mộ âm mẫu 𭉐 lệ âm lê] thập lục","bạt chiết ra ca trường thanh da tăng ha đa na 秫 đề thập thất","tát bà phạt la noa tỳ 秫 đề thập bát","bát la để đinh nễ thiết nễ phạt đát da a du 秫 đề thập cửu","tát mạt na a địa sắt sỉ đế âm đê nhị thập","mạt nễ mạt nễ nhị thập nhất","đát thát đa bộ đa câu chi bát rị 秫 đề nhị thập nhị","tỳ âm nhị tát âm tất phổ tra bột địa 秫 đề nhị thập tam","xả da xả da dư hà thiết， hạ đồng nhị thập tứ","tỳ xả da tỳ xả da nhị thập ngũ","tát mạt ra tát mạt ra bột đà át địa sắt sỉ đa 秫 đề nhị thập lục","bạt chiết lê bạt chiết ra yết bệ nhị thập thất","bạt chiết lạm bà phạt đô nhị thập bát","mạ mạ thọ trì giả ư thử tự xưng danh tát bà tát đỏa 𡃂 ca trường thanh da tỳ lịch đề nhị thập cửu","tát bà yết để đinh nễ thiết bát rị 秫 đề tam thập","tát bà đát tha yết đa tam ma thấp bà ta át địa sắt sỉ đế đê tự hô tam thập nhất","bột đà địa da thiết bột đà đồng thượng bồ đà âm thái da bồ đà âm thái da tam mạn đa bát rị 秫 đề tam thập nhị","tát bà đát tha yết đa địa sắt trá trường thanh na át địa sắt sỉ đế tam thập tam","ta bà ha"];
+window.FO_DING_PINYIN = ["fú dǐng zūn shèng tuó luó ní jīng","jì bīn guó shā mén fó tuó bō lì fèng zhào yì","rú shì wǒ wén： yī shí， báo gā fàn zài shì luó fá， zhù shì duō lín gěi gū dú yuán， yǔ dà bì chú zhòng qiān èr bǎi wǔ shí rén jù， yòu yǔ zhū dà pú sà sēng wàn èr qiān rén jù。","ěr shí， sān shí sān tiān yú shàn fǎ táng huì， yǒu yī tiān zi míng yuē shàn zhù， yǔ zhū dà tiān yóu yú yuán guān， yòu yǔ dà tiān shòu shèng zūn guì， yǔ zhū tiān nǚ qián hòu wéi rào， huān xǐ yóu xì， zhǒng zhǒng yīn lè， gòng xiāng yú lè， shòu zhū kuài lè。","ěr shí， shàn zhù tiān zi jí yú yè fēn wén yǒu shēng yán： 「 shàn zhù tiān zi què hòu qī rì mìng jiāng yù jǐn， mìng zhōng zhī hòu shēng shàn bù zhōu， shòu qī fǎn chù sheng shēn， jí shòu dì yù kǔ。","cóng dì yù chū， xī dé rén shēn， shēng yú pín jiàn。","chù yú mǔ tāi， jí wú liǎng mù。","」 ěr shí， shàn zhù tiān zi wén cǐ shēng yǐ， jí dà jīng bù， shēn máo jiē shù， chóu yōu bù lè， sù jí wǎng yì tiān dì shì suǒ， bēi tí hào kū， huáng bù wú jì。","dǐng lǐ dì shì èr zú zūn yǐ， bái dì shì yán： 「 tīng wǒ suǒ shuō。","wǒ yǔ zhū tiān nǚ gòng xiāng wéi rào shòu zhū kuài lè， wén yǒu shēng yán： 『 shàn zhù tiān zi què hòu qī rì mìng jiāng yù jǐn。","mìng zhōng zhī hòu shēng shàn bù zhōu， qī fǎn shòu chù sheng shēn， shòu qī shēn yǐ jí duò zhū dì yù， cóng dì yù chū， xī dé rén shēn， shēng pín jiàn jiā， ér wú liǎng mù。","』 tiān dì！","yún hé lìng wǒ dé miǎn sī kǔ？","」 ěr shí， dì shì wén shàn zhù tiān zi yǔ yǐ， shèn dà jīng è， jí zì sī wéi： 「 cǐ shàn zhù tiān zi shòu hé qī fǎn è dào zhī shēn？","」 ěr shí， dì shì xū yú jìng zhù， rù dìng dì guān， jí jiàn shàn zhù dāng shòu qī fǎn è dào zhī shēn， suǒ wèi zhū、 gǒu、 yě gàn、 mí hóu、 mǎng shé、 wū、 jiù děng shēn， shí zhū huì è bù jìng zhī wù。","ěr shí， dì shì guān jiàn shàn zhù tiān zi dāng duò qī fǎn è dào zhī shēn， jí zhù kǔ nǎo， tòng gē yú xīn， dì sī： 「 wú jì， hé suǒ guī yī？","wéi yǒu rú lái、 yīng、 zhèng děng jué， lìng qí shàn zhù dé miǎn sī kǔ。","」 ěr shí， dì shì jí yú cǐ rì chū yè fēn shí， yǐ zhǒng zhǒng huā mán、 tú xiāng、 mò xiāng， yǐ miào tiān yī zhuāng yán zhí chí， wǎng yì shì duō lín yuán。","yú shì zūn suǒ， dào yǐ dǐng lǐ fú zú， yòu rào qī zā， jí yú fú qián guǎng dà gōng yǎng， fú qián hú guì， ér bái fú yán： 「 shì zūn！","shàn zhù tiān zi yún hé dāng shòu qī fǎn chù sheng è dào zhī shēn？","」 jù rú shàng shuō。","ěr shí， rú lái dǐng shàng fàng zhǒng zhǒng guāng， biàn mǎn shí fāng yī qiè shì jiè yǐ， qí guāng hái lái rào fú sān zā， cóng fú kǒu rù。","fú biàn wēi xiào gào dì shì yán： 「 tiān dì！","yǒu tuó luó ní míng wèi 『 rú lái fú dǐng zūn shèng 』， néng jìng yī qiè è dào， néng jìng chú yī qiè shēng sǐ kǔ nǎo， yòu néng jìng chú zhū dì yù、 yán luó wáng jiè、 chù sheng zhī kǔ， yòu pò yī qiè dì yù， néng huí xiàng shàn dào。","「 tiān dì！","cǐ fú dǐng zūn shèng tuó luó ní， ruò yǒu rén wén， yī jīng yú ěr， xiān shì suǒ zào yī qiè dì yù è yè， xī jiē xiāo miè， dāng dé qīng jìng zhī shēn， suí suǒ shēng chù yì chí bù wàng。","cóng yī fú shā zhì yī fú shā， cóng yī tiān jiè zhì yī tiān jiè， biàn lì sān shí sān tiān， suǒ shēng zhī chù yì chí bù wàng。","「 tiān dì！","ruò rén mìng yù jiāng zhōng， xū yú yì niàn cǐ tuó luó ní， hái dé zēng shòu， dé shēn kǒu yì jìng， shēn wú kǔ tòng， suí qí fú lì suí chù ān yǐn， yī qiè rú lái zhī suǒ guān shì， yī qiè tiān shén héng cháng shì wèi， wèi rén suǒ jìng， è zhàng xiāo miè， yī qiè pú sà tóng xīn fù hù。","「 tiān dì！","ruò rén néng xū yú dú sòng cǐ tuó luó ní zhě， cǐ rén suǒ yǒu yī qiè dì yù、 chù sheng、 yán luó wáng jiè、 è guǐ zhī kǔ， pò huài xiāo miè， wú yǒu yí yú。","zhū fú shā tǔ jí zhū tiān gōng， yī qiè pú sà suǒ zhù zhī mén， wú yǒu zhàng ài， suí yì qù rù。","」 ěr shí， dì shì bái fú yán： 「 shì zūn！","wéi yuàn rú lái wèi zhòng shēng shuō zēng yì shòu mìng zhī fǎ。","」 ěr shí， shì zūn zhī dì shì yì xīn zhī suǒ niàn， lè wén fú shuō shì tuó luó ní fǎ， jí shuō zhòu yuē： ◎ 「 nǎng mó yī pó é mó dì èr dá lǎ èr hé lù zhǐ yě sān èr hé bō luō dǐ sì wěi shǐ sè zhā èr hé yě wǔ méi tuó yě liù pó é fù dì qī dá nǐ yě èr hé tā bā ǎn jiǔ wěi shù tuó yě shí suō me suō me sān mǎn duō shí yī mó pó suō shí èr suō pō èr hé luō ná shí sān niè dì é hè nǎng shí sì suō mó èr hé pó mó wěi 秫 dì shí wǔ ā bí shēn zuǒ dǔ 𤚥 shí liù sù niè duō shí qī mó luō mó zuǒ nǎng shí bā ā mì lì èr hé duō shí jiǔ bí xǐ jì èr shí mó hè màn dá luō èr hé fán nǎi èr shí yī ā hè luō ā hè luō èr shí èr ā yǔ sàn tuó luō nǐ èr shí sān shù tuó yě shù tuó yě èr shí sì é é nǎng wěi 秫 dì èr shí wǔ wū sè nì sǎ èr shí liù wěi rě yě wěi 秫 dì èr shí qī suō hè suō luō èr shí bā èr hé luō shī míng èr shí jiǔ èr hé sàn 𭉷 nǐ dì sān shí sà mó dá tā niè duō sān shí yī mó lù jiā nǐng sān shí èr shā fán yǐn luō mǐ duō sān shí sān bǒ lī bù luō nǐ sān shí sì sà mó dá tā yǐn niè duō sān shí wǔ hé lī èr hé nà yě sān shí liù dì sè chà èr hé nǎng sān shí qī dì sè chǐ èr hé duò sān shí bā mó hè mǔ nà lī sān shí jiǔ èr hé mó rì luō èr hé jiā yě sì shí sēng hè duò nǎng wěi 秫 dì sì shí yī sà mó mó luō ná sì shí èr bǒ yě nè niè dì sì shí sān bǒ lī wěi 秫 dì sì shí sì bō luō èr hé dǐ sì shí wǔ nǐng 𮧬 duò yě sì shí liù ā yù 秫 dì sì shí qī sān mó yě sì shí bā dì sè chǐ èr hé dì sì shí jiǔ me nǐ me nǐ wǔ shí mó hè me nǐ wǔ shí yī dá tà duō wǔ shí èr bù duò jù zhì wǔ shí sān bǒ lī 秫 dì wǔ shí sì wěi sū pǔ èr hé zhā wǔ shí wǔ méi dì 秫 dì wǔ shí liù rě yě rě yě wǔ shí qī wěi rě yě wěi rě yě wǔ shí bā suō me luō wǔ shí jiǔ sà mó méi tuó liù shí dì sè chǐ èr hé duō 秫 dì liù shí yī mó rì lī èr hé mó rì luō èr hé niè bì liù shí èr mó rì lǎn liù shí sān èr hé pó mó dǔ me me liù shí sì chēng míng shě lī lǎn liù shí wǔ sà mó sà dá mó liù shí liù èr hé nán shàng zuǒ jiā yě liù shí qī wěi 秫 dì liù shí bā sà mó é dì liù shí jiǔ bǒ lī 秫 dì qī shí sà mó dá tā niè duō qī shí yī sān me shī mó èr hé suō yǎn dǔ qī shí èr sà mó dá tā niè duō qī shí sān sān me shī mó èr hé suō qī shí sì dì sè chǐ èr hé dì qī shí wǔ méi dì yě méi dì yě qī shí liù wěi méi dì yě qī shí qī mào tuó yě mào tuó yě qī shí bā wěi mào tuó yě wěi mào tuó yě qī shí jiǔ sān mǎn duō bā shí bǒ lī 秫 dì bā shí yī sà mó dá tā niè duō bā shí èr hé lī èr hé nà yě bā shí sān dì sè chà èr hé nǎng bā shí sì dì sè chǐ èr hé duō bā shí wǔ mó hè mǔ nà lì èr hé suō mó èr hé hè 」 fú gào dì shì yán： 「 cǐ zhòu míng 『 jìng chú yī qiè è dào fú dǐng zūn shèng tuó luó ní 』， néng chú yī qiè zuì yè děng zhàng， néng pò yī qiè huì è dào kǔ。","tiān dì！","cǐ dà tuó luó ní， bā shí bā qíng gā shā jù zhī bǎi qiān zhū fú tóng gòng xuān shuō， suí xǐ shòu chí， dà rì rú lái zhì yìn yìn zhī， wèi pò yī qiè zhòng shēng huì è dào kǔ gù， wèi yī qiè dì yù、 chù sheng、 yán luó wáng jiè zhòng shēng dé jiě tuō gù， lín jí kǔ nán、 duò shēng sǐ hǎi zhōng zhòng shēng dé jiě tuō gù， duǎn mìng、 báo fú、 wú jiù hù zhòng shēng、 lè zào zá rǎn è yè zhòng shēng dé ráo yì gù。","yòu cǐ tuó luó ní yú shàn bù zhōu zhù chí lì gù， néng lìng dì yù è dào zhòng shēng、 zhǒng zhǒng liú zhuǎn shēng sǐ báo fú zhòng shēng、 bù xìn shàn è yè shī zhèng dào zhòng shēng děng， dé jiě tuō yì gù。","」 fú gào tiān dì： 「 wǒ shuō cǐ tuó luó ní fù zhǔ yú rǔ， rǔ dāng shòu yǔ shàn zhù tiān zi， fù dāng shòu chí、 dú sòng、 sī wéi、 ài lè、 yì niàn、 gōng yǎng， yú shàn bù zhōu yǔ yī qiè zhòng shēng， guǎng wèi xuān shuō cǐ tuó luó ní yìn， yì wèi yī qiè zhū tiān zi gù， shuō cǐ tuó luó ní yìn， fù zhǔ yú rǔ。","tiān dì！","rǔ dāng shàn chí shǒu hù， wù lìng wàng shī。","tiān dì！","ruò rén xū yú dé wén cǐ tuó luó ní， qiān jié yǐ lái jī zào è yè zhòng zhàng， yīng shòu zhǒng zhǒng liú zhuǎn shēng sǐ， dì yù、 è guǐ、 chù sheng、 yán luó wáng jiè、 ā xiū luó shēn、 yè chā、 luó shā、 guǐ shén、 bù dān nà、 jié zhā bù dān nà、 ā bō suō mó luō、 wén méng、 guī、 gǒu、 mǎng shé、 yī qiè zhū niǎo jí zhū měng shòu、 yī qiè chǔn dòng hán líng， nǎi zhì yǐ zi zhī shēn， gèng bù zhòng shòu。","jí dé zhuǎn shēng， zhū fú rú lái、 yī shēng bǔ chù pú sà tóng huì chù shēng， huò dé dà xìng pó luó mén jiā shēng， huò dé dà shā lì zhǒng jiā shēng， huò dé háo guì zuì shèng jiā shēng。","tiān dì！","cǐ rén dé rú shàng guì chù shēng zhě， jiē yóu wén cǐ tuó luó ní gù， zhuǎn suǒ shēng chù， jiē dé qīng jìng。","tiān dì！","nǎi zhì dé dào pú tí dào chǎng zuì shèng zhī chù， jiē yóu zàn měi cǐ tuó luó ní gōng dé。","rú shì， tiān dì！","cǐ tuó luó ní míng wèi 『 jí xiáng néng jìng yī qiè è dào 』。","cǐ fú dǐng zūn shèng tuó luó ní， yóu rú rì cáng mó ní zhī bǎo， jìng wú xiá huì， jìng děng xū kōng， guāng yàn zhào chè， wú bù zhōu biàn。","ruò zhū zhòng shēng chí cǐ tuó luó ní， yì fù rú shì， yì rú yán fú tán jīn míng jìng róu ruǎn， lìng rén xǐ jiàn， bù wèi huì è zhī suǒ rǎn zhù。","tiān dì！","ruò yǒu zhòng shēng chí cǐ tuó luó ní， yì fù rú shì， chéng sī shàn jìng， dé shēng shàn dào。","tiān dì！","cǐ tuó luó ní suǒ zài zhī chù， ruò néng shū xiě、 liú tōng、 shòu chí、 dú sòng、 tīng wén、 gōng yǎng， néng rú shì zhě， yī qiè è dào jiē dé qīng jìng， yī qiè dì yù kǔ nǎo xī jiē xiāo miè。","」 fú gào tiān dì： 「 ruò rén néng shū xiě cǐ tuó luó ní， ān gāo chuáng shàng， huò ān gāo shān， huò ān lóu shàng， nǎi zhì ān zhì sū dǔ bō zhōng， tiān dì！","ruò yǒu bì chú、 bì chú ní、 yōu pó sāi、 yōu pó yí、 zú xìng nán、 zú xìng nǚ， yú chuáng děng shàng huò jiàn， huò yǔ xiāng jìn， qí yǐng yìng shēn， huò fēng chuī tuó luó ní shàng、 chuáng děng shàng， chén luò zài shēn shàng， tiān dì！","bǐ zhū zhòng shēng suǒ yǒu zuì yè， yīng duò è dào、 dì yù、 chù sheng、 yán luó wáng jiè、 è guǐ jiè、 ā xiū luó shēn è dào zhī kǔ， jiē xī bù shòu， yì bù wèi zuì gòu rǎn wū。","tiān dì！","cǐ děng zhòng shēng， wèi yī qiè zhū fú zhī suǒ shòu jì， jiē dé bù tuì zhuǎn yú ā nòu duō luó sān miǎo sān pú tí。","「 tiān dì！","hé kuàng gèng yǐ duō zhū gōng jù： huá mán、 tú xiāng、 mò xiāng、 chuáng fān gài děng， yī fú、 yīng luò， zuò zhū zhuāng yán， yú sì qú dào zào sū dǔ bō， ān zhì tuó luó ní， hé zhǎng gōng jìng， xuán rào háng dào， guī yī lǐ bài。","tiān dì！","bǐ rén néng rú shì gōng yǎng zhě， míng mó hē sà duǒ， zhēn shì fú zi， chí fǎ dòng liáng， yòu shì rú lái quán shēn shě lì sū dǔ bō tǎ。","」 ěr shí， yán mó luó fǎ wáng yú shí yè fēn lái yì fú suǒ。","dào yǐ yǐ zhǒng zhǒng tiān yī、 miào huá、 tú xiāng zhuāng yán， gōng yǎng fú yǐ， rào fú qī zā， dǐng lǐ fú zú， ér zuò shì yán： 「 wǒ wén rú lái yǎn shuō zàn chí dà lì tuó luó ní， gù lái xiū xué。","ruò yǒu shòu chí dú sòng shì tuó luó ní zhě， wǒ cháng suí zhú shǒu hù， bù lìng chí zhě duò yú dì yù， yǐ bǐ suí shùn rú lái yán jiào ér hù niàn zhī。","」 ěr shí， hù shì sì tiān dà wáng rào fú sān zā， bái fú yán： 「 shì zūn！","wéi yuàn rú lái wèi wǒ guǎng shuō chí tuó luó ní fǎ。","」 ěr shí， fú gào sì tiān wáng： 「 rǔ jīn dì tīng！","wǒ dāng wèi rǔ xuān shuō shòu chí cǐ tuó luó ní fǎ， yì wèi duǎn mìng zhū zhòng shēng shuō。","dāng xiān xǐ yù， zhù xīn jìng yī， bái yuè yuán mǎn shí wǔ rì shí， chí zhāi sòng cǐ tuó luó ní， mǎn qí qiān biàn， lìng duǎn mìng zhòng shēng hái dé zēng shòu、 yǒng lí bìng kǔ， yī qiè yè zhàng xī jiē xiāo miè， yī qiè dì yù zhū kǔ yì dé jiě tuō。","zhū fēi niǎo、 chù sheng、 hán líng zhī lèi， wén cǐ tuó luó ní， yī jīng yú ěr， jǐn cǐ yī shēn gèng bù fù shòu。","」 fú yán： 「 ruò rén yù dà è bìng， wén cǐ tuó luó ní， jí dé yǒng lí。","yī qiè zhū bìng， yì dé xiāo miè。","yīng duò è dào， yì dé chú duàn。","jí dé wǎng shēng jì jìng shì jiè， cóng cǐ shēn yǐ hòu， gèng bù shòu bāo tāi zhī shēn。","suǒ shēng zhī chù lián huá huà shēng， yī qiè shēng chù yì chí bù wàng， cháng shí sù mìng。","」 fú yán： 「 ruò rén xiān zào yī qiè jí zhòng è yè， suì jí mìng zhōng， chéng sī è yè， yīng duò dì yù， huò duò chù sheng、 yán luó wáng jiè， huò duò è guǐ nǎi zhì duò dà ā bí dì yù， huò shēng shuǐ zhōng， huò shēng qín shòu yì lèi zhī shēn。","qǔ qí wáng zhě suí shēn fèn gǔ， yǐ tǔ yī bǎ， sòng cǐ tuó luó ní èr shí yī biàn， sàn wáng zhě gǔ shàng， jí dé shēng tiān。","」 fú yán： 「 ruò rén néng rì rì sòng cǐ tuó luó ní èr shí yī biàn， yīng xiāo yī qiè shì jiān guǎng dà gōng yǎng， shě shēn wǎng shēng jí lè shì jiè。","ruò cháng sòng niàn， dé dà niè pán， fù zēng shòu mìng， shòu shèng kuài lè。","shě cǐ shēn yǐ， jí dé wǎng shēng zhǒng zhǒng wēi miào zhū fú shā tǔ， cháng yǔ zhū fú jù huì yī chù， yī qiè rú lái héng wèi yǎn shuō wēi miào zhī yì， yī qiè shì zūn jí shòu qí jì， shēn guāng zhào yào yī qiè shā tǔ。","」 fú yán： 「 ruò sòng cǐ tuó luó ní fǎ， yú qí fú qián， xiān qǔ jìng tǔ zuò tán， suí qí dà xiǎo， fāng sì jiǎo zuò。","yǐ zhǒng zhǒng cǎo huá sàn yú tán shàng， shāo zhòng míng xiāng， yòu xī zhù dì hú guì， xīn cháng niàn fó， zuò mù tuó luó ní yìn。","qū qí tóu zhǐ， yǐ dà mǔ zhǐ yā， hé zhǎng dāng qí xīn shàng， sòng cǐ tuó luó ní yì bǎi bā biàn qì， yú qí tán zhōng rú yún wáng yǔ huá， néng biàn gōng yǎng bā shí bā jù zhī qíng gā shā nà yǔ duō bǎi qiān zhū fú。","bǐ fú shì zūn xián gòng zàn yán： 『 shàn zāi xī yǒu！","zhēn shì fú zi！","』 jí dé wú zhàng ài zhì sān mèi， dé dà pú tí xīn zhuāng yán sān mèi。","chí cǐ tuó luó ní fǎ yīng rú shì。","」 fú gào tiān dì： 「 wǒ yǐ cǐ fāng biàn， yī qiè zhòng shēng yīng duò dì yù dào， lìng dé jiě tuō， yī qiè è dào yì dé qīng jìng， fù lìng chí zhě zēng yì shòu mìng。","tiān dì！","rǔ qù jiāng wǒ cǐ tuó luó ní shòu yǔ shàn zhù tiān zi， mǎn qí qī rì， rǔ yǔ shàn zhù jù lái jiàn wǒ。","」 ěr shí， tiān dì yú shì zūn suǒ shòu cǐ tuó luó ní fǎ， fèng chí hái yú běn tiān， shòu yǔ shàn zhù tiān zi。","ěr shí， shàn zhù tiān zi， shòu cǐ tuó luó ní yǐ， mǎn liù rì liù yè， yī fǎ shòu chí， yī qiè yuàn mǎn。","yīng shòu yī qiè è dào děng kǔ， jí dé jiě tuō， zhù pú tí dào， zēng shòu wú liàng， shèn dà huān xǐ， gāo shēng tàn yán： 「 xī yǒu rú lái！","xī yǒu miào fǎ！","xī yǒu míng yàn！","shèn wèi nán dé， lìng wǒ jiě tuō！","」 ěr shí， dì shì zhì dì qī rì， yǔ shàn zhù tiān zi jiāng zhū tiān zhòng， yán chí huá mán、 tú xiāng、 mò xiāng、 bǎo chuáng、 fān gài、 tiān yī、 yīng luò， wēi miào zhuāng yán， wǎng yì fú suǒ， shè dà gōng yǎng， yǐ miào tiān yī jí zhū yīng luò gōng yǎng shì zūn， rào bǎi qiān zā， yú fú qián lì， yǒng yuè huān xǐ， zuò ér tīng fǎ。","ěr shí， shì zūn shū jīn sè bì， mó shàn zhù tiān zi dǐng， ér wèi shuō fǎ， shòu pú tí jì。","fú yán： 「 cǐ jīng míng 『 jìng chú yī qiè è dào fú dǐng zūn shèng tuó luó ní 』， rǔ dāng shòu chí。","」 ěr shí， dà zhòng wén fǎ huān xǐ， xìn shòu fèng xíng。","fú dǐng zūn shèng tuó luó ní jīng","◎ nà mò báo gā bá dì yī","tí lì lù jiā jī xié fǎn bō luō dǐ xié yì kě fǎn pí shī sè zhà xié zhǎng yú hé fǎn shēng， xià tóng bó tuó yé yī yún guī mìng shèng zūn sān shì shèng jué èr","báo gā bá dǐ sān","dá zhí tā sì","ǎn zhǎng wǔ","pí shū tuó yé tuó yīn dà suō mó sān màn duō pó pó suō màn yīn wén liù","suō pò luō ná jiē dǐ gā hē nà suō pó pó shū 秫 dì shū lǜ fǎn， xià yīn tóng ā bí shēn qù shēng zhě sū jiē duō fá zhé nà bā","ā 𪢗 lì duō pí shài píng yīn jì jiǔ","ā shàng shēng hē luó qù shēng ā hē luó xià tóng shí","ā shū sàn tuó zhǎng shēng luó ní shí yī","shū tuó yé shū tuó yé tuó yīn bìng tài shí èr","gā gā nà pí 秫 tí nà qù shí sān","wū sè ní shā pí shì yé 秫 tí shū yīn shí sì shùn rù","suō hē suō luō hē luō shī mǐ shān zhū dì dì dì yīn xián shí wǔ","sà pó dá tā jiē duō dì sè zhà zhǎng shēng nà è dì sè chǐ dì yì dīng nǐ fǎn mù 𭉐 lì mù yīn mǔ gàn lì yīn lí shí liù","bá zhé luō jiā zhǎng shēng yé sēng hē duō nà 秫 tí shí qī","sà pó fá luó ná pí 秫 tí shí bā","bō luó dǐ dǐ dīng nǐ fǎn nǐ fá dá yé ā yú 秫 tí shí jiǔ","sà mò yé ā dì sè chǐ dì dǐ dīng nǐ fǎn， dì yīn xián èr shí","mò mí mò mí èr shí yī","dá tà duō bù duō jù zhī bō lì 秫 tí èr shí èr","pí sà pǔ zhā bó dì 秫 tí pí yīn mǐ， sà yīn xī èr shí sān","shè yé shè yé yú hé fǎn， xià tóng èr shí sì","pí shè yé pí shè yé èr shí wǔ","sà mò luō sà mò luō bó tuó è dì sè chǐ duō 秫 tí dǐ dīng nǐ fǎn èr shí liù","bá zhé lí bá zhé luō jiē bǐng èr shí qī","bá zhé làn pó fá dōu èr shí bā","me me shòu chí zhě yú cǐ zì chēng míng sà pó sà duǒ xiè jiā zhǎng shēng yé pí 秫 tí èr shí jiǔ","sà pó jiē dǐ bō lì 秫 tí dǐ dīng nǐ fǎn sān shí jù","sà pó dá tā jiē duō sān mó shī pó suō è dì sè chǐ dì dǐ dīng nǐ fǎn sān shí yī dì yīn xián yě","bó tuó dì yé fǎn bó tuó tóng shàng pú tuó yé pú tuó yé tuó yīn tài sān màn duō bō lì 秫 tí sān shí èr","sà pó dá tā jiē duō dì sè zhà zhǎng shēng nà è dì sè chǐ dì dǐ dīng nǐ fǎn sān shí sān","suō pó hē","◎ nà mó báo gā bá dì yī","tí lì lù jiā jī xié qiè bō luō dǐ pí shī sè zhà xié yú hé qiè， xià tóng， zhǎng shēng bó tuó yé yī yún guī mìng shèng zūn sān shì shèng jué èr","báo gā bá dǐ sān","dá zhí tā sì","ǎn zhǎng shēng wǔ","pí shū tuó yīn tài yé suō mó sān màn yīn wén duō pó pó suō liù","suō pò luō ná jiē dǐ gā hē nà qī","suō pó pó shū 秫 shū lǜ qiè， xià tóng dì ā bí shēn qù shēng zhě sū jiē duō fá zhé nà bā","ā mì lì duō pí shài jī qǔ jì qiè， píng shēng jiǔ","ā shàng shēng hē luó qù shēng ā hē luō xià tóng shí","ā yú sàn tuó zhǎng shēng luó ní shí yī","shū shùn rù shēng tuó yīn tài， xià tóng yé shū tuó yé shí èr","gā gā nà qù shēng pí 秫 tí shí sān","wū sè ní shā pí shì yé 秫 tí shí sì","suō hē suō luō hē luō shī mǐ shān zhū dì dì shí wǔ","sà pó dá tā jiē duō dì sè zhà zhǎng shēng nà è dì sè chǐ dì dīng nǐ qiè mù yīn mǔ 𭉐 lì yīn lí shí liù","bá zhé luō jiā zhǎng shēng yé sēng hē duō nà 秫 tí shí qī","sà pó fá luó ná pí 秫 tí shí bā","bō luó dǐ dīng nǐ qiè nǐ fá dá yé ā yú 秫 tí shí jiǔ","sà mò nà ā dì sè chǐ dì yīn dī èr shí","mò mí mò mí èr shí yī","dá tà duō bù duō jù zhī bō lì 秫 tí èr shí èr","pí yīn mǐ sà yīn xī pǔ zhā bó dì 秫 tí èr shí sān","shè yé shè yé yú hé qiè， xià tóng èr shí sì","pí shè yé pí shè yé èr shí wǔ","sà mò luō sà mò luō bó tuó è dì sè chǐ duō 秫 tí èr shí liù","bá zhé lí bá zhé luō jiē bǐng èr shí qī","bá zhé làn pó fá dōu èr shí bā","me me shòu chí zhě yú cǐ zì chēng míng sà pó sà duǒ xiè jiā zhǎng shēng yé pí lì tí èr shí jiǔ","sà pó jiē dǐ dīng nǐ qiè bō lì 秫 tí sān shí","sà pó dá tā jiē duō sān mó shī pó suō è dì sè chǐ dì dī zì hū sān shí yī","bó tuó dì yé qiè bó tuó tóng shàng pú tuó yīn tài yé pú tuó yīn tài yé sān màn duō bō lì 秫 tí sān shí èr","sà pó dá tā jiē duō dì sè zhà zhǎng shēng nà è dì sè chǐ dì sān shí sān","suō pó hē"];
+</script>
+<script>
+(async () => {
+  "use strict";
+
+  const STORAGE_KEY = "fo_ding_zun_sheng_jing_reader_v1";
+  const $ = id => document.getElementById(id);
+  const items = [];
+  const volumes = [];
+  let proseBuffer = "";
+  let currentVolume = null;
+
+  function addSentence(text) {
+    const clean = text.replace(/\s+/g, " ").trim();
+    if (clean && currentVolume) {
+      items.push({ text: clean, volume: currentVolume.number });
+    }
+  }
+
+  function flushCompleteSentences(final = false) {
+    const ending = /[。！？!?；;]/;
+    while (proseBuffer) {
+      let end = -1;
+      for (let i = 0; i < proseBuffer.length; i += 1) {
+        if (ending.test(proseBuffer[i])) {
+          end = i;
+          break;
+        }
+      }
+      if (end < 0) break;
+      addSentence(proseBuffer.slice(0, end + 1));
+      proseBuffer = proseBuffer.slice(end + 1).trim();
+    }
+    if (final && proseBuffer.trim()) {
+      addSentence(proseBuffer);
+      proseBuffer = "";
+    }
+  }
+
+  function finishVolume() {
+    flushCompleteSentences(true);
+    if (currentVolume) currentVolume.end = items.length - 1;
+  }
+
+  const sourceLines = $("sutraSource").textContent.split(/\r?\n/);
+  sourceLines.forEach(rawLine => {
+    const line = rawLine.trim();
+    if (!line || /^##\s/.test(line)) return;
+    const heading = line.match(/^###\s+(\d+)\s+(.+)$/);
+    if (heading) {
+      finishVolume();
+      currentVolume = {
+        number: Number(heading[1]),
+        name: heading[2].trim(),
+        start: items.length,
+        end: items.length
+      };
+      volumes.push(currentVolume);
+      return;
+    }
+    if (!currentVolume) return;
+    if (/\s{2,}/.test(rawLine)) {
+      flushCompleteSentences(true);
+      rawLine.trim().split(/\s{2,}/).forEach(addSentence);
+    } else {
+      proseBuffer += line;
+      flushCompleteSentences(false);
+    }
+  });
+  finishVolume();
+
+  const baiHuaByItem = items.map((_, index) => window.LENG_YAN_JING_BAI_HUA?.[index] || "");
+  const englishByItem = items.map((_, index) => window.FO_DING_ENGLISH?.[index] || "");
+  const hanVietByItem = items.map((_, index) => window.FO_DING_HAN_VIET?.[index] || "");
+  const pinyinByItem = items.map((_, index) => window.FO_DING_PINYIN?.[index] || "");
+
+  if (!items.length || volumes.length !== 3) {
+    $("sentence").textContent = "無法讀取經文內容。";
+    document.querySelectorAll("button, select").forEach(element => { element.disabled = true; });
+    return;
+  }
+
+  const todayKey = () => {
+    const date = new Date();
+    return [date.getFullYear(), String(date.getMonth() + 1).padStart(2, "0"), String(date.getDate()).padStart(2, "0")].join("-");
+  };
+  const defaultState = () => ({
+    version: 1,
+    current: 0,
+    start: 0,
+    sessionCount: 0,
+    totalCount: 0,
+    daily: {},
+    finished: false,
+    fontSize: 44,
+    notes: []
+  });
+  const validIndex = value => Number.isInteger(value) && value >= 0 && value < items.length;
+  const validState = value => value &&
+    value.version === 1 &&
+    validIndex(value.current) &&
+    validIndex(value.start) &&
+    value.current >= value.start &&
+    Number.isInteger(value.sessionCount) && value.sessionCount >= 0 &&
+    Number.isInteger(value.totalCount) && value.totalCount >= 0 &&
+    value.daily && typeof value.daily === "object" &&
+    typeof value.finished === "boolean" &&
+    Number.isInteger(value.fontSize) && value.fontSize >= 30 && value.fontSize <= 72 &&
+    (!("notes" in value) || Array.isArray(value.notes));
+
+  function normalizeState(value) {
+    if (!Array.isArray(value.notes)) value.notes = [];
+    return value;
+  }
+
+  let state = defaultState();
+  let databasePromise = null;
+  let saveQueue = Promise.resolve();
+
+  function openDatabase() {
+    if (databasePromise) return databasePromise;
+    databasePromise = new Promise((resolve, reject) => {
+      if (!("indexedDB" in window)) {
+        reject(new Error("IndexedDB unavailable"));
+        return;
+      }
+      const request = indexedDB.open("fo_ding_zun_sheng_jing_reader", 1);
+      request.onupgradeneeded = () => {
+        if (!request.result.objectStoreNames.contains("progress")) {
+          request.result.createObjectStore("progress");
+        }
+      };
+      request.onsuccess = () => resolve(request.result);
+      request.onerror = () => reject(request.error || new Error("IndexedDB failed"));
+      request.onblocked = () => reject(new Error("IndexedDB blocked"));
+    });
+    return databasePromise;
+  }
+
+  async function readDatabase() {
+    const database = await openDatabase();
+    return new Promise((resolve, reject) => {
+      const transaction = database.transaction("progress", "readonly");
+      const request = transaction.objectStore("progress").get(STORAGE_KEY);
+      request.onsuccess = () => resolve(request.result || null);
+      request.onerror = () => reject(request.error || new Error("Read failed"));
+    });
+  }
+
+  async function writeDatabase(snapshot) {
+    const database = await openDatabase();
+    return new Promise((resolve, reject) => {
+      const transaction = database.transaction("progress", "readwrite");
+      transaction.objectStore("progress").put(snapshot, STORAGE_KEY);
+      transaction.oncomplete = () => resolve();
+      transaction.onerror = () => reject(transaction.error || new Error("Write failed"));
+      transaction.onabort = () => reject(transaction.error || new Error("Write aborted"));
+    });
+  }
+
+  function parseSavedState(raw) {
+    if (typeof raw !== "string" || !raw) return null;
+    try {
+      const parsed = JSON.parse(raw);
+      return validState(parsed) ? parsed : null;
+    } catch {
+      return null;
+    }
+  }
+
+  async function loadSavedState() {
+    const candidates = [];
+    try {
+      const local = parseSavedState(localStorage.getItem(STORAGE_KEY));
+      if (local) candidates.push(local);
+    } catch {
+      // Textastic 的 WKWebView 有時不允許本機預覽使用 localStorage。
+    }
+    try {
+      const database = parseSavedState(await readDatabase());
+      if (database) candidates.push(database);
+    } catch {
+      // IndexedDB 不可用時仍可繼續嘗試 localStorage。
+    }
+    if (candidates.length) {
+      candidates.sort((a, b) =>
+        (Date.parse(b.updatedAt || "") || 0) -
+        (Date.parse(a.updatedAt || "") || 0)
+      );
+      state = normalizeState(candidates[0]);
+      $("saveStatus").textContent = "已恢復進度";
+    }
+  }
+
+  async function writeSnapshot(snapshot) {
+    let saved = false;
+    try {
+      localStorage.setItem(STORAGE_KEY, snapshot);
+      saved = true;
+    } catch {
+      // 改用 IndexedDB。
+    }
+    try {
+      await writeDatabase(snapshot);
+      saved = true;
+    } catch {
+      // 若兩種儲存方式皆失敗，顯示備份提示。
+    }
+    if (saved) {
+      $("saveStatus").textContent = "已儲存";
+      if ($("notice").textContent.includes("無法自動儲存")) {
+        $("notice").textContent = "";
+      }
+    } else {
+      $("saveStatus").textContent = "尚未儲存";
+      $("notice").textContent = "無法自動儲存；請使用「匯出進度」備份。";
+    }
+  }
+
+  function save() {
+    state.updatedAt = new Date().toISOString();
+    const snapshot = JSON.stringify(state);
+    $("saveStatus").textContent = "儲存中…";
+    saveQueue = saveQueue.then(
+      () => writeSnapshot(snapshot),
+      () => writeSnapshot(snapshot)
+    );
+    return saveQueue;
+  }
+
+  await loadSavedState();
+
+  let searchQuery = "";
+  let searchMatches = [];
+  let searchCursor = -1;
+  let editingNoteId = null;
+  let activeAnnotationPanel = "";
+
+  function volumeFor(index) {
+    return volumes.find(volume => index >= volume.start && index <= volume.end) || volumes[0];
+  }
+
+  function showHighlightedSentence(element, text) {
+    element.replaceChildren();
+    if (!searchQuery || !text.includes(searchQuery)) {
+      element.textContent = text;
+      return;
+    }
+    let start = 0;
+    let match = text.indexOf(searchQuery, start);
+    while (match >= 0) {
+      element.append(document.createTextNode(text.slice(start, match)));
+      const highlight = document.createElement("mark");
+      highlight.textContent = searchQuery;
+      element.append(highlight);
+      start = match + searchQuery.length;
+      match = text.indexOf(searchQuery, start);
+    }
+    element.append(document.createTextNode(text.slice(start)));
+  }
+
+  function updateSearchStatus() {
+    const hasMatches = searchMatches.length > 0;
+    $("searchPrevious").disabled = !hasMatches;
+    $("searchNext").disabled = !hasMatches;
+    if (!searchQuery) {
+      $("searchResult").textContent = "";
+    } else if (!hasMatches) {
+      $("searchResult").textContent = `本篇找不到「${searchQuery}」`;
+    } else {
+      const index = searchMatches[searchCursor];
+      const volume = volumeFor(index);
+      const localNumber = index - volume.start + 1;
+      $("searchResult").textContent =
+        `第${searchCursor + 1}/${searchMatches.length}處 · 本篇第${localNumber}句`;
+    }
+  }
+
+  function renderNotes() {
+    const list = $("noteList");
+    list.replaceChildren();
+    if (!state.notes.length) {
+      const empty = document.createElement("div");
+      empty.className = "note-context";
+      empty.textContent = "尚無筆記。";
+      list.append(empty);
+      return;
+    }
+    state.notes.forEach(note => {
+      const item = document.createElement("article");
+      item.className = "note-item";
+      const remove = document.createElement("button");
+      remove.className = "note-delete";
+      remove.type = "button";
+      remove.dataset.noteId = note.id;
+      remove.dataset.noteAction = "delete";
+      remove.textContent = "刪除";
+      const edit = document.createElement("button");
+      edit.className = "note-edit";
+      edit.type = "button";
+      edit.dataset.noteId = note.id;
+      edit.dataset.noteAction = "edit";
+      edit.textContent = "編輯";
+      const go = document.createElement("button");
+      go.className = "note-go";
+      go.type = "button";
+      go.dataset.noteId = note.id;
+      go.dataset.noteAction = "go";
+      go.textContent = "前往";
+      const meta = document.createElement("div");
+      meta.className = "note-meta";
+      const timestamp = new Date(note.createdAt);
+      const dateText = Number.isNaN(timestamp.getTime()) ? "" : timestamp.toLocaleString("zh-TW", { dateStyle: "medium", timeStyle: "short" });
+      meta.textContent = [dateText, note.position, note.audioTime ? `MP3 ${note.audioTime}` : ""].filter(Boolean).join(" · ");
+      const sentence = document.createElement("div");
+      sentence.className = "note-sentence";
+      sentence.textContent = `「${note.sentence || ""}」`;
+      item.append(remove, edit, go, meta, sentence);
+      if (note.text) {
+        const body = document.createElement("div");
+        body.className = "note-body";
+        body.textContent = note.text;
+        item.append(body);
+      }
+      list.append(item);
+    });
+  }
+
+  function render() {
+    const volume = volumeFor(state.current);
+    const inVolume = state.current - volume.start + 1;
+    const volumeTotal = volume.end - volume.start + 1;
+    const showContext = (id, index) => {
+      const element = $(id);
+      const exists = validIndex(index);
+      element.hidden = !exists;
+      element.textContent = exists ? items[index].text : "";
+    };
+    document.documentElement.style.setProperty("--font-size", `${state.fontSize}px`);
+    showContext("previousTwo", state.current - 2);
+    showContext("previousOne", state.current - 1);
+    showHighlightedSentence($("sentence"), items[state.current].text);
+    showContext("nextOne", state.current + 1);
+    showContext("nextTwo", state.current + 2);
+    const baiHua = baiHuaByItem[state.current] || "";
+    const english = englishByItem[state.current] || "";
+    const hanViet = hanVietByItem[state.current] || "";
+    const pinyin = pinyinByItem[state.current] || "";
+    $("annotationArea").hidden = !baiHua && !english && !hanViet && !pinyin;
+    [
+      ["baihuaButton", "baihuaText", baiHua],
+      ["englishButton", "englishText", english],
+      ["vietnameseButton", "vietnameseText", hanViet],
+      ["pinyinButton", "pinyinText", pinyin]
+    ].forEach(([buttonId, textId, value]) => {
+      const isActive = activeAnnotationPanel === textId && Boolean(value);
+      $(buttonId).hidden = !value;
+      $(buttonId).setAttribute("aria-expanded", String(isActive));
+      $(textId).hidden = !isActive;
+      $(textId).textContent = value;
+    });
+    $("volumeSelect").value = String(volume.number);
+    $("volumePosition").textContent = volume.name;
+    const editingNote = state.notes.find(note => note.id === editingNoteId);
+    $("noteContext").textContent = editingNote
+      ? `正在編輯：${editingNote.position}`
+      : `將記錄：${volume.name}・第${inVolume}/${volumeTotal}句`;
+    $("saveNoteButton").textContent = editingNote ? "更新筆記" : "儲存筆記";
+    $("cancelNoteEditButton").hidden = !editingNote;
+    renderNotes();
+    $("jumpInput").value = String(inVolume);
+    $("jumpInput").max = String(volumeTotal);
+    $("chapterTotal").textContent = volumeTotal.toLocaleString("zh-TW");
+    $("progress").min = "1";
+    $("progress").max = volumeTotal;
+    $("progress").value = inVolume;
+    $("progress").setAttribute(
+      "aria-valuetext",
+      `第${inVolume}/${volumeTotal}句`
+    );
+    const progressPercent = volumeTotal > 1
+      ? ((inVolume - 1) / (volumeTotal - 1)) * 100
+      : 100;
+    $("progress").style.setProperty(
+      "--range-progress",
+      `${progressPercent}%`
+    );
+    $("previousButton").disabled = state.current <= state.start && !state.finished;
+    $("nextButton").disabled = state.finished;
+    $("card").disabled = state.finished;
+    $("nextButton").textContent = state.finished ? "全經誦畢 ✓" : state.current === items.length - 1 ? "完成本次 ✓" : "下一句 →";
+    $("hint").textContent = state.finished ? "全經已誦畢 · 請選擇篇章開始新的一次" : "點按經句或空白鍵：下一句 · ← → 切換 · ↑ ↓ 捲動";
+  }
+
+  // 拖曳進度列時只預覽經句；鬆手後才正式切換並儲存位置。
+  function previewSentence(index) {
+    const savedCurrent = state.current;
+    const savedFinished = state.finished;
+    state.current = index;
+    state.finished = false;
+    render();
+    state.current = savedCurrent;
+    state.finished = savedFinished;
+  }
+
+  function counted(delta) {
+    const day = todayKey();
+    state.sessionCount = Math.max(0, state.sessionCount + delta);
+    state.totalCount = Math.max(0, state.totalCount + delta);
+    state.daily[day] = Math.max(0, (state.daily[day] || 0) + delta);
+  }
+
+  function commit() { save(); render(); }
+
+  function nextSentence() {
+    if (state.finished) return;
+    counted(1);
+    if (state.current === items.length - 1) {
+      state.finished = true;
+    } else {
+      state.current += 1;
+    }
+    commit();
+  }
+
+  function previousSentence() {
+    if (state.finished) {
+      state.finished = false;
+      counted(-1);
+    } else if (state.current > state.start) {
+      state.current -= 1;
+      counted(-1);
+    } else {
+      return;
+    }
+    commit();
+  }
+
+  function beginAt(index) {
+    if (!validIndex(index)) return;
+    state.current = index;
+    state.start = index;
+    state.sessionCount = 0;
+    state.finished = false;
+    $("notice").textContent = "";
+    commit();
+  }
+
+  function saveNote() {
+    const text = $("noteText").value.trim();
+    const audioTime = $("noteAudioTime").value.trim();
+    if (!text && !audioTime) {
+      $("noteNotice").textContent = "請寫下筆記或 MP3 時間。";
+      return;
+    }
+    const editingNote = state.notes.find(note => note.id === editingNoteId);
+    if (editingNote) {
+      editingNote.audioTime = audioTime;
+      editingNote.text = text;
+      editingNote.editedAt = new Date().toISOString();
+      editingNoteId = null;
+    } else {
+      const volume = volumeFor(state.current);
+      const localNumber = state.current - volume.start + 1;
+      state.notes.unshift({
+        id: window.crypto?.randomUUID ? window.crypto.randomUUID() : `${Date.now()}-${Math.random()}`,
+        createdAt: new Date().toISOString(),
+        index: state.current,
+        position: `第${volume.number}卷・第${localNumber}/${volume.end - volume.start + 1}句`,
+        sentence: items[state.current].text,
+        audioTime,
+        text
+      });
+    }
+    $("noteText").value = "";
+    $("noteAudioTime").value = "";
+    $("noteNotice").textContent = "筆記已儲存，會隨進度一併備份。";
+    commit();
+  }
+
+  function threeVisibleSentences() {
+    return [state.current - 1, state.current, state.current + 1]
+      .filter(validIndex)
+      .map(index => items[index].text)
+      .join("\n");
+  }
+
+  async function copyVisibleSentences() {
+    const text = threeVisibleSentences();
+    try {
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(text);
+      } else {
+        const helper = document.createElement("textarea");
+        helper.value = text;
+        helper.setAttribute("readonly", "");
+        helper.style.position = "fixed";
+        helper.style.opacity = "0";
+        helper.style.pointerEvents = "none";
+        document.body.appendChild(helper);
+        helper.select();
+        const copied = document.execCommand("copy");
+        helper.remove();
+        if (!copied) throw new Error("Copy failed");
+      }
+      $("copyStatus").textContent = "已複製";
+      setTimeout(() => {
+        if ($("copyStatus").textContent === "已複製") $("copyStatus").textContent = "";
+      }, 1800);
+    } catch {
+      $("copyStatus").textContent = "無法複製";
+    }
+  }
+
+  function runSearch() {
+    const query = $("searchInput").value.trim();
+    searchQuery = query;
+    const volume = volumeFor(state.current);
+    searchMatches = query
+      ? items.slice(volume.start, volume.end + 1).flatMap((item, offset) =>
+        item.text.includes(query) ? [volume.start + offset] : []
+      )
+      : [];
+    if (!searchMatches.length) {
+      searchCursor = -1;
+      updateSearchStatus();
+      render();
+      return;
+    }
+    const nextAt = searchMatches.findIndex(index => index >= state.current);
+    searchCursor = nextAt >= 0 ? nextAt : 0;
+    beginAt(searchMatches[searchCursor]);
+    updateSearchStatus();
+  }
+
+  function moveSearch(direction) {
+    if (!searchMatches.length) {
+      runSearch();
+      return;
+    }
+    searchCursor = (
+      searchCursor + direction + searchMatches.length
+    ) % searchMatches.length;
+    beginAt(searchMatches[searchCursor]);
+    updateSearchStatus();
+  }
+
+  volumes.forEach(volume => {
+    const option = document.createElement("option");
+    option.value = String(volume.number);
+    option.textContent = `${String(volume.number).padStart(2, "0")} · ${volume.name}`;
+    $("volumeSelect").appendChild(option);
+  });
+
+  $("card").addEventListener("click", event => {
+    if (ignoreCardClick) {
+      ignoreCardClick = false;
+      return;
+    }
+    const bounds = event.currentTarget.getBoundingClientRect();
+    if (event.clientX < bounds.left + bounds.width / 2) previousSentence();
+    else nextSentence();
+  });
+  [
+    ["baihuaButton", "baihuaText"],
+    ["englishButton", "englishText"],
+    ["vietnameseButton", "vietnameseText"],
+    ["pinyinButton", "pinyinText"]
+  ].forEach(([buttonId, textId]) => {
+    $(buttonId).addEventListener("click", () => {
+      activeAnnotationPanel = activeAnnotationPanel === textId ? "" : textId;
+      render();
+    });
+  });
+  $("copyButton").addEventListener("click", copyVisibleSentences);
+  $("saveNoteButton").addEventListener("click", saveNote);
+  $("cancelNoteEditButton").addEventListener("click", () => {
+    editingNoteId = null;
+    $("noteText").value = "";
+    $("noteAudioTime").value = "";
+    $("noteNotice").textContent = "已取消編輯。";
+    render();
+  });
+  $("noteList").addEventListener("click", event => {
+    const button = event.target.closest("[data-note-id]");
+    if (!button) return;
+    const note = state.notes.find(item => item.id === button.dataset.noteId);
+    if (!note) return;
+    if (button.dataset.noteAction === "edit") {
+      editingNoteId = note.id;
+      $("noteText").value = note.text || "";
+      $("noteAudioTime").value = note.audioTime || "";
+      $("noteNotice").textContent = "可修改後按「更新筆記」。";
+      render();
+      $("noteText").focus();
+      return;
+    }
+    if (button.dataset.noteAction === "go") {
+      if (!validIndex(note.index)) return;
+      state.current = note.index;
+      state.finished = false;
+      $("noteNotice").textContent = `已前往：${note.position}`;
+      commit();
+      $("card").scrollIntoView({ behavior: "smooth", block: "center" });
+      return;
+    }
+    if (!confirm("刪除此筆記？")) return;
+    state.notes = state.notes.filter(item => item.id !== note.id);
+    if (editingNoteId === note.id) editingNoteId = null;
+    $("noteNotice").textContent = "筆記已刪除。";
+    commit();
+  });
+  $("nextButton").addEventListener("click", nextSentence);
+  $("previousButton").addEventListener("click", previousSentence);
+  $("volumeSelect").addEventListener("change", event => {
+    const volume = volumes.find(item => item.number === Number(event.target.value));
+    if (volume) beginAt(volume.start);
+  });
+  $("smallerButton").addEventListener("click", () => {
+    state.fontSize = Math.max(30, state.fontSize - 4);
+    commit();
+  });
+  $("largerButton").addEventListener("click", () => {
+    state.fontSize = Math.min(72, state.fontSize + 4);
+    commit();
+  });
+  $("searchToggle").addEventListener("click", () => {
+    const willOpen = $("searchPanel").hidden;
+    $("searchPanel").hidden = !willOpen;
+    $("searchToggle").setAttribute("aria-expanded", String(willOpen));
+    if (willOpen) {
+      $("searchInput").focus();
+      $("searchInput").select();
+    }
+  });
+  $("searchButton").addEventListener("click", runSearch);
+  $("searchPrevious").addEventListener("click", () => moveSearch(-1));
+  $("searchNext").addEventListener("click", () => moveSearch(1));
+  $("searchInput").addEventListener("keydown", event => {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      runSearch();
+      $("searchInput").blur();
+    }
+  });
+  $("searchInput").addEventListener("search", () => {
+    if (!$("searchInput").value) {
+      searchQuery = "";
+      searchMatches = [];
+      searchCursor = -1;
+      updateSearchStatus();
+      render();
+    }
+  });
+  $("jumpButton").addEventListener("click", () => {
+    const volume = volumeFor(state.current);
+    const volumeTotal = volume.end - volume.start + 1;
+    const localNumber = Number($("jumpInput").value);
+    if (!Number.isInteger(localNumber) || localNumber < 1 || localNumber > volumeTotal) {
+      $("jumpInput").setCustomValidity(`請輸入1至${volumeTotal}的整數。`);
+      $("jumpInput").reportValidity();
+      $("notice").textContent = `請輸入1至${volumeTotal}的整數。`;
+      return;
+    }
+    $("jumpInput").setCustomValidity("");
+    beginAt(volume.start + localNumber - 1);
+  });
+  $("jumpInput").addEventListener("input", () => {
+    $("jumpInput").setCustomValidity("");
+  });
+  $("jumpInput").addEventListener("keydown", event => {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      $("jumpButton").click();
+    }
+  });
+  $("progress").addEventListener("input", () => {
+    const volume = volumeFor(state.current);
+    const localNumber = Number($("progress").value);
+    previewSentence(volume.start + localNumber - 1);
+  });
+  $("progress").addEventListener("change", () => {
+    const volume = volumeFor(state.current);
+    beginAt(volume.start + Number($("progress").value) - 1);
+  });
+  $("restartButton").addEventListener("click", () => beginAt(volumeFor(state.current).start));
+  $("exportButton").addEventListener("click", () => {
+    const blob = new Blob([JSON.stringify(state, null, 2)], { type: "application/json;charset=utf-8" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = `佛頂尊勝陀羅尼經進度_${todayKey()}.json`;
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 30000);
+  });
+  $("importButton").addEventListener("click", () => $("importFile").click());
+  $("importFile").addEventListener("change", async event => {
+    const file = event.target.files[0];
+    if (!file) return;
+    try {
+      const imported = JSON.parse(await file.text());
+      if (!validState(imported)) throw new Error("invalid backup");
+      if (!confirm("匯入將取代目前進度，是否繼續？")) return;
+      state = normalizeState(imported);
+      $("notice").textContent = "進度已匯入。";
+      commit();
+    } catch {
+      $("notice").textContent = "進度檔格式不正確；目前資料未變更。";
+    } finally {
+      event.target.value = "";
+    }
+  });
+
+  document.addEventListener("keydown", event => {
+    const typingTarget = event.target instanceof Element &&
+      event.target.matches("input, textarea, select, [contenteditable=true]");
+    if (typingTarget) return;
+    if (event.key === "ArrowRight") {
+      event.preventDefault();
+      nextSentence();
+    } else if (event.key === "ArrowLeft") {
+      event.preventDefault();
+      previousSentence();
+    } else if (event.key === "ArrowDown") {
+      event.preventDefault();
+      window.scrollBy({
+        top: Math.max(160, Math.round(window.innerHeight * .7)),
+        behavior: "smooth"
+      });
+    } else if (event.key === "ArrowUp") {
+      event.preventDefault();
+      window.scrollBy({
+        top: -Math.max(160, Math.round(window.innerHeight * .7)),
+        behavior: "smooth"
+      });
+    } else if (event.key === " " && !event.target.matches("button")) {
+      event.preventDefault();
+      nextSentence();
+    }
+  });
+
+  let touchStartX = null;
+  let touchStartY = null;
+  let ignoreCardClick = false;
+  $("card").addEventListener("touchstart", event => {
+    touchStartX = event.changedTouches[0].clientX;
+    touchStartY = event.changedTouches[0].clientY;
+  }, { passive: true });
+  $("card").addEventListener("touchend", event => {
+    if (touchStartX === null || touchStartY === null) return;
+    const distanceX = event.changedTouches[0].clientX - touchStartX;
+    const distanceY = event.changedTouches[0].clientY - touchStartY;
+    touchStartX = null;
+    touchStartY = null;
+    // Kéo để cuộn (hoặc kéo nhẹ) không được coi là chạm để chuyển câu.
+    if (Math.abs(distanceY) > 10 || Math.abs(distanceX) > 10) {
+      ignoreCardClick = true;
+      if (Math.abs(distanceX) >= 55 && Math.abs(distanceX) > Math.abs(distanceY)) {
+        event.preventDefault();
+        if (distanceX > 0) previousSentence();
+        else nextSentence();
+      }
+      setTimeout(() => { ignoreCardClick = false; }, 450);
+      return;
+    }
+  });
+
+  window.addEventListener("pagehide", save);
+  window.addEventListener("blur", save);
+  document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === "hidden") save();
+  });
+  render();
+})();
+</script>
+</body>
+</html>
